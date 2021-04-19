@@ -1,11 +1,10 @@
 import asyncio
 import logging
+import random
+import string
 
 import pytest
-import string
 from aiokafka import AIOKafkaProducer
-import random
-
 from aiomisc.log import basic_config
 from minos.common.configuration.config import MinosConfig
 
