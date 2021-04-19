@@ -107,7 +107,8 @@ class MinosEventServer(Service):
         self._broker_group = f"{conf.service.name}_group_id"
         self._handler = conf.events.items
         self._storage = storage.build(conf.events.database.path)
-        self._local_state = MinosLocalState(storage=self._storage, db_name=conf.events.database.name)
+        self._local_state = MinosLocalState(
+            storage=self._storage, db_name=conf.events.database.name)
 
         super().__init__(**kwargs)
 
