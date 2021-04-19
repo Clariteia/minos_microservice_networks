@@ -28,10 +28,7 @@ class MinosLocalState:
 
         for tp in self._counts:
             key = f"{tp.topic}:{tp.partition}"
-            state = {
-                "last_offset": self._offsets[tp],
-                "counts": dict(self._counts[tp])
-            }
+            state = {"last_offset": self._offsets[tp], "counts": dict(self._counts[tp])}
             actual_state = self._storage.get(self._dbname, key)
             if actual_state is not None:
                 self._storage.update(self._dbname, key, state)
@@ -43,16 +40,13 @@ class MinosLocalState:
         self._offsets.clear()
         for tp in partitions:
             # prepare the default state
-            state = {
-                "last_offset": -1,  # Non existing, will reset
-                "counts": {}
-            }
+            state = {"last_offset": -1, "counts": {}}  # Non existing, will reset
             key = f"{tp.topic}:{tp.partition}"
             returned_val = self._storage.get(self._dbname, key)
             if returned_val is not None:
                 state = returned_val
-            self._counts[tp] = Counter(state['counts'])
-            self._offsets[tp] = state['last_offset']
+            self._counts[tp] = Counter(state["counts"])
+            self._offsets[tp] = state["last_offset"]
 
     def discard_state(self, tps):
         """
@@ -71,7 +65,6 @@ class MinosLocalState:
 
 
 class MinosRebalanceListener(ConsumerRebalanceListener):
-
     def __init__(self, consumer, database_state: MinosLocalState):
         self._consumer = consumer
         self._state = database_state
@@ -98,9 +91,24 @@ class MinosEventServer(Service):
     Consumer for the Broker ( at the moment only Kafka is supported )
 
     """
-    __slots__ = "_tasks", "_local_state", "_storage", "_handlers", "_broker_host", "_broker_port", "_broker_group"
 
-    def __init__(self, *, conf: MinosConfig, storage: MinosStorage = MinosStorageLmdb, **kwargs: t.Any):
+    __slots__ = (
+        "_tasks",
+        "_local_state",
+        "_storage",
+        "_handlers",
+        "_broker_host",
+        "_broker_port",
+        "_broker_group",
+    )
+
+    def __init__(
+        self,
+        *,
+        conf: MinosConfig,
+        storage: MinosStorage = MinosStorageLmdb,
+        **kwargs: t.Any,
+    ):
         self._tasks = set()  # type: t.Set[asyncio.Task]
         self._broker_host = conf.events.broker.host
         self._broker_port = conf.events.broker.port
@@ -108,7 +116,8 @@ class MinosEventServer(Service):
         self._handler = conf.events.items
         self._storage = storage.build(conf.events.database.path)
         self._local_state = MinosLocalState(
-            storage=self._storage, db_name=conf.events.database.name)
+            storage=self._storage, db_name=conf.events.database.name
+        )
 
         super().__init__(**kwargs)
 
@@ -151,12 +160,14 @@ class MinosEventServer(Service):
         self.start_event.set()
         log.debug("Event Consumer Manager: Started")
         # start the Service Event Consumer for Kafka
-        consumer = AIOKafkaConsumer(loop=self.loop,
-                                    enable_auto_commit=False,
-                                    auto_offset_reset="none",
-                                    group_id=self._broker_group,
-                                    bootstrap_servers=f"{self._broker_host}:{self._broker_port}",
-                                    key_deserializer=lambda key: key.decode("utf-8") if key else "", )
+        consumer = AIOKafkaConsumer(
+            loop=self.loop,
+            enable_auto_commit=False,
+            auto_offset_reset="none",
+            group_id=self._broker_group,
+            bootstrap_servers=f"{self._broker_host}:{self._broker_port}",
+            key_deserializer=lambda key: key.decode("utf-8") if key else "",
+        )
 
         await consumer.start()
         # prepare the database interface
@@ -176,5 +187,7 @@ class MinosEventServer(Service):
                 object_class = import_module(controller)
                 instance_class = object_class()
                 return functools.partial(instance_class.action)
-        raise MinosNetworkException(f"topic {topic} have no controller/action configured, "
-                                    f"please review th configuration file")
+        raise MinosNetworkException(
+            f"topic {topic} have no controller/action configured, "
+            f"please review th configuration file"
+        )

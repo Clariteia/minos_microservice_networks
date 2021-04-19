@@ -14,7 +14,7 @@ from minos.networks.event import MinosEventServer
 
 @pytest.fixture()
 def config():
-    return MinosConfig(path='./tests/test_config.yaml')
+    return MinosConfig(path="./tests/test_config.yaml")
 
 
 @pytest.fixture()
@@ -24,23 +24,22 @@ def services(config):
 
 async def test_producer_kafka(loop):
     basic_config(
-        level=logging.INFO,
-        buffered=True,
-        log_format='color',
-        flush_interval=2
+        level=logging.INFO, buffered=True, log_format="color", flush_interval=2
     )
 
-    producer = AIOKafkaProducer(loop=loop, bootstrap_servers='localhost:9092')
+    producer = AIOKafkaProducer(loop=loop, bootstrap_servers="localhost:9092")
     # Get cluster layout and topic/partition allocation
     await producer.start()
     # Produce messages
-    string_to_send = ''.join(random.choices(
-        string.ascii_uppercase + string.digits, k=20))
+    string_to_send = "".join(
+        random.choices(string.ascii_uppercase + string.digits, k=20)
+    )
     await producer.send_and_wait("TicketAdded", string_to_send.encode())
     await asyncio.sleep(1)
 
-    other_string_to_send = ''.join(random.choices(
-        string.ascii_uppercase + string.digits, k=40))
+    other_string_to_send = "".join(
+        random.choices(string.ascii_uppercase + string.digits, k=40)
+    )
     await producer.send_and_wait("TicketDeleted", other_string_to_send.encode())
     await asyncio.sleep(1)
     await producer.stop()
