@@ -6,8 +6,8 @@ import string
 import pytest
 from aiokafka import AIOKafkaProducer
 from aiomisc.log import basic_config
-from minos.common.configuration.config import MinosConfig
 
+from minos.common.configuration.config import MinosConfig
 from minos.networks.event import MinosEventServer
 
 

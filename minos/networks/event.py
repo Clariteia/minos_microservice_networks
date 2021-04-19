@@ -3,15 +3,16 @@ import functools
 import typing as t
 from collections import Counter
 
-from aiokafka import AIOKafkaConsumer, ConsumerRebalanceListener
+from aiokafka import AIOKafkaConsumer
+from aiokafka import ConsumerRebalanceListener
 from aiomisc import Service
 from kafka.errors import OffsetOutOfRangeError
+
 from minos.common.configuration.config import MinosConfig
 from minos.common.importlib import import_module
 from minos.common.logs import log
 from minos.common.storage.abstract import MinosStorage
 from minos.common.storage.lmdb import MinosStorageLmdb
-
 from minos.networks.exceptions import MinosNetworkException
 
 
