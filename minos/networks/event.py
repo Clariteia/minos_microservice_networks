@@ -29,7 +29,10 @@ class MinosLocalState:
 
         for tp in self._counts:
             key = f"{tp.topic}:{tp.partition}"
-            state = {"last_offset": self._offsets[tp], "counts": dict(self._counts[tp])}
+            state = {
+                "last_offset": self._offsets[tp],
+                "counts": dict(self._counts[tp])
+            }
             actual_state = self._storage.get(self._dbname, key)
             if actual_state is not None:
                 self._storage.update(self._dbname, key, state)
@@ -41,7 +44,10 @@ class MinosLocalState:
         self._offsets.clear()
         for tp in partitions:
             # prepare the default state
-            state = {"last_offset": -1, "counts": {}}  # Non existing, will reset
+            state = {
+                "last_offset": -1,
+                "counts": {}
+            }  # Non existing, will reset
             key = f"{tp.topic}:{tp.partition}"
             returned_val = self._storage.get(self._dbname, key)
             if returned_val is not None:
@@ -116,9 +122,8 @@ class MinosEventServer(Service):
         self._broker_group = f"{conf.service.name}_group_id"
         self._handler = conf.events.items
         self._storage = storage.build(conf.events.database.path)
-        self._local_state = MinosLocalState(
-            storage=self._storage, db_name=conf.events.database.name
-        )
+        self._local_state = MinosLocalState(storage=self._storage,
+                                            db_name=conf.events.database.name)
 
         super().__init__(**kwargs)
 
@@ -190,5 +195,4 @@ class MinosEventServer(Service):
                 return functools.partial(instance_class.action)
         raise MinosNetworkException(
             f"topic {topic} have no controller/action configured, "
-            f"please review th configuration file"
-        )
+            f"please review th configuration file")
