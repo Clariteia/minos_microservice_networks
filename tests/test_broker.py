@@ -21,7 +21,7 @@ def config():
 
 @pytest.fixture(scope="session")
 def services(config):
-    return (BrokerDatabaseInitializer(config=config), )
+    return (BrokerDatabaseInitializer(config=config),)
 
 
 @pytest.fixture(scope="session")
@@ -38,15 +38,13 @@ async def database(config):
 async def test_if_queue_table_exists(database):
     cur = await database.cursor()
 
-    await cur.execute(
-        "SELECT 1 FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'queue';"
-    )
+    await cur.execute("SELECT 1 FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'queue';")
     ret = []
     async for row in cur:
         ret.append(row)
 
     database.close()
-    assert ret == [(1, )]
+    assert ret == [(1,)]
 
 
 async def test_events_broker_insertion(config, database):
@@ -58,14 +56,13 @@ async def test_events_broker_insertion(config, database):
 
     cur = await database.cursor()
 
-    await cur.execute(
-        "SELECT 1 FROM queue WHERE topic = 'EventBroker' LIMIT 1;")
+    await cur.execute("SELECT 1 FROM queue WHERE topic = 'EventBroker' LIMIT 1;")
     ret = []
     async for row in cur:
         ret.append(row)
 
     database.close()
-    assert ret == [(1, )]
+    assert ret == [(1,)]
 
 
 async def test_commands_broker_insertion(config, database):
@@ -77,14 +74,13 @@ async def test_commands_broker_insertion(config, database):
 
     cur = await database.cursor()
 
-    await cur.execute(
-        "SELECT 1 FROM queue WHERE topic = 'CommandBroker' LIMIT 1;")
+    await cur.execute("SELECT 1 FROM queue WHERE topic = 'CommandBroker' LIMIT 1;")
     ret = []
     async for row in cur:
         ret.append(row)
 
     database.close()
-    assert ret == [(1, )]
+    assert ret == [(1,)]
 
 
 async def test_drop_database(database):
