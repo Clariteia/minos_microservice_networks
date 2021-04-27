@@ -9,7 +9,9 @@ Minos framework can not be copied and/or distributed without the express permiss
 import datetime
 
 import aiopg
-from aiokafka import AIOKafkaProducer
+from aiokafka import (
+    AIOKafkaProducer,
+)
 from aiomisc.service.periodic import (
     PeriodicService,
     Service,
@@ -18,7 +20,6 @@ from minos.common import (
     Aggregate,
     MinosConfig,
 )
-
 # FIXME: This import must be `minos.common` after the next `minos.common` update.
 from minos.common.broker import (
     Command,

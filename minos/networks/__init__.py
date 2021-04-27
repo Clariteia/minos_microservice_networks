@@ -15,12 +15,14 @@ from .broker import (
     MinosCommandBroker,
     MinosEventBroker,
     broker_queue_dispatcher,
-    send_to_kafka,
     broker_table_creation,
+    send_to_kafka,
 )
 from .event import (
     MinosEventServer,
     MinosLocalState,
     MinosRebalanceListener,
 )
-from .exceptions import MinosNetworkException
+from .exceptions import (
+    MinosNetworkException,
+)
