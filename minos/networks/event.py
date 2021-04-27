@@ -32,7 +32,6 @@ from minos.common import (
 from minos.common.logs import (
     log,
 )
-
 from minos.networks.exceptions import (
     MinosNetworkException,
 )
