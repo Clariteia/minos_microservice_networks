@@ -4,8 +4,7 @@ import time
 import pytest
 from minos.common import Aggregate
 from minos.common import MinosConfig
-from minos.networks import (MinosCommandBroker, MinosEventBroker,
-                            broker_queue_dispatcher, send_to_kafka)
+from minos.networks import MinosCommandBroker, MinosEventBroker, broker_queue_dispatcher, send_to_kafka
 from tests.broker.database_testcase import PostgresAsyncTestCase
 
 

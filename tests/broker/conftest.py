@@ -3,9 +3,7 @@ from aiokafka import AIOKafkaConsumer
 from aiomisc.service.periodic import Service
 from minos.common import MinosConfig
 from minos.common.logs import log
-from minos.networks import (BrokerDatabaseInitializer,
-                                   EventBrokerQueueDispatcher,
-                                   MinosBrokerDatabase)
+from minos.networks import BrokerDatabaseInitializer, EventBrokerQueueDispatcher, MinosBrokerDatabase
 
 
 @pytest.fixture

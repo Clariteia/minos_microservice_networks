@@ -9,33 +9,23 @@ Minos framework can not be copied and/or distributed without the express permiss
 import asyncio
 import functools
 import typing as t
-from collections import (
-    Counter,
-)
+from collections import Counter
 
 from aiokafka import (
     AIOKafkaConsumer,
     ConsumerRebalanceListener,
 )
-from aiomisc import (
-    Service,
-)
-from kafka.errors import (
-    OffsetOutOfRangeError,
-)
+from aiomisc import Service
+from kafka.errors import OffsetOutOfRangeError
 from minos.common import (
     MinosConfig,
     MinosStorage,
     MinosStorageLmdb,
     import_module,
 )
-from minos.common.logs import (
-    log,
-)
+from minos.common.logs import log
 
-from minos.networks.exceptions import (
-    MinosNetworkException,
-)
+from minos.networks.exceptions import MinosNetworkException
 
 
 class MinosLocalState:

@@ -9,9 +9,7 @@ Minos framework can not be copied and/or distributed without the express permiss
 import datetime
 
 import aiopg
-from aiokafka import (
-    AIOKafkaProducer,
-)
+from aiokafka import AIOKafkaProducer
 from aiomisc.service.periodic import (
     PeriodicService,
     Service,
@@ -20,6 +18,7 @@ from minos.common import (
     Aggregate,
     MinosConfig,
 )
+
 # FIXME: This import must be `minos.common` after the next `minos.common` update.
 from minos.common.broker import (
     Command,
@@ -59,14 +58,7 @@ class MinosEventBroker(MinosBaseBroker):
             async with connect.cursor() as cur:
                 await cur.execute(
                     "INSERT INTO producer_queue (topic, model, retry, action, creation_date, update_date) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id;",
-                    (
-                        event_instance.topic,
-                        bin_data,
-                        0,
-                        self.ACTION,
-                        datetime.datetime.now(),
-                        datetime.datetime.now(),
-                    ),
+                    (event_instance.topic, bin_data, 0, self.ACTION, datetime.datetime.now(), datetime.datetime.now(),),
                 )
 
                 queue_id = await cur.fetchone()
@@ -94,14 +86,7 @@ class MinosCommandBroker(MinosBaseBroker):
             async with connect.cursor() as cur:
                 await cur.execute(
                     "INSERT INTO producer_queue (topic, model, retry, action, creation_date, update_date) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id;",
-                    (
-                        event_instance.topic,
-                        bin_data,
-                        0,
-                        self.ACTION,
-                        datetime.datetime.now(),
-                        datetime.datetime.now(),
-                    ),
+                    (event_instance.topic, bin_data, 0, self.ACTION, datetime.datetime.now(), datetime.datetime.now(),),
                 )
 
                 queue_id = await cur.fetchone()

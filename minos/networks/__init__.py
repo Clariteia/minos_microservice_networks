@@ -23,6 +23,4 @@ from .event import (
     MinosLocalState,
     MinosRebalanceListener,
 )
-from .exceptions import (
-    MinosNetworkException,
-)
+from .exceptions import MinosNetworkException
