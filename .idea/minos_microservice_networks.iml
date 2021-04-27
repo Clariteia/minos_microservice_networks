@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/minos_microservice_networks.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/.pytest_cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
