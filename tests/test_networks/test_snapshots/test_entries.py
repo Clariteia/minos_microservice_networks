@@ -8,9 +8,7 @@ Minos framework can not be copied and/or distributed without the express permiss
 import unittest
 from datetime import datetime
 
-from minos.networks import (
-    MinosSnapshotEntry,
-)
+from minos.networks import MinosSnapshotEntry
 from tests.aggregate_classes import Car
 
 
