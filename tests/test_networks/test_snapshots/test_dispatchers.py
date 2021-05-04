@@ -7,8 +7,13 @@ Minos framework can not be copied and/or distributed without the express permiss
 """
 
 import unittest
-from datetime import datetime
-from unittest.mock import MagicMock, call
+from datetime import (
+    datetime,
+)
+from unittest.mock import (
+    MagicMock,
+    call,
+)
 
 import aiopg
 from minos.common import (
@@ -16,13 +21,19 @@ from minos.common import (
     MinosRepositoryEntry,
     PostgreSqlMinosRepository,
 )
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     MinosSnapshotDispatcher,
     MinosSnapshotEntry,
 )
-from tests.aggregate_classes import Car
-from tests.utils import BASE_PATH
+from tests.aggregate_classes import (
+    Car,
+)
+from tests.utils import (
+    BASE_PATH,
+)
 
 
 class TestMinosSnapshotDispatcher(PostgresAsyncTestCase):
