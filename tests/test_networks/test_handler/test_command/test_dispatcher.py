@@ -2,12 +2,8 @@ import datetime
 
 import aiopg
 
-from minos.common import (
-    Command,
-)
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
+from minos.common import Command
+from minos.common.testing import PostgresAsyncTestCase
 from minos.networks import (
     MinosCommandHandlerDispatcher,
     MinosNetworkException,

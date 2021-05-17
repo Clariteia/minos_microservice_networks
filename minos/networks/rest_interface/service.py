@@ -1,16 +1,10 @@
 import typing as t
 
-from aiomisc.service.aiohttp import (
-    AIOHTTPService,
-)
+from aiomisc.service.aiohttp import AIOHTTPService
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
-from .handler import (
-    RestInterfaceHandler,
-)
+from .handler import RestInterfaceHandler
 
 
 class REST(AIOHTTPService):

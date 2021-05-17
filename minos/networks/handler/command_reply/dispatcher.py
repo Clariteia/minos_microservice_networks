@@ -4,18 +4,14 @@
 #
 # Minos framework can not be copied and/or distributed without the express
 # permission of Clariteia SL.
-from typing import (
-    Any,
-)
+from typing import Any
 
 from minos.common import (
     CommandReply,
     MinosConfig,
 )
 
-from ..dispatcher import (
-    MinosHandlerDispatcher,
-)
+from ..dispatcher import MinosHandlerDispatcher
 
 
 class MinosCommandReplyHandlerDispatcher(MinosHandlerDispatcher):
