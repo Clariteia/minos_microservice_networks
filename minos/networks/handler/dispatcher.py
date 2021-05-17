@@ -5,9 +5,13 @@
 # Minos framework can not be copied and/or distributed without the express
 # permission of Clariteia SL.
 
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
-from abc import abstractmethod
+from abc import (
+    abstractmethod,
+)
 from typing import (
     Any,
     Callable,
@@ -17,15 +21,20 @@ from typing import (
 )
 
 import aiopg
-
 from minos.common import (
     MinosConfig,
     import_module,
 )
-from minos.common.logs import log
+from minos.common.logs import (
+    log,
+)
 
-from ..exceptions import MinosNetworkException
-from .abc import MinosHandlerSetup
+from ..exceptions import (
+    MinosNetworkException,
+)
+from .abc import (
+    MinosHandlerSetup,
+)
 
 
 class MinosHandlerDispatcher(MinosHandlerSetup):
