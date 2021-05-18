@@ -5,8 +5,18 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from .commands import MinosCommandBroker
-from .command_reply import MinosCommandReplyBroker
-from .dispatchers import MinosQueueDispatcher
-from .events import MinosEventBroker
-from .services import MinosQueueService
+from .command_reply import (
+    MinosCommandReplyBroker,
+)
+from .commands import (
+    MinosCommandBroker,
+)
+from .dispatchers import (
+    MinosQueueDispatcher,
+)
+from .events import (
+    MinosEventBroker,
+)
+from .services import (
+    MinosQueueService,
+)
