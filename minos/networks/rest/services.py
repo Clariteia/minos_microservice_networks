@@ -7,11 +7,17 @@ Minos framework can not be copied and/or distributed without the express permiss
 """
 import typing as t
 
-from aiomisc.service.aiohttp import AIOHTTPService
+from aiomisc.service.aiohttp import (
+    AIOHTTPService,
+)
 
-from minos.common import MinosConfig
+from minos.common import (
+    MinosConfig,
+)
 
-from .handlers import Rest
+from .handlers import (
+    Rest,
+)
 
 
 class RestService(AIOHTTPService):

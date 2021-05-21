@@ -6,7 +6,9 @@ from minos.common import (
     MinosConfig,
     MinosConfigException,
 )
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     EventBroker,
     Producer,

@@ -6,17 +6,25 @@ This file is part of minos framework.
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
 
-from typing import Any
+from typing import (
+    Any,
+)
 
 from aiomisc.service.periodic import (
     PeriodicService,
     Service,
 )
 
-from minos.common import MinosConfig
+from minos.common import (
+    MinosConfig,
+)
 
-from .consumers import EventConsumer
-from .dispatchers import EventHandler
+from .consumers import (
+    EventConsumer,
+)
+from .dispatchers import (
+    EventHandler,
+)
 
 
 class EventConsumerService(Service):

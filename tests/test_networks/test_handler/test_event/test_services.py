@@ -4,7 +4,9 @@ from unittest.mock import (
     patch,
 )
 
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     EventConsumerService,
     EventHandlerService,

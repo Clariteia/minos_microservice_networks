@@ -10,7 +10,9 @@ from typing import (
     NoReturn,
 )
 
-from dependency_injector.wiring import Provide
+from dependency_injector.wiring import (
+    Provide,
+)
 
 from minos.common import (
     Command,
@@ -18,8 +20,12 @@ from minos.common import (
     MinosConfig,
 )
 
-from ..abc import Handler
-from ..entries import HandlerEntry
+from ..abc import (
+    Handler,
+)
+from ..entries import (
+    HandlerEntry,
+)
 
 
 class CommandHandler(Handler):

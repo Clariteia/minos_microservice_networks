@@ -7,7 +7,9 @@ from minos.common import (
     CommandReply,
     MinosConfigException,
 )
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     CommandReplyHandler,
     MinosNetworkException,

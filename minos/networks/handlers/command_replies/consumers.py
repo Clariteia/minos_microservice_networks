@@ -5,14 +5,18 @@
 # Minos framework can not be copied and/or distributed without the express
 # permission of Clariteia SL.
 
-from typing import Any
+from typing import (
+    Any,
+)
 
 from minos.common import (
     CommandReply,
     MinosConfig,
 )
 
-from ..abc import Consumer
+from ..abc import (
+    Consumer,
+)
 
 
 class CommandReplyConsumer(Consumer):

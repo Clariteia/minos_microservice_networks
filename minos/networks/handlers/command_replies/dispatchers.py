@@ -9,7 +9,9 @@ from typing import (
     NoReturn,
 )
 
-from dependency_injector.wiring import Provide
+from dependency_injector.wiring import (
+    Provide,
+)
 
 from minos.common import (
     CommandReply,
@@ -17,8 +19,12 @@ from minos.common import (
     MinosSagaManager,
 )
 
-from ..abc import Handler
-from ..entries import HandlerEntry
+from ..abc import (
+    Handler,
+)
+from ..entries import (
+    HandlerEntry,
+)
 
 
 class CommandReplyHandler(Handler):
