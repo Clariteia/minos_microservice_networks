@@ -1,18 +1,12 @@
 import unittest
-from collections import (
-    namedtuple,
-)
+from collections import namedtuple
 
 from minos.common import (
     Event,
     MinosConfigException,
 )
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
-from minos.networks import (
-    EventConsumer,
-)
+from minos.common.testing import PostgresAsyncTestCase
+from minos.networks import EventConsumer
 from tests.utils import (
     BASE_PATH,
     NaiveAggregate,

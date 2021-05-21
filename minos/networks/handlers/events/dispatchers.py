@@ -14,12 +14,8 @@ from minos.common import (
     MinosConfig,
 )
 
-from ..abc import (
-    Handler,
-)
-from ..entries import (
-    HandlerEntry,
-)
+from ..abc import Handler
+from ..entries import HandlerEntry
 
 
 class EventHandler(Handler):

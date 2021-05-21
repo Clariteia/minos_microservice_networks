@@ -22,9 +22,7 @@ from .commands import (
     CommandHandler,
     CommandHandlerService,
 )
-from .entries import (
-    HandlerEntry,
-)
+from .entries import HandlerEntry
 from .events import (
     EventConsumer,
     EventConsumerService,

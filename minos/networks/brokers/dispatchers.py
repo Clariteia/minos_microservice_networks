@@ -5,9 +5,7 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 from typing import (
     AsyncIterator,
@@ -15,17 +13,11 @@ from typing import (
     NoReturn,
 )
 
-from aiokafka import (
-    AIOKafkaProducer,
-)
+from aiokafka import AIOKafkaProducer
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
-from .abc import (
-    BrokerSetup,
-)
+from .abc import BrokerSetup
 
 
 class Producer(BrokerSetup):
