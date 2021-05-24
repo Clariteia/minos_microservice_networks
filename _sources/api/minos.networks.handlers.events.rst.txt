@@ -1,0 +1,17 @@
+minos.networks.handlers.events package
+======================================
+
+.. automodule:: minos.networks.handlers.events
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.handlers.events.consumers
+   minos.networks.handlers.events.handlers
+   minos.networks.handlers.events.services

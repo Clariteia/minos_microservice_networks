@@ -1,0 +1,10 @@
+minos namespace
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks

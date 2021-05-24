@@ -1,0 +1,7 @@
+minos.networks.handlers.events.consumers module
+===============================================
+
+.. automodule:: minos.networks.handlers.events.consumers
+   :members:
+   :undoc-members:
+   :show-inheritance:

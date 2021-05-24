@@ -1,0 +1,7 @@
+minos.networks.brokers.command\_replies module
+==============================================
+
+.. automodule:: minos.networks.brokers.command_replies
+   :members:
+   :undoc-members:
+   :show-inheritance:

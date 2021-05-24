@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>minos.networks.handlers.events.consumers module &#8212; Minos Microservice Networks 0.0.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="minos.networks.handlers.events.handlers module" href="minos.networks.handlers.events.handlers.html" />
+    <link rel="prev" title="minos.networks.handlers.events package" href="minos.networks.handlers.events.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-minos.networks.handlers.events.consumers">
+<span id="minos-networks-handlers-events-consumers-module"></span><h1>minos.networks.handlers.events.consumers module<a class="headerlink" href="#module-minos.networks.handlers.events.consumers" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.events.consumers.</span></span><span class="sig-name descname"><span class="pre">EventConsumer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/events/consumers.html#EventConsumer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">minos.common.setup.T</span></code>]</p>
+<p>Event Consumer class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.TABLE">
+<span class="sig-name descname"><span class="pre">TABLE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'event_queue'</span></em><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.TABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/events/consumers.html#EventConsumer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.destroy">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy miscellaneous repository things.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.dispatch">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a dispatching step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.from_config">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*args</span></em>, <em class="sig-param"><span class="pre">config=&lt;dependency_injector.wiring.Provide</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.from_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a new instance from config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A instance of the called class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.handle_message">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">handle_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.handle_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Message consumer.</p>
+<p>It consumes the messages and sends them for processing.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>consumer: Kafka Consumer instance (at the moment only Kafka consumer is supported).</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.handle_single_message">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">handle_single_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.handle_single_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle Kafka messages.</p>
+<p>Evaluate if the binary of message is an Event instance.
+Add Event instance to the event_queue table.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>msg: Kafka message.</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: An error occurred inserting record.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.pool">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">pool</span></span><em class="property"><span class="pre">:</span> <span class="pre">aiopg.pool.Pool</span></em><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the connections pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">aiopg.pool.Pool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">Pool</span></code> object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.queue_add">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">queue_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.queue_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert row to event_queue table.</p>
+<p>Retrieves number of affected rows and row ID.</p>
+<dl>
+<dt>Args:</dt><dd><p>topic: Kafka topic. Example: “TicketAdded”
+partition: Kafka partition number.
+binary: Event Model in bytes.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Queue ID.</p>
+<p>Example: 12</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: An error occurred inserting record.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.setup">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup miscellaneous repository things.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.submit_query">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">submit_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.submit_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a SQL query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.submit_query_and_fetchone">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">submit_query_and_fetchone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.submit_query_and_fetchone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a SQL query and gets the first response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.consumers.EventConsumer.submit_query_and_iter">
+<span class="sig-name descname"><span class="pre">submit_query_and_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.events.consumers.EventConsumer.submit_query_and_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a SQL query and return an asynchronous iterator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.AsyncIterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Minos Microservice Networks</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Minos Microservice Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="minos.html">minos namespace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../modules.html">Modules</a><ul>
+  <li><a href="minos.html">minos namespace</a><ul>
+  <li><a href="minos.networks.html">minos.networks package</a><ul>
+  <li><a href="minos.networks.handlers.html">minos.networks.handlers package</a><ul>
+  <li><a href="minos.networks.handlers.events.html">minos.networks.handlers.events package</a><ul>
+      <li>Previous: <a href="minos.networks.handlers.events.html" title="previous chapter">minos.networks.handlers.events package</a></li>
+      <li>Next: <a href="minos.networks.handlers.events.handlers.html" title="next chapter">minos.networks.handlers.events.handlers module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Clariteia Devs.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/minos.networks.handlers.events.consumers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
