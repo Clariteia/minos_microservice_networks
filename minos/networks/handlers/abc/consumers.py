@@ -4,35 +4,23 @@
 #
 # Minos framework can not be copied and/or distributed without the express
 # permission of Clariteia SL.
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import asyncio
 import datetime
-from abc import (
-    abstractmethod,
-)
+from abc import abstractmethod
 from typing import (
     Any,
     NoReturn,
     Optional,
 )
 
-from aiokafka import (
-    AIOKafkaConsumer,
-)
-from psycopg2.extensions import (
-    AsIs,
-)
+from aiokafka import AIOKafkaConsumer
+from psycopg2.extensions import AsIs
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
-from .setups import (
-    HandlerSetup,
-)
+from .setups import HandlerSetup
 
 
 class Consumer(HandlerSetup):
@@ -65,7 +53,7 @@ class Consumer(HandlerSetup):
 
     @property
     def _consumer(self) -> AIOKafkaConsumer:
-        if self.__consumer is None: # pragma: no cover
+        if self.__consumer is None:  # pragma: no cover
             self.__consumer = AIOKafkaConsumer(
                 *self._topics, group_id=self._broker_group_name, bootstrap_servers=self._kafka_conn_data,
             )
