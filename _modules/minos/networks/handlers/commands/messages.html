@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.abc.setups &mdash; Minos Microservice Network 0.0.6 documentation</title>
+  <title>minos.networks.handlers.commands.messages &mdash; Minos Microservice Network 0.0.6 documentation</title>
   
 
   
@@ -145,7 +145,7 @@
         
           <li><a href="../../../../index.html">Module code</a> &raquo;</li>
         
-      <li>minos.networks.handlers.abc.setups</li>
+      <li>minos.networks.handlers.commands.messages</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -160,7 +160,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for minos.networks.handlers.abc.setups</h1><div class="highlight"><pre>
+  <h1>Source code for minos.networks.handlers.commands.messages</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Copyright (C) 2021 Clariteia SL</span>
 
@@ -169,35 +169,34 @@
 <span class="sd">Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">NoReturn</span><span class="p">,</span>
+    <span class="n">Any</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">minos.common</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">PostgreSqlMinosDatabase</span><span class="p">,</span>
+    <span class="n">Command</span><span class="p">,</span>
+    <span class="n">Request</span><span class="p">,</span>
+    <span class="n">Response</span><span class="p">,</span>
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="HandlerSetup"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.setups.html#minos.networks.handlers.abc.setups.HandlerSetup">[docs]</a><span class="k">class</span> <span class="nc">HandlerSetup</span><span class="p">(</span><span class="n">PostgreSqlMinosDatabase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Minos Broker Setup Class&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CommandRequest"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest">[docs]</a><span class="k">class</span> <span class="nc">CommandRequest</span><span class="p">(</span><span class="n">Request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Command Request class.&quot;&quot;&quot;</span>
 
-    <span class="n">TABLE_NAME</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="s2">&quot;command&quot;</span>
 
-<div class="viewcode-block" id="HandlerSetup.__init__"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.setups.html#minos.networks.handlers.abc.setups.HandlerSetup.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+<div class="viewcode-block" id="CommandRequest.__init__"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="n">Command</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="n">command</span></div>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_event_queue_table</span><span class="p">()</span>
+<div class="viewcode-block" id="CommandRequest.content"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest.content">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Request content.</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_create_event_queue_table</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">submit_query</span><span class="p">(</span>
-            <span class="s1">&#39;CREATE TABLE IF NOT EXISTS &quot;</span><span class="si">%s</span><span class="s1">&quot; (&#39;</span>
-            <span class="s1">&#39;&quot;id&quot; BIGSERIAL NOT NULL PRIMARY KEY, &#39;</span>
-            <span class="s1">&#39;&quot;topic&quot; VARCHAR(255) NOT NULL, &#39;</span>
-            <span class="s1">&#39;&quot;partition_id&quot; INTEGER,&#39;</span>
-            <span class="s1">&#39;&quot;binary_data&quot; BYTEA NOT NULL, &#39;</span>
-            <span class="s1">&#39;&quot;retry&quot; INTEGER NOT NULL DEFAULT 0,&#39;</span>
-            <span class="s1">&#39;&quot;creation_date&quot; TIMESTAMP NOT NULL);&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">)</span>
-        <span class="p">)</span></div>
+<span class="sd">        :return: A list of items.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">items</span></div></div>
+
+
+<div class="viewcode-block" id="CommandResponse"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandResponse">[docs]</a><span class="k">class</span> <span class="nc">CommandResponse</span><span class="p">(</span><span class="n">Response</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Command Response class.&quot;&quot;&quot;</span></div>
 </pre></div>
 
            </div>

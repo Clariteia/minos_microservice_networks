@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; Minos Microservice Network 0.0.5 documentation</title>
+  <title>Index &mdash; Minos Microservice Network 0.0.6 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.5
+                0.0.6
               </div>
             
           
@@ -228,6 +228,10 @@
 </li>
         <li><a href="api/minos.networks.handlers.commands.handlers.html#minos.networks.handlers.commands.handlers.CommandHandler.__init__">(minos.networks.handlers.commands.handlers.CommandHandler method)</a>
 </li>
+        <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest.__init__">(minos.networks.handlers.commands.messages.CommandRequest method)</a>
+</li>
+        <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandResponse.__init__">(minos.networks.handlers.commands.messages.CommandResponse method)</a>
+</li>
         <li><a href="api/minos.networks.handlers.commands.services.html#minos.networks.handlers.commands.services.CommandConsumerService.__init__">(minos.networks.handlers.commands.services.CommandConsumerService method)</a>
 </li>
         <li><a href="api/minos.networks.handlers.commands.services.html#minos.networks.handlers.commands.services.CommandHandlerService.__init__">(minos.networks.handlers.commands.services.CommandHandlerService method)</a>
@@ -241,6 +245,10 @@
         <li><a href="api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventHandlerService.__init__">(minos.networks.handlers.events.services.EventHandlerService method)</a>
 </li>
         <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.__init__">(minos.networks.rest.builders.RestBuilder method)</a>
+</li>
+        <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpRequest.__init__">(minos.networks.rest.messages.HttpRequest method)</a>
+</li>
+        <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpResponse.__init__">(minos.networks.rest.messages.HttpResponse method)</a>
 </li>
         <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.__init__">(minos.networks.rest.services.RestService method)</a>
 </li>
@@ -319,6 +327,8 @@
         <li><a href="api/minos.networks.snapshots.services.html#minos.networks.snapshots.services.SnapshotService.callback">(minos.networks.snapshots.services.SnapshotService method)</a>
 </li>
       </ul></li>
+      <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest.command">command (minos.networks.handlers.commands.messages.CommandRequest attribute)</a>
+</li>
       <li><a href="api/minos.networks.brokers.commands.html#minos.networks.brokers.commands.CommandBroker">CommandBroker (class in minos.networks.brokers.commands)</a>
 </li>
       <li><a href="api/minos.networks.handlers.commands.consumers.html#minos.networks.handlers.commands.consumers.CommandConsumer">CommandConsumer (class in minos.networks.handlers.commands.consumers)</a>
@@ -337,12 +347,26 @@
 </li>
       <li><a href="api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler">CommandReplyHandler (class in minos.networks.handlers.command_replies.handlers)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.handlers.command_replies.services.html#minos.networks.handlers.command_replies.services.CommandReplyHandlerService">CommandReplyHandlerService (class in minos.networks.handlers.command_replies.services)</a>
 </li>
+      <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest">CommandRequest (class in minos.networks.handlers.commands.messages)</a>
+</li>
+      <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandResponse">CommandResponse (class in minos.networks.handlers.commands.messages)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.handlers.abc.consumers.html#minos.networks.handlers.abc.consumers.Consumer">Consumer (class in minos.networks.handlers.abc.consumers)</a>
 </li>
+      <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest.content">content() (minos.networks.handlers.commands.messages.CommandRequest method)</a>
+
+      <ul>
+        <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandResponse.content">(minos.networks.handlers.commands.messages.CommandResponse method)</a>
+</li>
+        <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpRequest.content">(minos.networks.rest.messages.HttpRequest method)</a>
+</li>
+        <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpResponse.content">(minos.networks.rest.messages.HttpResponse method)</a>
+</li>
+      </ul></li>
       <li><a href="api/minos.networks.brokers.services.html#minos.networks.brokers.services.ProducerService.context">context (minos.networks.brokers.services.ProducerService property)</a>
 
       <ul>
@@ -537,18 +561,22 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.get_app">get_app() (minos.networks.rest.builders.RestBuilder method)</a>
-</li>
-      <li><a href="api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.get_event_handler">get_event_handler() (minos.networks.handlers.abc.handlers.Handler method)</a>
+      <li><a href="api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.get_action">get_action() (minos.networks.handlers.abc.handlers.Handler method)</a>
 
       <ul>
-        <li><a href="api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.get_event_handler">(minos.networks.handlers.command_replies.handlers.CommandReplyHandler method)</a>
+        <li><a href="api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.get_action">(minos.networks.handlers.command_replies.handlers.CommandReplyHandler method)</a>
 </li>
-        <li><a href="api/minos.networks.handlers.commands.handlers.html#minos.networks.handlers.commands.handlers.CommandHandler.get_event_handler">(minos.networks.handlers.commands.handlers.CommandHandler method)</a>
+        <li><a href="api/minos.networks.handlers.commands.handlers.html#minos.networks.handlers.commands.handlers.CommandHandler.get_action">(minos.networks.handlers.commands.handlers.CommandHandler method)</a>
 </li>
-        <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.get_event_handler">(minos.networks.handlers.events.handlers.EventHandler method)</a>
+        <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.get_action">(minos.networks.handlers.events.handlers.EventHandler method)</a>
+</li>
+        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.get_action">(minos.networks.rest.builders.RestBuilder static method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.get_app">get_app() (minos.networks.rest.builders.RestBuilder method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -582,6 +610,10 @@
       <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry">HandlerEntry (class in minos.networks.handlers.entries)</a>
 </li>
       <li><a href="api/minos.networks.handlers.abc.setups.html#minos.networks.handlers.abc.setups.HandlerSetup">HandlerSetup (class in minos.networks.handlers.abc.setups)</a>
+</li>
+      <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpRequest">HttpRequest (class in minos.networks.rest.messages)</a>
+</li>
+      <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpResponse">HttpResponse (class in minos.networks.rest.messages)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -767,6 +799,13 @@
 </li>
       </ul></li>
       <li>
+    minos.networks.handlers.commands.messages
+
+      <ul>
+        <li><a href="api/minos.networks.handlers.commands.messages.html#module-minos.networks.handlers.commands.messages">module</a>
+</li>
+      </ul></li>
+      <li>
     minos.networks.handlers.commands.services
 
       <ul>
@@ -822,6 +861,13 @@
 
       <ul>
         <li><a href="api/minos.networks.rest.builders.html#module-minos.networks.rest.builders">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.rest.messages
+
+      <ul>
+        <li><a href="api/minos.networks.rest.messages.html#module-minos.networks.rest.messages">module</a>
 </li>
       </ul></li>
       <li>
@@ -911,6 +957,8 @@
 </li>
         <li><a href="api/minos.networks.handlers.commands.handlers.html#module-minos.networks.handlers.commands.handlers">minos.networks.handlers.commands.handlers</a>
 </li>
+        <li><a href="api/minos.networks.handlers.commands.messages.html#module-minos.networks.handlers.commands.messages">minos.networks.handlers.commands.messages</a>
+</li>
         <li><a href="api/minos.networks.handlers.commands.services.html#module-minos.networks.handlers.commands.services">minos.networks.handlers.commands.services</a>
 </li>
         <li><a href="api/minos.networks.handlers.entries.html#module-minos.networks.handlers.entries">minos.networks.handlers.entries</a>
@@ -926,6 +974,8 @@
         <li><a href="api/minos.networks.rest.html#module-minos.networks.rest">minos.networks.rest</a>
 </li>
         <li><a href="api/minos.networks.rest.builders.html#module-minos.networks.rest.builders">minos.networks.rest.builders</a>
+</li>
+        <li><a href="api/minos.networks.rest.messages.html#module-minos.networks.rest.messages">minos.networks.rest.messages</a>
 </li>
         <li><a href="api/minos.networks.rest.services.html#module-minos.networks.rest.services">minos.networks.rest.services</a>
 </li>
@@ -1010,13 +1060,19 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.resolve_action">resolve_action() (minos.networks.rest.builders.RestBuilder method)</a>
+      <li><a href="api/minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandResponse.raw_content">raw_content() (minos.networks.handlers.commands.messages.CommandResponse method)</a>
+
+      <ul>
+        <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpResponse.raw_content">(minos.networks.rest.messages.HttpResponse method)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder">RestBuilder (class in minos.networks.rest.builders)</a>
 </li>
       <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService">RestService (class in minos.networks.rest.services)</a>
+</li>
+      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.retry">retry (minos.networks.handlers.entries.HandlerEntry attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1026,12 +1082,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.saga_manager">saga_manager (minos.networks.handlers.command_replies.handlers.CommandReplyHandler attribute)</a>
 </li>
-      <li><a href="api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.select">select() (minos.networks.brokers.producers.Producer method)</a>
-
-      <ul>
-        <li><a href="api/minos.networks.snapshots.builders.html#minos.networks.snapshots.builders.SnapshotBuilder.select">(minos.networks.snapshots.builders.SnapshotBuilder method)</a>
+      <li><a href="api/minos.networks.snapshots.builders.html#minos.networks.snapshots.builders.SnapshotBuilder.select">select() (minos.networks.snapshots.builders.SnapshotBuilder method)</a>
 </li>
-      </ul></li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.send">send() (minos.networks.brokers.abc.Broker method)</a>
 
       <ul>
@@ -1315,6 +1367,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.snapshots.entries.html#minos.networks.snapshots.entries.SnapshotEntry.updated_at">updated_at (minos.networks.snapshots.entries.SnapshotEntry attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.HttpRequest.url_args">url_args (minos.networks.rest.messages.HttpRequest property)</a>
 </li>
   </ul></td>
 </tr></table>

@@ -13,4 +13,5 @@ Submodules
    :maxdepth: 4
 
    minos.networks.rest.builders
+   minos.networks.rest.messages
    minos.networks.rest.services

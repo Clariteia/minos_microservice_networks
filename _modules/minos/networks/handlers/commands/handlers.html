@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.commands.handlers &mdash; Minos Microservice Network 0.0.5 documentation</title>
+  <title>minos.networks.handlers.commands.handlers &mdash; Minos Microservice Network 0.0.6 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.5
+                0.0.6
               </div>
             
           
@@ -171,6 +171,9 @@
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">isawaitable</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Any</span><span class="p">,</span>
     <span class="n">NoReturn</span><span class="p">,</span>
@@ -191,6 +194,9 @@
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">..entries</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">HandlerEntry</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.messages</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CommandRequest</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -219,10 +225,14 @@
         <span class="n">command</span><span class="p">:</span> <span class="n">Command</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">data</span>
         <span class="n">definition_id</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">saga_uuid</span>
 
-        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">row</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">CommandRequest</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">isawaitable</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span>
 
         <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">reply_topic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">reply_topic</span><span class="p">,</span> <span class="n">saga_uuid</span><span class="o">=</span><span class="n">definition_id</span><span class="p">)</span></div>
+            <span class="n">items</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">reply_topic</span><span class="p">,</span> <span class="n">saga_uuid</span><span class="o">=</span><span class="n">definition_id</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
