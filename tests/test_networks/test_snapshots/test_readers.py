@@ -11,8 +11,6 @@ from datetime import (
     datetime,
 )
 
-import aiopg
-
 from minos.common import (
     MinosConfigException,
     MinosRepositoryEntry,
@@ -25,6 +23,7 @@ from minos.networks import (
     SnapshotBuilder,
     SnapshotEntry,
     SnapshotReader,
+    SnapshotSetup,
 )
 from tests.aggregate_classes import (
     Car,
@@ -37,39 +36,20 @@ from tests.utils import (
 class TestSnapshotReader(PostgresAsyncTestCase):
     CONFIG_FILE_PATH = BASE_PATH / "test_config.yml"
 
+    def test_type(self):
+        self.assertTrue(issubclass(SnapshotReader, SnapshotSetup))
+
     def test_from_config(self):
-        dispatcher = SnapshotReader.from_config(config=self.config)
-        self.assertEqual(self.config.snapshot.host, dispatcher.host)
-        self.assertEqual(self.config.snapshot.port, dispatcher.port)
-        self.assertEqual(self.config.snapshot.database, dispatcher.database)
-        self.assertEqual(self.config.snapshot.user, dispatcher.user)
-        self.assertEqual(self.config.snapshot.password, dispatcher.password)
+        reader = SnapshotReader.from_config(config=self.config)
+        self.assertEqual(self.config.snapshot.host, reader.host)
+        self.assertEqual(self.config.snapshot.port, reader.port)
+        self.assertEqual(self.config.snapshot.database, reader.database)
+        self.assertEqual(self.config.snapshot.user, reader.user)
+        self.assertEqual(self.config.snapshot.password, reader.password)
 
     def test_from_config_raises(self):
         with self.assertRaises(MinosConfigException):
             SnapshotReader.from_config()
-
-    async def test_setup_snapshot_table(self):
-        async with SnapshotReader.from_config(config=self.config):
-            async with aiopg.connect(**self.snapshot_db) as connection:
-                async with connection.cursor() as cursor:
-                    await cursor.execute(
-                        "SELECT EXISTS (SELECT FROM pg_tables "
-                        "WHERE schemaname = 'public' AND tablename = 'snapshot');"
-                    )
-                    observed = (await cursor.fetchone())[0]
-        self.assertEqual(True, observed)
-
-    async def test_setup_snapshot_aux_offset_table(self):
-        async with SnapshotReader.from_config(config=self.config):
-            async with aiopg.connect(**self.snapshot_db) as connection:
-                async with connection.cursor() as cursor:
-                    await cursor.execute(
-                        "SELECT EXISTS (SELECT FROM pg_tables WHERE "
-                        "schemaname = 'public' AND tablename = 'snapshot_aux_offset');"
-                    )
-                    observed = (await cursor.fetchone())[0]
-        self.assertEqual(True, observed)
 
     async def test_dispatch_select(self):
         await self._populate()

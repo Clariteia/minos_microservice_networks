@@ -49,4 +49,5 @@ from .snapshots import (
     SnapshotEntry,
     SnapshotReader,
     SnapshotService,
+    SnapshotSetup,
 )
