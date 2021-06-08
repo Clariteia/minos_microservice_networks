@@ -11,6 +11,9 @@ from .builders import (
 from .entries import (
     SnapshotEntry,
 )
+from .readers import (
+    SnapshotReader,
+)
 from .services import (
     SnapshotService,
 )

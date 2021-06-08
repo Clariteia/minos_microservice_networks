@@ -22,7 +22,6 @@ from minos.common import (
     MinosConfig,
     MinosRepositoryAction,
     MinosRepositoryEntry,
-    PostgreSqlMinosDatabase,
     PostgreSqlMinosRepository,
     import_module,
 )
@@ -30,12 +29,15 @@ from minos.common import (
 from ..exceptions import (
     MinosPreviousVersionSnapshotException,
 )
+from .abc import (
+    SnapshotSetup,
+)
 from .entries import (
     SnapshotEntry,
 )
 
 
-class SnapshotBuilder(PostgreSqlMinosDatabase):
+class SnapshotBuilder(SnapshotSetup):
     """Minos Snapshot Dispatcher class."""
 
     def __init__(self, *args, repository: dict[str, Any] = None, **kwargs):
@@ -49,10 +51,6 @@ class SnapshotBuilder(PostgreSqlMinosDatabase):
     @classmethod
     def _from_config(cls, *args, config: MinosConfig, **kwargs) -> SnapshotBuilder:
         return cls(*args, **config.snapshot._asdict(), repository=config.repository._asdict(), **kwargs)
-
-    async def _setup(self) -> NoReturn:
-        await self.submit_query(_CREATE_TABLE_QUERY)
-        await self.submit_query(_CREATE_OFFSET_TABLE_QUERY)
 
     async def dispatch(self) -> NoReturn:
         """Perform a dispatching step, based on the sequence of non already processed ``MinosRepositoryEntry`` objects.
@@ -160,18 +158,6 @@ class SnapshotBuilder(PostgreSqlMinosDatabase):
         return entry
 
 
-_CREATE_TABLE_QUERY = """
-CREATE TABLE IF NOT EXISTS snapshot (
-    aggregate_id BIGINT NOT NULL,
-    aggregate_name TEXT NOT NULL,
-    version INT NOT NULL,
-    data BYTEA NOT NULL,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    PRIMARY KEY (aggregate_id, aggregate_name)
-);
-""".strip()
-
 _SELECT_ALL_ENTRIES_QUERY = """
 SELECT aggregate_id, aggregate_name, version, data, created_at, updated_at
 FROM snapshot;
@@ -202,14 +188,6 @@ ON CONFLICT (aggregate_id, aggregate_name)
 DO
    UPDATE SET version = %(version)s, data = %(data)s, updated_at = NOW()
 RETURNING created_at, updated_at;
-""".strip()
-
-_CREATE_OFFSET_TABLE_QUERY = """
-CREATE TABLE IF NOT EXISTS snapshot_aux_offset (
-    id bool PRIMARY KEY DEFAULT TRUE,
-    value BIGINT NOT NULL,
-    CONSTRAINT id_uni CHECK (id)
-);
 """.strip()
 
 _SELECT_OFFSET_QUERY = """

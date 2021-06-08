@@ -47,5 +47,6 @@ from .rest import (
 from .snapshots import (
     SnapshotBuilder,
     SnapshotEntry,
+    SnapshotReader,
     SnapshotService,
 )
