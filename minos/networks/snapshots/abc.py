@@ -21,6 +21,14 @@ class SnapshotSetup(PostgreSqlMinosDatabase):
         await self.submit_query(_CREATE_TABLE_QUERY)
         await self.submit_query(_CREATE_OFFSET_TABLE_QUERY)
 
+    async def _load_offset(self) -> int:
+        # noinspection PyBroadException
+        try:
+            raw = await self.submit_query_and_fetchone(_SELECT_OFFSET_QUERY)
+            return raw[0]
+        except Exception:
+            return 0
+
 
 _CREATE_TABLE_QUERY = """
 CREATE TABLE IF NOT EXISTS snapshot (
@@ -40,4 +48,10 @@ CREATE TABLE IF NOT EXISTS snapshot_aux_offset (
     value BIGINT NOT NULL,
     CONSTRAINT id_uni CHECK (id)
 );
+
 """.strip()
+_SELECT_OFFSET_QUERY = """
+SELECT value
+FROM snapshot_aux_offset
+WHERE id = TRUE;
+"""

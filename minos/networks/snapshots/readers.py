@@ -48,9 +48,3 @@ _SELECT_ALL_ENTRIES_QUERY = """
 SELECT aggregate_id, aggregate_name, version, data, created_at, updated_at
 FROM snapshot;
 """.strip()
-
-_SELECT_OFFSET_QUERY = """
-SELECT value
-FROM snapshot_aux_offset
-WHERE id = TRUE;
-"""
