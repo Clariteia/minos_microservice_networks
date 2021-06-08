@@ -90,6 +90,14 @@ class SnapshotBuilder(SnapshotSetup):
 
         await self._store_offset(offset)
 
+    async def _load_offset(self) -> int:
+        # noinspection PyBroadException
+        try:
+            raw = await self.submit_query_and_fetchone(_SELECT_OFFSET_QUERY)
+            return raw[0]
+        except Exception:
+            return 0
+
     async def _store_offset(self, offset: int) -> NoReturn:
         await self.submit_query(_INSERT_OFFSET_QUERY, {"value": offset})
 
@@ -183,6 +191,12 @@ DO
    UPDATE SET version = %(version)s, data = %(data)s, updated_at = NOW()
 RETURNING created_at, updated_at;
 """.strip()
+
+_SELECT_OFFSET_QUERY = """
+SELECT value
+FROM snapshot_aux_offset
+WHERE id = TRUE;
+"""
 
 _INSERT_OFFSET_QUERY = """
 INSERT INTO snapshot_aux_offset (id, value)
