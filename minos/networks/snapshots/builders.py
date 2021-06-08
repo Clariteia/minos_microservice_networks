@@ -11,7 +11,6 @@ from __future__ import (
 
 from typing import (
     Any,
-    AsyncIterator,
     NoReturn,
     Optional,
     Type,
@@ -87,17 +86,6 @@ class SnapshotBuilder(SnapshotSetup):
 
     async def _store_offset(self, offset: int) -> NoReturn:
         await self.submit_query(_INSERT_OFFSET_QUERY, {"value": offset})
-
-    # noinspection PyUnusedLocal
-    async def select(self, *args, **kwargs) -> AsyncIterator[SnapshotEntry]:
-        """Select a sequence of ``MinosSnapshotEntry`` objects.
-
-        :param args: Additional positional arguments.
-        :param kwargs: Additional named arguments.
-        :return: A sequence of ``MinosSnapshotEntry`` objects.
-        """
-        async for row in self.submit_query_and_iter(_SELECT_ALL_ENTRIES_QUERY):
-            yield SnapshotEntry(*row)
 
     async def _dispatch_one(self, event_entry: MinosRepositoryEntry) -> Optional[SnapshotEntry]:
         if event_entry.action is MinosRepositoryAction.DELETE:

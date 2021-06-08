@@ -10,7 +10,6 @@ from __future__ import (
 )
 
 from typing import (
-    Any,
     AsyncIterator,
 )
 
@@ -28,9 +27,6 @@ from .entries import (
 
 class SnapshotReader(SnapshotSetup):
     """Minos Snapshot Reader class."""
-
-    def __init__(self, *args, repository: dict[str, Any] = None, **kwargs):
-        super().__init__(*args, **kwargs)
 
     @classmethod
     def _from_config(cls, *args, config: MinosConfig, **kwargs) -> SnapshotReader:
