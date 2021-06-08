@@ -43,6 +43,10 @@ class SnapshotBuilder(SnapshotSetup):
         super().__init__(*args, **kwargs)
         self.repository = PostgreSqlMinosRepository(**repository)
 
+    async def _setup(self) -> NoReturn:
+        await self.repository.setup()
+        await super()._setup()
+
     async def _destroy(self) -> NoReturn:
         await super()._destroy()
         await self.repository.destroy()
