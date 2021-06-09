@@ -51,7 +51,15 @@ class TestSnapshotReader(PostgresAsyncTestCase):
         with self.assertRaises(MinosConfigException):
             SnapshotReader.from_config()
 
-    async def test_dispatch_select(self):
+    async def test_get(self):
+        await self._populate()
+        async with SnapshotReader.from_config(config=self.config) as snapshot:
+            observed = [v async for v in snapshot.get("tests.aggregate_classes.Car", [1, 2, 3])]
+
+        expected = [Car(2, 2, 3, "blue"), Car(3, 1, 3, "blue")]
+        self.assertEqual(expected, observed)
+
+    async def test_select(self):
         await self._populate()
 
         async with SnapshotReader.from_config(config=self.config) as snapshot:

@@ -55,15 +55,29 @@ class SnapshotBuilder(SnapshotSetup):
     def _from_config(cls, *args, config: MinosConfig, **kwargs) -> SnapshotBuilder:
         return cls(*args, **config.snapshot._asdict(), repository=config.repository._asdict(), **kwargs)
 
-    async def is_synced(self, aggregate_name: str, aggregate_id: int) -> bool:
+    async def are_synced(self, aggregate_name: str, aggregate_ids: list[int]) -> bool:
         """TODO
 
         :return: TODO
         """
+        for aggregate_id in aggregate_ids:
+            if not await self.is_synced(aggregate_name, aggregate_id):
+                return False
+        return True
+
+    async def is_synced(self, aggregate_name: str, aggregate_id: int) -> bool:
+        """TODO
+
+        :param aggregate_name: TODO
+        :param aggregate_id: TODO
+        :return:
+        """
         query = self.repository.select(
             id_ge=await self._load_offset(), aggregate_name=aggregate_name, aggregate_id=aggregate_id
         )
-        return not any(v async for v in query)
+        async for _ in query:
+            return False
+        return True
 
     async def dispatch(self) -> NoReturn:
         """Perform a dispatching step, based on the sequence of non already processed ``MinosRepositoryEntry`` objects.

@@ -75,6 +75,20 @@ class TestSnapshotBuilder(PostgresAsyncTestCase):
         ]
         self._assert_equal_snapshot_entries(expected, observed)
 
+    async def test_are_synced(self):
+        await self._populate()
+        async with SnapshotBuilder.from_config(config=self.config) as dispatcher:
+            self.assertFalse(await dispatcher.are_synced("tests.aggregate_classes.Car", [1, 2]))
+            await dispatcher.dispatch()
+            self.assertTrue(await dispatcher.are_synced("tests.aggregate_classes.Car", [1, 2]))
+
+    async def test_is_synced(self):
+        await self._populate()
+        async with SnapshotBuilder.from_config(config=self.config) as dispatcher:
+            self.assertFalse(await dispatcher.is_synced("tests.aggregate_classes.Car", 1))
+            await dispatcher.dispatch()
+            self.assertTrue(await dispatcher.is_synced("tests.aggregate_classes.Car", 1))
+
     async def test_dispatch_ignore_previous_version(self):
 
         dispatcher = SnapshotBuilder.from_config(config=self.config)
