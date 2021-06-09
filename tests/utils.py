@@ -8,10 +8,14 @@ Minos framework can not be copied and/or distributed without the express permiss
 from collections import (
     namedtuple,
 )
+from datetime import (
+    datetime,
+)
 from pathlib import (
     Path,
 )
 from typing import (
+    AsyncIterator,
     NoReturn,
 )
 
@@ -20,16 +24,25 @@ from minos.common import (
     CommandReply,
     MinosBroker,
     MinosModel,
+    MinosRepository,
+    MinosRepositoryEntry,
     MinosSagaManager,
+    MinosSnapshot,
 )
 
 BASE_PATH = Path(__file__).parent
 
 
-class NaiveAggregate(Aggregate):
-    """Naive aggregate class to be used for testing purposes."""
+class Foo(MinosModel):
+    """For testing purposes"""
 
-    test: int
+    text: str
+
+
+class Bar(Aggregate):
+    """Aggregate ``Car`` class for testing purposes."""
+
+    text: str
 
 
 Message = namedtuple("Message", ["topic", "partition", "value"])
@@ -113,3 +126,31 @@ class FakeBroker(MinosBroker):
         self.topic = topic
         self.saga_uuid = saga_uuid
         self.reply_topic = reply_topic
+
+
+class FakeRepository(MinosRepository):
+    """For testing purposes."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.id_counter = 0
+        self.items = set()
+
+    async def _submit(self, entry: MinosRepositoryEntry) -> MinosRepositoryEntry:
+        """For testing purposes."""
+        self.id_counter += 1
+        entry.id = self.id_counter
+        entry.version += 1
+        entry.aggregate_id = 9999
+        entry.created_at = datetime.now()
+        return entry
+
+    async def _select(self, *args, **kwargs) -> AsyncIterator[MinosRepositoryEntry]:
+        """For testing purposes."""
+
+
+class FakeSnapshot(MinosSnapshot):
+    """For testing purposes."""
+
+    async def get(self, aggregate_name: str, ids: list[int], **kwargs) -> AsyncIterator[Aggregate]:
+        """For testing purposes."""

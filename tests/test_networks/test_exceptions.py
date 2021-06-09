@@ -5,7 +5,13 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
+import sys
 import unittest
+
+from dependency_injector import (
+    containers,
+    providers,
+)
 
 from minos.common import (
     MinosException,
@@ -18,9 +24,24 @@ from minos.networks import (
 from tests.aggregate_classes import (
     Car,
 )
+from tests.utils import (
+    FakeBroker,
+    FakeRepository,
+    FakeSnapshot,
+)
 
 
 class TestExceptions(unittest.TestCase):
+    def setUp(self) -> None:
+        self.container = containers.DynamicContainer()
+        self.container.event_broker = providers.Singleton(FakeBroker)
+        self.container.repository = providers.Singleton(FakeRepository)
+        self.container.snapshot = providers.Singleton(FakeSnapshot)
+        self.container.wire(modules=[sys.modules[__name__]])
+
+    def tearDown(self) -> None:
+        self.container.unwire()
+
     def test_type(self):
         self.assertTrue(issubclass(MinosNetworkException, MinosException))
 

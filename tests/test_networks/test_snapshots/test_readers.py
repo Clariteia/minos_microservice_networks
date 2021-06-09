@@ -5,10 +5,15 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-
+import sys
 import unittest
 from datetime import (
     datetime,
+)
+
+from dependency_injector import (
+    containers,
+    providers,
 )
 
 from minos.common import (
@@ -30,11 +35,26 @@ from tests.aggregate_classes import (
 )
 from tests.utils import (
     BASE_PATH,
+    FakeBroker,
+    FakeRepository,
+    FakeSnapshot,
 )
 
 
 class TestSnapshotReader(PostgresAsyncTestCase):
     CONFIG_FILE_PATH = BASE_PATH / "test_config.yml"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.container = containers.DynamicContainer()
+        self.container.event_broker = providers.Singleton(FakeBroker)
+        self.container.repository = providers.Singleton(FakeRepository)
+        self.container.snapshot = providers.Singleton(FakeSnapshot)
+        self.container.wire(modules=[sys.modules[__name__]])
+
+    def tearDown(self) -> None:
+        self.container.unwire()
+        super().tearDown()
 
     def test_type(self):
         self.assertTrue(issubclass(SnapshotReader, SnapshotSetup))
@@ -54,10 +74,17 @@ class TestSnapshotReader(PostgresAsyncTestCase):
     async def test_get(self):
         await self._populate()
         async with SnapshotReader.from_config(config=self.config) as snapshot:
-            observed = [v async for v in snapshot.get("tests.aggregate_classes.Car", [1, 2, 3])]
+            observed = [v async for v in snapshot.get("tests.aggregate_classes.Car", [2, 3])]
 
         expected = [Car(2, 2, 3, "blue"), Car(3, 1, 3, "blue")]
         self.assertEqual(expected, observed)
+
+    async def test_get_raises(self):
+        await self._populate()
+        async with SnapshotReader.from_config(config=self.config) as snapshot:
+            with self.assertRaises(Exception):
+                # noinspection PyStatementEffect
+                [v async for v in snapshot.get("tests.aggregate_classes.Car", [1, 2, 3])]
 
     async def test_select(self):
         await self._populate()

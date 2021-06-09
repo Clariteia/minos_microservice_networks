@@ -59,8 +59,12 @@ class SnapshotReader(SnapshotSetup):
             yield item.aggregate
 
     async def _get(self, aggregate_name: str, ids: list[int]) -> AsyncIterator[SnapshotEntry]:
+        count = 0
         async for row in self.submit_query_and_iter(_SELECT_MULTIPLE_ENTRIES_QUERY, (aggregate_name, tuple(ids))):
             yield SnapshotEntry(*row)
+            count += 1
+        if count < len(ids):
+            raise Exception
 
     # noinspection PyUnusedLocal
     async def select(self, *args, **kwargs) -> AsyncIterator[SnapshotEntry]:

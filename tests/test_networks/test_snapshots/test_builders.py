@@ -5,7 +5,7 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-
+import sys
 import unittest
 from datetime import (
     datetime,
@@ -14,6 +14,11 @@ from unittest.mock import (
     MagicMock,
     call,
     patch,
+)
+
+from dependency_injector import (
+    containers,
+    providers,
 )
 
 from minos.common import (
@@ -35,11 +40,26 @@ from tests.aggregate_classes import (
 )
 from tests.utils import (
     BASE_PATH,
+    FakeBroker,
+    FakeRepository,
+    FakeSnapshot,
 )
 
 
 class TestSnapshotBuilder(PostgresAsyncTestCase):
     CONFIG_FILE_PATH = BASE_PATH / "test_config.yml"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.container = containers.DynamicContainer()
+        self.container.event_broker = providers.Singleton(FakeBroker)
+        self.container.repository = providers.Singleton(FakeRepository)
+        self.container.snapshot = providers.Singleton(FakeSnapshot)
+        self.container.wire(modules=[sys.modules[__name__]])
+
+    def tearDown(self) -> None:
+        self.container.unwire()
+        super().tearDown()
 
     def test_type(self):
         self.assertTrue(issubclass(SnapshotBuilder, SnapshotSetup))
@@ -90,11 +110,8 @@ class TestSnapshotBuilder(PostgresAsyncTestCase):
             self.assertTrue(await dispatcher.is_synced("tests.aggregate_classes.Car", 1))
 
     async def test_dispatch_ignore_previous_version(self):
+        car = Car(1, 2, 3, "blue")
 
-        dispatcher = SnapshotBuilder.from_config(config=self.config)
-        await dispatcher.setup()
-
-        car = Car(1, 1, 3, "blue")
         # noinspection PyTypeChecker
         aggregate_name: str = car.classname
 
@@ -104,7 +121,8 @@ class TestSnapshotBuilder(PostgresAsyncTestCase):
             yield MinosRepositoryEntry(1, aggregate_name, 2, car.avro_bytes)
 
         with patch("minos.common.PostgreSqlMinosRepository.select", _fn):
-            await dispatcher.dispatch()
+            async with SnapshotBuilder.from_config(config=self.config) as dispatcher:
+                await dispatcher.dispatch()
 
         async with SnapshotReader.from_config(config=self.config) as snapshot:
             observed = [v async for v in snapshot.select()]

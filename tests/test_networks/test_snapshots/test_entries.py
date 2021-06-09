@@ -5,9 +5,15 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
+import sys
 import unittest
 from datetime import (
     datetime,
+)
+
+from dependency_injector import (
+    containers,
+    providers,
 )
 
 from minos.networks import (
@@ -16,9 +22,24 @@ from minos.networks import (
 from tests.aggregate_classes import (
     Car,
 )
+from tests.utils import (
+    FakeBroker,
+    FakeRepository,
+    FakeSnapshot,
+)
 
 
 class TestSnapshotEntry(unittest.TestCase):
+    def setUp(self) -> None:
+        self.container = containers.DynamicContainer()
+        self.container.event_broker = providers.Singleton(FakeBroker)
+        self.container.repository = providers.Singleton(FakeRepository)
+        self.container.snapshot = providers.Singleton(FakeSnapshot)
+        self.container.wire(modules=[sys.modules[__name__]])
+
+    def tearDown(self) -> None:
+        self.container.unwire()
+
     def test_constructor(self):
         entry = SnapshotEntry(1234, "example.Car", 0, bytes("car", "utf-8"))
         self.assertEqual(1234, entry.aggregate_id)
