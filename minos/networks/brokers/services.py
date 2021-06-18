@@ -5,12 +5,20 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
-from aiomisc.service.periodic import PeriodicService
-from cached_property import cached_property
+from aiomisc.service.periodic import (
+    PeriodicService,
+)
+from cached_property import (
+    cached_property,
+)
 
-from .producers import Producer
+from .producers import (
+    Producer,
+)
 
 
 class ProducerService(PeriodicService):
