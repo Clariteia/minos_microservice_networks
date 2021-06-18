@@ -4,20 +4,12 @@
 #
 # Minos framework can not be copied and/or distributed without the express
 # permission of Clariteia SL.
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
-from inspect import (
-    isawaitable,
-)
-from typing import (
-    Callable,
-)
+from inspect import isawaitable
+from typing import Callable
 
-from aiohttp import (
-    web,
-)
+from aiohttp import web
 
 from minos.common import (
     MinosConfig,
@@ -25,9 +17,7 @@ from minos.common import (
     import_module,
 )
 
-from .messages import (
-    HttpRequest,
-)
+from .messages import HttpRequest
 
 
 class RestBuilder(MinosSetup):

@@ -5,20 +5,12 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from cached_property import (
-    cached_property,
-)
+from cached_property import cached_property
 
-from aiomisc import (
-    bind_socket,
-)
-from aiomisc.service.aiohttp import (
-    AIOHTTPService,
-)
+from aiomisc import bind_socket
+from aiomisc.service.aiohttp import AIOHTTPService
 
-from .builders import (
-    RestBuilder,
-)
+from .builders import RestBuilder
 
 
 class RestService(AIOHTTPService):
