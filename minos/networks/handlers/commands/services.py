@@ -6,16 +6,24 @@ This file is part of minos framework.
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
 
-from typing import Any
+from typing import (
+    Any,
+)
 
 from aiomisc.service.periodic import (
     PeriodicService,
     Service,
 )
-from cached_property import cached_property
+from cached_property import (
+    cached_property,
+)
 
-from .consumers import CommandConsumer
-from .handlers import CommandHandler
+from .consumers import (
+    CommandConsumer,
+)
+from .handlers import (
+    CommandHandler,
+)
 
 
 class CommandConsumerService(Service):
