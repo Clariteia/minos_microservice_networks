@@ -6,16 +6,10 @@ This file is part of minos framework.
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
 
-from aiomisc.service.periodic import (
-    PeriodicService,
-)
-from cached_property import (
-    cached_property,
-)
+from aiomisc.service.periodic import PeriodicService
+from cached_property import cached_property
 
-from minos.common import (
-    PostgreSqlSnapshotBuilder,
-)
+from minos.common import PostgreSqlSnapshotBuilder
 
 
 class SnapshotService(PeriodicService):
