@@ -1,7 +1,0 @@
-minos.networks.snapshots.builders module
-========================================
-
-.. automodule:: minos.networks.snapshots.builders
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.producers &mdash; Minos Microservice Network 0.0.6 documentation</title>
+  <title>minos.networks.brokers.producers &mdash; Minos Microservice Network 0.0.7 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.6
+                0.0.7
               </div>
             
           
@@ -180,6 +180,9 @@
 <span class="kn">from</span> <span class="nn">aiokafka</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">AIOKafkaProducer</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">psycopg2.sql</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SQL</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">minos.common</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">BROKER</span><span class="p">,</span>
@@ -221,7 +224,7 @@
             <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
 
             <span class="c1"># Select records and lock them FOR UPDATE</span>
-            <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">retry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">),)</span>
+            <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">retry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">))</span>
             <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
@@ -232,20 +235,22 @@
                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Raised an exception while publishing a message: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">finally</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">published</span><span class="p">:</span>
-                        <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                        <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_DELETE_PROCESSED_QUERY</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_UPDATE_NON_PROCESSED_QUERY</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                        <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_UPDATE_NON_PROCESSED_QUERY</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
 
             <span class="c1"># Manually commit</span>
             <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;COMMIT&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Producer.publish"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.publish">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Publish a new item in in the broker (kafka).</span>
+        <span class="sd">&quot;&quot;&quot;Publish a new item in the broker (kafka).</span>
 
 <span class="sd">        :param topic: The topic in which the message will be published.</span>
 <span class="sd">        :param message: The message to be published.</span>
 <span class="sd">        :return: A boolean flag, ``True`` when the message is properly published or ``False`` otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Producing message with </span><span class="si">{</span><span class="n">topic</span><span class="si">!s}</span><span class="s2"> topic...&quot;</span><span class="p">)</span>
+
         <span class="n">producer</span> <span class="o">=</span> <span class="n">AIOKafkaProducer</span><span class="p">(</span><span class="n">bootstrap_servers</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="c1"># noinspection PyBroadException</span>
         <span class="k">try</span><span class="p">:</span>
@@ -263,26 +268,19 @@
         <span class="k">return</span> <span class="n">published</span></div></div>
 
 
-<span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT *</span>
-<span class="s2">FROM producer_queue</span>
-<span class="s2">WHERE retry &lt;= </span><span class="si">%s</span><span class="s2"></span>
-<span class="s2">ORDER BY creation_date</span>
-<span class="s2">LIMIT </span><span class="si">%s</span><span class="s2"></span>
-<span class="s2">FOR UPDATE</span>
-<span class="s2">SKIP LOCKED;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span>
+    <span class="s2">&quot;SELECT * &quot;</span>
+    <span class="s2">&quot;FROM producer_queue &quot;</span>
+    <span class="s2">&quot;WHERE retry &lt; </span><span class="si">%s</span><span class="s2"> &quot;</span>
+    <span class="s2">&quot;ORDER BY creation_date &quot;</span>
+    <span class="s2">&quot;LIMIT </span><span class="si">%s</span><span class="s2"> &quot;</span>
+    <span class="s2">&quot;FOR UPDATE &quot;</span>
+    <span class="s2">&quot;SKIP LOCKED&quot;</span>
+<span class="p">)</span>
 
-<span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">DELETE FROM producer_queue</span>
-<span class="s2">WHERE id = </span><span class="si">%s</span><span class="s2">;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;DELETE FROM producer_queue &quot;</span> <span class="s2">&quot;WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">_UPDATE_NON_PROCESSED_QUERY</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">UPDATE producer_queue</span>
-<span class="s2">    SET retry = retry + 1</span>
-<span class="s2">WHERE id = </span><span class="si">%s</span><span class="s2">;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">_UPDATE_NON_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;UPDATE producer_queue &quot;</span> <span class="s2">&quot;SET retry = retry + 1 &quot;</span> <span class="s2">&quot;WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
            </div>

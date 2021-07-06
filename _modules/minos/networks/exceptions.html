@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.exceptions &mdash; Minos Microservice Network 0.0.6 documentation</title>
+  <title>minos.networks.exceptions &mdash; Minos Microservice Network 0.0.7 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.6
+                0.0.7
               </div>
             
           
@@ -169,7 +169,6 @@
 <span class="sd">Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">minos.common</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Aggregate</span><span class="p">,</span>
     <span class="n">MinosException</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -178,20 +177,12 @@
     <span class="sd">&quot;&quot;&quot;Base network exception.&quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="MinosSnapshotException"><a class="viewcode-back" href="../../../api/minos.networks.exceptions.html#minos.networks.exceptions.MinosSnapshotException">[docs]</a><span class="k">class</span> <span class="nc">MinosSnapshotException</span><span class="p">(</span><span class="n">MinosNetworkException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base snapshot exception&quot;&quot;&quot;</span></div>
+<div class="viewcode-block" id="MinosDiscoveryConnectorException"><a class="viewcode-back" href="../../../api/minos.networks.exceptions.html#minos.networks.exceptions.MinosDiscoveryConnectorException">[docs]</a><span class="k">class</span> <span class="nc">MinosDiscoveryConnectorException</span><span class="p">(</span><span class="n">MinosNetworkException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception to be raised when there is a failure while communicating with the discovery.&quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="MinosPreviousVersionSnapshotException"><a class="viewcode-back" href="../../../api/minos.networks.exceptions.html#minos.networks.exceptions.MinosPreviousVersionSnapshotException">[docs]</a><span class="k">class</span> <span class="nc">MinosPreviousVersionSnapshotException</span><span class="p">(</span><span class="n">MinosSnapshotException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Exception to be raised when current version is newer than the one to be processed.&quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="MinosPreviousVersionSnapshotException.__init__"><a class="viewcode-back" href="../../../api/minos.networks.exceptions.html#minos.networks.exceptions.MinosPreviousVersionSnapshotException.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">previous</span><span class="p">:</span> <span class="n">Aggregate</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="n">Aggregate</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span> <span class="o">=</span> <span class="n">previous</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">new</span> <span class="o">=</span> <span class="n">new</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Version for </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">previous</span><span class="o">.</span><span class="n">classname</span><span class="p">)</span><span class="si">}</span><span class="s2"> aggregate must be &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;greater than </span><span class="si">{</span><span class="n">previous</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">. Obtained: </span><span class="si">{</span><span class="n">new</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="p">)</span></div></div>
+<div class="viewcode-block" id="MinosActionNotFoundException"><a class="viewcode-back" href="../../../api/minos.networks.exceptions.html#minos.networks.exceptions.MinosActionNotFoundException">[docs]</a><span class="k">class</span> <span class="nc">MinosActionNotFoundException</span><span class="p">(</span><span class="n">MinosNetworkException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception to be raised when an action cannot be found,&quot;&quot;&quot;</span></div>
 </pre></div>
 
            </div>

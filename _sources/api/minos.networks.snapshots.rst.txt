@@ -1,17 +1,7 @@
-minos.networks.snapshots package
-================================
+minos.networks.snapshots module
+===============================
 
 .. automodule:: minos.networks.snapshots
    :members:
    :undoc-members:
    :show-inheritance:
-
-Submodules
-----------
-
-.. toctree::
-   :maxdepth: 4
-
-   minos.networks.snapshots.builders
-   minos.networks.snapshots.entries
-   minos.networks.snapshots.services

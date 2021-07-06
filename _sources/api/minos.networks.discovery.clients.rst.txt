@@ -1,7 +1,7 @@
-minos.networks.snapshots.entries module
+minos.networks.discovery.clients module
 =======================================
 
-.. automodule:: minos.networks.snapshots.entries
+.. automodule:: minos.networks.discovery.clients
    :members:
    :undoc-members:
    :show-inheritance:

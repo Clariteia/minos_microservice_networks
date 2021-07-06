@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.abc.handlers &mdash; Minos Microservice Network 0.0.6 documentation</title>
+  <title>minos.networks.handlers.abc.handlers &mdash; Minos Microservice Network 0.0.7 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.6
+                0.0.7
               </div>
             
           
@@ -186,6 +186,12 @@
     <span class="n">Any</span><span class="p">,</span>
     <span class="n">Callable</span><span class="p">,</span>
     <span class="n">NoReturn</span><span class="p">,</span>
+    <span class="n">Type</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">psycopg2.sql</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SQL</span><span class="p">,</span>
+    <span class="n">Identifier</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">minos.common</span> <span class="kn">import</span> <span class="p">(</span>
@@ -194,7 +200,7 @@
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">...exceptions</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">MinosNetworkException</span><span class="p">,</span>
+    <span class="n">MinosActionNotFoundException</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">..entries</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">HandlerEntry</span><span class="p">,</span>
@@ -212,13 +218,15 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="vm">__slots__</span> <span class="o">=</span> <span class="s2">&quot;_handlers&quot;</span><span class="p">,</span> <span class="s2">&quot;_handlers&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="s2">&quot;_handlers&quot;</span><span class="p">,</span> <span class="s2">&quot;_records&quot;</span><span class="p">,</span> <span class="s2">&quot;_retry&quot;</span>
 
-<div class="viewcode-block" id="Handler.__init__"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">records</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">handlers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+    <span class="n">ENTRY_MODEL_CLS</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">MinosModel</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Handler.__init__"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">records</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">handlers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">retry</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handlers</span> <span class="o">=</span> <span class="n">handlers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_records</span> <span class="o">=</span> <span class="n">records</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_retry</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;retry&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_retry</span> <span class="o">=</span> <span class="n">retry</span></div>
 
 <div class="viewcode-block" id="Handler.dispatch"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.dispatch">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Event Queue Checker and dispatcher.</span>
@@ -240,42 +248,49 @@
             <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
 
             <span class="c1"># Select records and lock them FOR UPDATE</span>
-            <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_retry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_records</span><span class="p">),)</span>
+            <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                <span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Identifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">)),</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_retry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_records</span><span class="p">)</span>
+            <span class="p">)</span>
             <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-                <span class="n">dispatched</span> <span class="o">=</span> <span class="kc">False</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-                    <span class="n">dispatched</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Raised an exception while dispatching a message: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="k">finally</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">dispatched</span><span class="p">:</span>
-                        <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_UPDATE_NON_PROCESSED_QUERY</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                <span class="n">dispatched</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_one</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dispatched</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_DELETE_PROCESSED_QUERY</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Identifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">)),</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">_UPDATE_NON_PROCESSED_QUERY</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Identifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">)),</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
 
             <span class="c1"># Manually commit</span>
             <span class="k">await</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;COMMIT&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Handler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.dispatch_one">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">datetime</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Dispatch one row.</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_entry</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Raised an exception while building the message with id=</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-<span class="sd">        :param row: Row to be dispatched.</span>
-<span class="sd">        :return: This method does not return anything.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dispatching &#39;</span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Raised an exception while dispatching </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="si">!s}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_build_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">datetime</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">HandlerEntry</span><span class="p">:</span>
         <span class="nb">id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">topic</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">callback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_action</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">partition_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_data</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTRY_MODEL_CLS</span><span class="o">.</span><span class="n">from_avro_bytes</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
         <span class="n">retry</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
         <span class="n">created_at</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
         <span class="n">entry</span> <span class="o">=</span> <span class="n">HandlerEntry</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">partition_id</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">created_at</span><span class="p">)</span>
-
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_one</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">entry</span>
 
 <div class="viewcode-block" id="Handler.get_action"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.get_action">[docs]</a>    <span class="k">def</span> <span class="nf">get_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get Event instance to call.</span>
@@ -290,7 +305,7 @@
 <span class="sd">                configuration file.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">topic</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handlers</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">MinosNetworkException</span><span class="p">(</span>
+            <span class="k">raise</span> <span class="n">MinosActionNotFoundException</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;topic </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2"> have no controller/action configured, &quot;</span> <span class="sa">f</span><span class="s2">&quot;please review th configuration file&quot;</span>
             <span class="p">)</span>
 
@@ -304,35 +319,23 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="n">action</span><span class="si">!r}</span><span class="s2"> action!&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">action</span></div>
 
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">_build_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MinosModel</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<div class="viewcode-block" id="Handler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.dispatch_one">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Dispatch one row.</span>
 
-    <span class="nd">@abstractmethod</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+<span class="sd">        :param entry: Entry to be dispatched.</span>
+<span class="sd">        :return: This method does not return anything.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
 
 
-<span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT *</span>
-<span class="s2">FROM </span><span class="si">%s</span><span class="s2"></span>
-<span class="s2">WHERE retry &lt;= </span><span class="si">%d</span><span class="s2"></span>
-<span class="s2">ORDER BY creation_date</span>
-<span class="s2">LIMIT </span><span class="si">%d</span><span class="s2"></span>
-<span class="s2">FOR UPDATE</span>
-<span class="s2">SKIP LOCKED;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">_SELECT_NON_PROCESSED_ROWS_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span>
+    <span class="s2">&quot;SELECT * FROM </span><span class="si">{}</span><span class="s2"> WHERE retry &lt; </span><span class="si">%s</span><span class="s2"> ORDER BY creation_date LIMIT </span><span class="si">%s</span><span class="s2"> FOR UPDATE SKIP LOCKED&quot;</span>
+<span class="p">)</span>
 
-<span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">DELETE FROM </span><span class="si">%s</span><span class="s2"></span>
-<span class="s2">WHERE id = </span><span class="si">%d</span><span class="s2">;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;DELETE FROM </span><span class="si">{}</span><span class="s2"> &quot;</span> <span class="s2">&quot;WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">_UPDATE_NON_PROCESSED_QUERY</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">UPDATE </span><span class="si">%s</span><span class="s2"></span>
-<span class="s2">    SET retry = retry + 1</span>
-<span class="s2">WHERE id = </span><span class="si">%s</span><span class="s2">;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">_UPDATE_NON_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;UPDATE </span><span class="si">{}</span><span class="s2"> &quot;</span> <span class="s2">&quot;SET retry = retry + 1 &quot;</span> <span class="s2">&quot;WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
            </div>

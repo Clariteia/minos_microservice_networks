@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.rest.messages module &mdash; Minos Microservice Network 0.0.6 documentation</title>
+  <title>minos.networks.rest.messages module &mdash; Minos Microservice Network 0.0.7 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.6
+                0.0.7
               </div>
             
           
@@ -198,31 +198,42 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.rest.messages.HttpRequest.content">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/messages.html#HttpRequest.content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.messages.HttpRequest.content" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Content'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/messages.html#HttpRequest.content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.messages.HttpRequest.content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the request content.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.types.ModelType</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.abc.Model</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Optional <code class="docutils literal notranslate"><span class="pre">ModelType</span></code> that defines the request content structure.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list of items.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The command content.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.rest.messages.HttpRequest.url_args">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">url_args</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#minos.networks.rest.messages.HttpRequest.url_args" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Get the url arguments as a dictionary in which the keys are the names and teh values are a list the lists of</dt><dd><p>values.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.rest.messages.HttpRequest.path_args">
+<span class="sig-name descname"><span class="pre">path_args</span></span><a class="headerlink" href="#minos.networks.rest.messages.HttpRequest.path_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the path arguments as a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary instance.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.rest.messages.HttpRequest.url_args">
+<span class="sig-name descname"><span class="pre">url_args</span></span><a class="headerlink" href="#minos.networks.rest.messages.HttpRequest.url_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the url arguments as a dictionary.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]]</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dictionary instance.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary instance.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -242,30 +253,61 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.rest.messages.HttpResponse.content">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.messages.HttpResponse.content" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.messages.HttpResponse.content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Response content.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Additional named arguments.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list of items.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of items.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.rest.messages.HttpResponse.raw_content">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">raw_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.messages.HttpResponse.raw_content" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">raw_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.messages.HttpResponse.raw_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raw response content.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Additional named arguments.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list of raw items.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of raw items.</p>
 </dd>
 </dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="minos.networks.rest.messages.HttpResponseException">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.rest.messages.</span></span><span class="sig-name descname"><span class="pre">HttpResponseException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/messages.html#HttpResponseException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.messages.HttpResponseException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.messages.ResponseException</span></code></p>
+<p>Http Response Exception class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.rest.messages.HttpResponseException.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.messages.HttpResponseException.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.rest.messages.HttpResponseException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#minos.networks.rest.messages.HttpResponseException.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.rest.messages.HttpResponseException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.messages.HttpResponseException.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
 </dd></dl>
 
 </dd></dl>

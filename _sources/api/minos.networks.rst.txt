@@ -13,9 +13,9 @@ Subpackages
    :maxdepth: 4
 
    minos.networks.brokers
+   minos.networks.discovery
    minos.networks.handlers
    minos.networks.rest
-   minos.networks.snapshots
 
 Submodules
 ----------
@@ -24,3 +24,4 @@ Submodules
    :maxdepth: 4
 
    minos.networks.exceptions
+   minos.networks.snapshots

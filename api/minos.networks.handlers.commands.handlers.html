@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.commands.handlers module &mdash; Minos Microservice Network 0.0.6 documentation</title>
+  <title>minos.networks.handlers.commands.handlers module &mdash; Minos Microservice Network 0.0.7 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.6
+                0.0.7
               </div>
             
           
@@ -186,9 +186,15 @@
 <span id="minos-networks-handlers-commands-handlers-module"></span><h1>minos.networks.handlers.commands.handlers module<a class="headerlink" href="#module-minos.networks.handlers.commands.handlers" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.commands.handlers.</span></span><span class="sig-name descname"><span class="pre">CommandHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">broker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/commands/handlers.html#CommandHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.commands.handlers.</span></span><span class="sig-name descname"><span class="pre">CommandHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">broker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/commands/handlers.html#CommandHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">minos.common.setup.T</span></code>]</p>
 <p>Command Handler class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.ENTRY_MODEL_CLS">
+<span class="sig-name descname"><span class="pre">ENTRY_MODEL_CLS</span></span><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.ENTRY_MODEL_CLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.declarative.networks.Command</span></code></p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.TABLE_NAME">
 <span class="sig-name descname"><span class="pre">TABLE_NAME</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><em class="property"> <span class="pre">=</span> <span class="pre">'command_queue'</span></em><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.TABLE_NAME" title="Permalink to this definition">¶</a></dt>
@@ -196,14 +202,34 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">broker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/commands/handlers.html#CommandHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">broker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/commands/handlers.html#CommandHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.broker">
-<span class="sig-name descname"><span class="pre">broker</span></span><em class="property"><span class="pre">:</span> <span class="pre">minos.common.networks.MinosBroker</span></em><em class="property"> <span class="pre">=</span> <span class="pre">&lt;dependency_injector.wiring.Provide</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.broker" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">broker</span></span><em class="property"><span class="pre">:</span> <span class="pre">MinosBroker</span></em><em class="property"> <span class="pre">=</span> <span class="pre">&lt;dependency_injector.wiring.Provide</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.broker" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.cursor">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">cursor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a connection cursor from the pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.ContextManager</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">aiopg.connection.Cursor</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">Cursor</span></code> instance wrapped inside a context manager.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.destroy">
@@ -244,11 +270,11 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.dispatch_one">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">dispatch_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.dispatch_one" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">dispatch_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/commands/handlers.html#CommandHandler.dispatch_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.dispatch_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dispatch one row.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>row</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>]) – Row to be dispatched.</p>
+<dd class="field-odd"><p><strong>entry</strong> (<a class="reference internal" href="minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry" title="minos.networks.handlers.entries.HandlerEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.handlers.entries.HandlerEntry</span></code></a>) – Entry to be dispatched.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
@@ -261,13 +287,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.from_config">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*args</span></em>, <em class="sig-param"><span class="pre">config=&lt;dependency_injector.wiring.Provide</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.from_config" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a new instance from config.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>args</strong> – Additional positional arguments.</p></li>
-<li><p><strong>config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
+<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
 <li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
 </ul>
 </dd>
@@ -297,6 +323,23 @@
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.get_callback">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/commands/handlers.html#CommandHandler.get_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.get_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>]]]) – TODO</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">CommandStatus</span></code>]]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>TODO</p>
 </dd>
 </dl>
 </dd></dl>
@@ -331,12 +374,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.submit_query">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">submit_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.submit_query" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">submit_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.submit_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submit a SQL query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>lock</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Optional key to perform the query with locking. If not set, the query is performed without any
+lock.</p></li>
 <li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
 </ul>
 </dd>
