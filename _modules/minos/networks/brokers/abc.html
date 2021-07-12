@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.abc &mdash; Minos Microservice Network 0.0.8 documentation</title>
+  <title>minos.networks.brokers.abc &mdash; Minos Microservice Network 0.0.9 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.8
+                0.0.9
               </div>
             
           
@@ -173,7 +173,6 @@
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">NoReturn</span><span class="p">,</span>
-    <span class="n">Optional</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">psycopg2.sql</span> <span class="kn">import</span> <span class="p">(</span>
@@ -200,10 +199,6 @@
     <span class="sd">&quot;&quot;&quot;Minos Broker Class.&quot;&quot;&quot;</span>
 
     <span class="n">ACTION</span><span class="p">:</span> <span class="nb">str</span>
-
-<div class="viewcode-block" id="Broker.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="n">topic</span></div>
 
 <div class="viewcode-block" id="Broker.send_bytes"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.send_bytes">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">send_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">raw</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Send a sequence of bytes to the given topic.</span>
