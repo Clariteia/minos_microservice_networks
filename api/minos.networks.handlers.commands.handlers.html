@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.commands.handlers module &mdash; Minos Microservice Network 0.0.7 documentation</title>
+  <title>minos.networks.handlers.commands.handlers module &mdash; Minos Microservice Network 0.0.8 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.7
+                0.0.8
               </div>
             
           
@@ -330,16 +330,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.commands.handlers.CommandHandler.get_callback">
 <em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/commands/handlers.html#CommandHandler.get_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.commands.handlers.CommandHandler.get_callback" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO</p>
+<dd><p>Get the handler function to be used by the Command Handler.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>]]]) – TODO</p>
+<dd class="field-odd"><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<a class="reference internal" href="minos.networks.handlers.commands.messages.html#minos.networks.handlers.commands.messages.CommandRequest" title="minos.networks.handlers.commands.messages.CommandRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandRequest</span></code></a>]]]) – The action function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">CommandStatus</span></code>]]]</p>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>TODO</p>
+<dd class="field-odd"><p>A wrapper function around the given one that is compatible with the Command Handler API.</p>
 </dd>
 </dl>
 </dd></dl>

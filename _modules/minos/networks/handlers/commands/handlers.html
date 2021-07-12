@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.commands.handlers &mdash; Minos Microservice Network 0.0.7 documentation</title>
+  <title>minos.networks.handlers.commands.handlers &mdash; Minos Microservice Network 0.0.8 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.7
+                0.0.8
               </div>
             
           
@@ -248,10 +248,10 @@
     <span class="k">def</span> <span class="nf">get_callback</span><span class="p">(</span>
         <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">CommandRequest</span><span class="p">],</span> <span class="n">Union</span><span class="p">[</span><span class="n">CommandRequest</span><span class="p">,</span> <span class="n">Awaitable</span><span class="p">[</span><span class="n">CommandRequest</span><span class="p">]]]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Command</span><span class="p">],</span> <span class="n">Awaitable</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Model</span><span class="p">],</span> <span class="n">CommandStatus</span><span class="p">]]]:</span>
-        <span class="sd">&quot;&quot;&quot;TODO</span>
+        <span class="sd">&quot;&quot;&quot;Get the handler function to be used by the Command Handler.</span>
 
-<span class="sd">        :param fn: TODO</span>
-<span class="sd">        :return: TODO</span>
+<span class="sd">        :param fn: The action function.</span>
+<span class="sd">        :return: A wrapper function around the given one that is compatible with the Command Handler API.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">async</span> <span class="k">def</span> <span class="nf">_fn</span><span class="p">(</span><span class="n">command</span><span class="p">:</span> <span class="n">Command</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Model</span><span class="p">],</span> <span class="n">CommandStatus</span><span class="p">]:</span>
