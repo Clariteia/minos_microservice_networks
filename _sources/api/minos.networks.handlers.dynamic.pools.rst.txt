@@ -1,0 +1,7 @@
+minos.networks.handlers.dynamic.pools module
+============================================
+
+.. automodule:: minos.networks.handlers.dynamic.pools
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,7 +1,0 @@
-minos.networks.handlers.commands.messages module
-================================================
-
-.. automodule:: minos.networks.handlers.commands.messages
-   :members:
-   :undoc-members:
-   :show-inheritance:

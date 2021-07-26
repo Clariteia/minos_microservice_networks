@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.events.handlers module &mdash; Minos Microservice Network 0.0.9 documentation</title>
+  <title>minos.networks.handlers.events.handlers module &mdash; Minos Microservice Network 0.0.10 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.9
+                0.0.10
               </div>
             
           
@@ -316,7 +316,38 @@
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code></p>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.handlers.EventHandler.get_callback">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/events/handlers.html#EventHandler.get_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.events.handlers.EventHandler.get_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the handler function to be used by the Event Handler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<a class="reference internal" href="minos.networks.handlers.messages.html#minos.networks.handlers.messages.HandlerRequest" title="minos.networks.handlers.messages.HandlerRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerRequest</span></code></a>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">NoReturn</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">NoReturn</span></code>]]]) – The action function.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">NoReturn</span></code>]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A wrapper function around the given one that is compatible with the Event Handler API.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.handlers.events.handlers.EventHandler.handlers">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#minos.networks.handlers.events.handlers.EventHandler.handlers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handlers getter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>]]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary in which the keys are topics and the values are the handler.</p>
 </dd>
 </dl>
 </dd></dl>

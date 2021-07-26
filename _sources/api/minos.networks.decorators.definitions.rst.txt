@@ -1,0 +1,18 @@
+minos.networks.decorators.definitions package
+=============================================
+
+.. automodule:: minos.networks.decorators.definitions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.decorators.definitions.abc
+   minos.networks.decorators.definitions.broker
+   minos.networks.decorators.definitions.kinds
+   minos.networks.decorators.definitions.rest

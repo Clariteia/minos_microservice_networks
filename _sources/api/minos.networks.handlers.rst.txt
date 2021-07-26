@@ -15,6 +15,7 @@ Subpackages
    minos.networks.handlers.abc
    minos.networks.handlers.command_replies
    minos.networks.handlers.commands
+   minos.networks.handlers.dynamic
    minos.networks.handlers.events
 
 Submodules
@@ -24,3 +25,4 @@ Submodules
    :maxdepth: 4
 
    minos.networks.handlers.entries
+   minos.networks.handlers.messages
