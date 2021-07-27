@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.producers &mdash; Minos Microservice Network 0.0.10 documentation</title>
+  <title>minos.networks.brokers.producers &mdash; Minos Microservice Network 0.0.11 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.10
+                0.0.11
               </div>
             
           
@@ -185,8 +185,6 @@
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">minos.common</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">BROKER</span><span class="p">,</span>
-    <span class="n">QUEUE</span><span class="p">,</span>
     <span class="n">MinosConfig</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -201,16 +199,23 @@
     <span class="sd">&quot;&quot;&quot;Minos Queue Dispatcher Class.&quot;&quot;&quot;</span>
 
     <span class="c1"># noinspection PyUnresolvedReferences</span>
-<div class="viewcode-block" id="Producer.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">queue</span><span class="p">:</span> <span class="n">QUEUE</span><span class="p">,</span> <span class="n">broker</span><span class="p">:</span> <span class="n">BROKER</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Producer.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">broker_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">retry</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">records</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># noinspection PyProtectedMember</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">queue</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">retry</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">retry</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">records</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">records</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="n">broker</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broker_host</span> <span class="o">=</span> <span class="n">broker_host</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broker_port</span> <span class="o">=</span> <span class="n">broker_port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retry</span> <span class="o">=</span> <span class="n">retry</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">records</span> <span class="o">=</span> <span class="n">records</span></div>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Producer</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="n">broker_host</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">host</span><span class="p">,</span>
+            <span class="n">broker_port</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
 
 <div class="viewcode-block" id="Producer.dispatch"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.dispatch">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Dispatch the items in the publishing queue.</span>
@@ -251,7 +256,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Producing message with </span><span class="si">{</span><span class="n">topic</span><span class="si">!s}</span><span class="s2"> topic...&quot;</span><span class="p">)</span>
 
-        <span class="n">producer</span> <span class="o">=</span> <span class="n">AIOKafkaProducer</span><span class="p">(</span><span class="n">bootstrap_servers</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">producer</span> <span class="o">=</span> <span class="n">AIOKafkaProducer</span><span class="p">(</span><span class="n">bootstrap_servers</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="c1"># noinspection PyBroadException</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># Get cluster layout and initial topic/partition leadership information</span>

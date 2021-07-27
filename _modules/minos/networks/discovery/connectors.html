@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.0.10 documentation</title>
+  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.0.11 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.10
+                0.0.11
               </div>
             
           
@@ -208,7 +208,7 @@
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DiscoveryConnector</span><span class="p">:</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">MinosDiscoveryClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
-        <span class="n">port</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">port</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">port</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">name</span>
         <span class="n">host</span> <span class="o">=</span> <span class="n">get_host_ip</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

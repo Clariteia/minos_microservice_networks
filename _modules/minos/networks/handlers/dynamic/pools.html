@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.dynamic.pools &mdash; Minos Microservice Network 0.0.10 documentation</title>
+  <title>minos.networks.handlers.dynamic.pools &mdash; Minos Microservice Network 0.0.11 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.10
+                0.0.11
               </div>
             
           
@@ -206,7 +206,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplyHandlerPool</span><span class="p">:</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">KafkaAdminClient</span><span class="p">(</span><span class="n">bootstrap_servers</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">KafkaAdminClient</span><span class="p">(</span><span class="n">bootstrap_servers</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_create_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DynamicReplyHandler</span><span class="p">:</span>
@@ -219,10 +219,6 @@
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_destroy_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">DynamicReplyHandler</span><span class="p">):</span>
         <span class="k">await</span> <span class="n">instance</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete_reply_topic</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">topic</span><span class="p">)</span>
-
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_check_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">DynamicReplyHandler</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="c1"># FIXME</span>
-        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_create_reply_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">Reply&quot;</span>
