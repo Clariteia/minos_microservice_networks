@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.discovery.clients module &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.discovery.clients module &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -182,9 +182,7 @@
             
   <div class="section" id="module-minos.networks.discovery.clients">
 <span id="minos-networks-discovery-clients-module"></span><h1>minos.networks.discovery.clients module<a class="headerlink" href="#module-minos.networks.discovery.clients" title="Permalink to this headline">¶</a></h1>
-<p>Copyright (C) 2021 Clariteia SL</p>
-<p>This file is part of minos framework.</p>
-<p>Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</p>
+<p>minos.networks.discovery.clients module.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.discovery.clients.MinosDiscoveryClient">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.discovery.clients.</span></span><span class="sig-name descname"><span class="pre">MinosDiscoveryClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/clients.html#MinosDiscoveryClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient" title="Permalink to this definition">¶</a></dt>
@@ -211,7 +209,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.discovery.clients.MinosDiscoveryClient.subscribe">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/clients.html#MinosDiscoveryClient.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient.subscribe" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/clients.html#MinosDiscoveryClient.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient.subscribe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform a subscription query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -219,6 +217,7 @@
 <li><p><strong>host</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The ip of the microservice to be subscribed.</p></li>
 <li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The port of the microservice to be subscribed.</p></li>
 <li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the microservice to be subscribed.</p></li>
+<li><p><strong>endpoints</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – List of endpoints exposed by the microservice.</p></li>
 <li><p><strong>retry_tries</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of attempts before raising a failure exception.</p></li>
 <li><p><strong>retry_delay</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Seconds to wait between attempts.</p></li>
 </ul>

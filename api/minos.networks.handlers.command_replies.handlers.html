@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.command_replies.handlers module &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.handlers.command_replies.handlers module &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -184,10 +184,11 @@
             
   <div class="section" id="module-minos.networks.handlers.command_replies.handlers">
 <span id="minos-networks-handlers-command-replies-handlers-module"></span><h1>minos.networks.handlers.command_replies.handlers module<a class="headerlink" href="#module-minos.networks.handlers.command_replies.handlers" title="Permalink to this headline">¶</a></h1>
+<p>minos.networks.handlers.command_replies.handlers module.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.command_replies.handlers.</span></span><span class="sig-name descname"><span class="pre">CommandReplyHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">saga_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/command_replies/handlers.html#CommandReplyHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">minos.common.setup.T</span></code>]</p>
+<dd><p>Bases: <a class="reference internal" href="minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler" title="minos.networks.handlers.abc.handlers.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.handlers.abc.handlers.Handler</span></code></a></p>
 <p>Command Reply Handler class.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler.ENTRY_MODEL_CLS">
@@ -296,7 +297,7 @@
 <dd><p>Dispatch one row.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry</strong> (<a class="reference internal" href="minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry" title="minos.networks.handlers.entries.HandlerEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.handlers.entries.HandlerEntry</span></code></a>) – Entry to be dispatched.</p>
+<dd class="field-odd"><p><strong>entry</strong> (<a class="reference internal" href="minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry" title="minos.networks.handlers.entries.HandlerEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.handlers.entries.HandlerEntry</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.declarative.networks.CommandReply</span></code>]) – Entry to be dispatched.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
@@ -309,13 +310,12 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler.from_config">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.from_config" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a new instance from config.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> – Additional positional arguments.</p></li>
-<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
+<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
 <li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
 </ul>
 </dd>
@@ -398,12 +398,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler.submit_query">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">submit_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.submit_query" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">submit_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.submit_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submit a SQL query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>operation</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>) – Query to be executed.</p></li>
+<li><p><strong>parameters</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – Parameters to be projected into the query.</p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – An optional timeout.</p></li>
 <li><p><strong>lock</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Optional key to perform the query with locking. If not set, the query is performed without any
 lock.</p></li>
 <li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
@@ -440,12 +442,14 @@ lock.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler.submit_query_and_iter">
-<span class="sig-name descname"><span class="pre">submit_query_and_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">streaming_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.submit_query_and_iter" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">submit_query_and_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">streaming_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.submit_query_and_iter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submit a SQL query and return an asynchronous iterator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>operation</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>) – Query to be executed.</p></li>
+<li><p><strong>parameters</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – Parameters to be projected into the query.</p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – An optional timeout.</p></li>
 <li><p><strong>lock</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Optional key to perform the query with locking. If not set, the query is performed without any
 lock.</p></li>
 <li><p><strong>streaming_mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the data fetching is performed in streaming mode, that is iterating over the

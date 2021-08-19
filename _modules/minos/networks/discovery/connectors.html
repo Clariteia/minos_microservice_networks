@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -161,20 +161,21 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.discovery.connectors</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Copyright (C) 2021 Clariteia SL</span>
-
-<span class="sd">This file is part of minos framework.</span>
-
-<span class="sd">Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;minos.networks.discovery.connectors module.&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">chain</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">itemgetter</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Any</span><span class="p">,</span>
     <span class="n">NoReturn</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -183,6 +184,9 @@
     <span class="n">MinosSetup</span><span class="p">,</span>
 <span class="p">)</span>
 
+<span class="kn">from</span> <span class="nn">..decorators</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">EnrouteAnalyzer</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">get_host_ip</span><span class="p">,</span>
 <span class="p">)</span>
@@ -196,14 +200,15 @@
 <div class="viewcode-block" id="DiscoveryConnector"><a class="viewcode-back" href="../../../../api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector">[docs]</a><span class="k">class</span> <span class="nc">DiscoveryConnector</span><span class="p">(</span><span class="n">MinosSetup</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Discovery Connector class.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="DiscoveryConnector.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="DiscoveryConnector.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">endpoints</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="n">endpoints</span></div>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DiscoveryConnector</span><span class="p">:</span>
@@ -211,7 +216,20 @@
         <span class="n">port</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">port</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">name</span>
         <span class="n">host</span> <span class="o">=</span> <span class="n">get_host_ip</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">endpoints</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_endpoints_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">endpoints</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_endpoints_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="n">command_decorators</span> <span class="o">=</span> <span class="n">EnrouteAnalyzer</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">service</span><span class="p">)</span><span class="o">.</span><span class="n">get_rest_command_query</span><span class="p">()</span>
+        <span class="n">query_decorators</span> <span class="o">=</span> <span class="n">EnrouteAnalyzer</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">queries</span><span class="o">.</span><span class="n">service</span><span class="p">)</span><span class="o">.</span><span class="n">get_rest_command_query</span><span class="p">()</span>
+
+        <span class="n">endpoints</span> <span class="o">=</span> <span class="n">chain</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">command_decorators</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">query_decorators</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="n">endpoints</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">endpoints</span><span class="p">)</span>
+        <span class="n">endpoints</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">decorator</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="n">decorator</span><span class="o">.</span><span class="n">method</span><span class="p">}</span> <span class="k">for</span> <span class="n">decorator</span> <span class="ow">in</span> <span class="n">endpoints</span><span class="p">]</span>
+        <span class="n">endpoints</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">endpoints</span>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscribe</span><span class="p">()</span>
@@ -222,7 +240,7 @@
 <span class="sd">        :return: This method does not return anything.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Performing discovery subscription...&quot;</span><span class="p">)</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">)</span></div>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">()</span>

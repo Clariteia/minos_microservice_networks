@@ -12,6 +12,6 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   minos.networks.rest.builders
+   minos.networks.rest.handlers
    minos.networks.rest.messages
    minos.networks.rest.services

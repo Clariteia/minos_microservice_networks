@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>Index &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -269,6 +269,8 @@
 </li>
         <li><a href="api/minos.networks.handlers.dynamic.pools.html#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.__init__">(minos.networks.handlers.dynamic.pools.ReplyHandlerPool method)</a>
 </li>
+        <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.__init__">(minos.networks.handlers.entries.HandlerEntry method)</a>
+</li>
         <li><a href="api/minos.networks.handlers.events.consumers.html#minos.networks.handlers.events.consumers.EventConsumer.__init__">(minos.networks.handlers.events.consumers.EventConsumer method)</a>
 </li>
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.__init__">(minos.networks.handlers.events.handlers.EventHandler method)</a>
@@ -289,7 +291,7 @@
 </li>
         <li><a href="api/minos.networks.messages.html#minos.networks.messages.WrappedRequest.__init__">(minos.networks.messages.WrappedRequest method)</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.__init__">(minos.networks.rest.builders.RestBuilder method)</a>
+        <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.__init__">(minos.networks.rest.handlers.RestHandler method)</a>
 </li>
         <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.__init__">(minos.networks.rest.messages.RestRequest method)</a>
 </li>
@@ -359,7 +361,7 @@
 </li>
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.already_destroyed">(minos.networks.handlers.events.handlers.EventHandler property)</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.already_destroyed">(minos.networks.rest.builders.RestBuilder property)</a>
+        <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.already_destroyed">(minos.networks.rest.handlers.RestHandler property)</a>
 </li>
       </ul></li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.already_setup">already_setup (minos.networks.brokers.abc.Broker property)</a>
@@ -401,7 +403,7 @@
 </li>
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.already_setup">(minos.networks.handlers.events.handlers.EventHandler property)</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.already_setup">(minos.networks.rest.builders.RestBuilder property)</a>
+        <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.already_setup">(minos.networks.rest.handlers.RestHandler property)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -469,8 +471,6 @@
       <li><a href="api/minos.networks.decorators.definitions.broker.html#minos.networks.decorators.definitions.broker.BrokerQueryEnrouteDecorator">BrokerQueryEnrouteDecorator (class in minos.networks.decorators.definitions.broker)</a>
 </li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.BrokerSetup">BrokerSetup (class in minos.networks.brokers.abc)</a>
-</li>
-      <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.builder">builder (minos.networks.rest.services.RestService attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -562,13 +562,9 @@
         <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.context">(minos.networks.snapshots.SnapshotService property)</a>
 </li>
       </ul></li>
-      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.count">count() (minos.networks.handlers.entries.HandlerEntry method)</a>
-</li>
       <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.create_application">create_application() (minos.networks.rest.services.RestService method)</a>
 </li>
       <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.create_site">create_site() (minos.networks.rest.services.RestService method)</a>
-</li>
-      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.created_at">created_at (minos.networks.handlers.entries.HandlerEntry attribute)</a>
 </li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.cursor">cursor() (minos.networks.brokers.abc.Broker method)</a>
 
@@ -661,7 +657,7 @@
 </li>
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.destroy">(minos.networks.handlers.events.handlers.EventHandler method)</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.destroy">(minos.networks.rest.builders.RestBuilder method)</a>
+        <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.destroy">(minos.networks.rest.handlers.RestHandler method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -726,7 +722,7 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.endpoints">endpoints (minos.networks.rest.builders.RestBuilder property)</a>
+      <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.endpoints">endpoints (minos.networks.rest.handlers.RestHandler property)</a>
 </li>
       <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.Enroute">Enroute (class in minos.networks.decorators.api)</a>
 </li>
@@ -811,7 +807,7 @@
 </li>
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.from_config">(minos.networks.handlers.events.handlers.EventHandler class method)</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.from_config">(minos.networks.rest.builders.RestBuilder class method)</a>
+        <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.from_config">(minos.networks.rest.handlers.RestHandler class method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -832,7 +828,7 @@
       </ul></li>
       <li><a href="api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer.get_all">get_all() (minos.networks.decorators.analyzers.EnrouteAnalyzer method)</a>
 </li>
-      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.get_app">get_app() (minos.networks.rest.builders.RestBuilder method)</a>
+      <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.get_app">get_app() (minos.networks.rest.handlers.RestHandler method)</a>
 </li>
       <li><a href="api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer.get_broker_command_query">get_broker_command_query() (minos.networks.decorators.analyzers.EnrouteAnalyzer method)</a>
 
@@ -851,7 +847,7 @@
       <ul>
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.get_callback">(minos.networks.handlers.events.handlers.EventHandler static method)</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.get_callback">(minos.networks.rest.builders.RestBuilder static method)</a>
+        <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.get_callback">(minos.networks.rest.handlers.RestHandler static method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -930,7 +926,7 @@
       </ul></li>
       <li><a href="api/minos.networks.handlers.abc.setups.html#minos.networks.handlers.abc.setups.HandlerSetup">HandlerSetup (class in minos.networks.handlers.abc.setups)</a>
 </li>
-      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.host">host (minos.networks.rest.builders.RestBuilder property)</a>
+      <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.host">host (minos.networks.rest.handlers.RestHandler property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -938,10 +934,6 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.id">id (minos.networks.handlers.entries.HandlerEntry attribute)</a>
-</li>
-      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.index">index() (minos.networks.handlers.entries.HandlerEntry method)</a>
-</li>
       <li><a href="api/minos.networks.brokers.services.html#minos.networks.brokers.services.ProducerService.interval">interval (minos.networks.brokers.services.ProducerService attribute)</a>
 
       <ul>
@@ -1302,10 +1294,10 @@
 </li>
       </ul></li>
       <li>
-    minos.networks.rest.builders
+    minos.networks.rest.handlers
 
       <ul>
-        <li><a href="api/minos.networks.rest.builders.html#module-minos.networks.rest.builders">module</a>
+        <li><a href="api/minos.networks.rest.handlers.html#module-minos.networks.rest.handlers">module</a>
 </li>
       </ul></li>
       <li>
@@ -1448,7 +1440,7 @@
 </li>
         <li><a href="api/minos.networks.rest.html#module-minos.networks.rest">minos.networks.rest</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#module-minos.networks.rest.builders">minos.networks.rest.builders</a>
+        <li><a href="api/minos.networks.rest.handlers.html#module-minos.networks.rest.handlers">minos.networks.rest.handlers</a>
 </li>
         <li><a href="api/minos.networks.rest.messages.html#module-minos.networks.rest.messages">minos.networks.rest.messages</a>
 </li>
@@ -1465,8 +1457,6 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.partition_id">partition_id (minos.networks.handlers.entries.HandlerEntry attribute)</a>
-</li>
       <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.path_args">path_args (minos.networks.rest.messages.RestRequest attribute)</a>
 </li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.pool">pool (minos.networks.brokers.abc.Broker property)</a>
@@ -1503,7 +1493,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.port">port (minos.networks.rest.builders.RestBuilder property)</a>
+      <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.port">port (minos.networks.rest.handlers.RestHandler property)</a>
 </li>
       <li><a href="api/minos.networks.decorators.definitions.abc.html#minos.networks.decorators.definitions.abc.EnrouteDecorator.pre_fn_name">pre_fn_name (minos.networks.decorators.definitions.abc.EnrouteDecorator property)</a>
 
@@ -1583,8 +1573,6 @@
 </li>
       <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.Enroute.rest">rest (minos.networks.decorators.api.Enroute attribute)</a>
 </li>
-      <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder">RestBuilder (class in minos.networks.rest.builders)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator">RestCommandEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
@@ -1592,6 +1580,8 @@
       <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.RestEnroute">RestEnroute (class in minos.networks.decorators.api)</a>
 </li>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestEnrouteDecorator">RestEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
+</li>
+      <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler">RestHandler (class in minos.networks.rest.handlers)</a>
 </li>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestQueryEnrouteDecorator">RestQueryEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
 </li>
@@ -1602,8 +1592,6 @@
       <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestResponseException">RestResponseException</a>
 </li>
       <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService">RestService (class in minos.networks.rest.services)</a>
-</li>
-      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.retry">retry (minos.networks.handlers.entries.HandlerEntry attribute)</a>
 </li>
       <li><a href="api/minos.networks.discovery.clients.html#minos.networks.discovery.clients.MinosDiscoveryClient.route">route (minos.networks.discovery.clients.MinosDiscoveryClient property)</a>
 </li>
@@ -1694,7 +1682,7 @@
 </li>
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.setup">(minos.networks.handlers.events.handlers.EventHandler method)</a>
 </li>
-        <li><a href="api/minos.networks.rest.builders.html#minos.networks.rest.builders.RestBuilder.setup">(minos.networks.rest.builders.RestBuilder method)</a>
+        <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.setup">(minos.networks.rest.handlers.RestHandler method)</a>
 </li>
       </ul></li>
       <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService">SnapshotService (class in minos.networks.snapshots)</a>
@@ -1863,6 +1851,8 @@
         <li><a href="api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.subscribe">(minos.networks.discovery.connectors.DiscoveryConnector method)</a>
 </li>
       </ul></li>
+      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.success">success (minos.networks.handlers.entries.HandlerEntry property)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1891,8 +1881,6 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.topic">topic (minos.networks.handlers.entries.HandlerEntry attribute)</a>
-</li>
       <li><a href="api/minos.networks.handlers.abc.consumers.html#minos.networks.handlers.abc.consumers.Consumer.topics">topics (minos.networks.handlers.abc.consumers.Consumer property)</a>
 
       <ul>

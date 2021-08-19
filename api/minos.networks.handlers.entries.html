@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.entries module &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.handlers.entries module &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -187,61 +187,48 @@
 <p>Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.entries.</span></span><span class="sig-name descname"><span class="pre">HandlerEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partition_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.entries.</span></span><span class="sig-name descname"><span class="pre">HandlerEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">id</span></em>, <em class="sig-param"><span class="pre">topic</span></em>, <em class="sig-param"><span class="pre">partition_id</span></em>, <em class="sig-param"><span class="pre">data_bytes</span></em>, <em class="sig-param"><span class="pre">retry=0</span></em>, <em class="sig-param"><span class="pre">created_at=None</span></em>, <em class="sig-param"><span class="pre">data_cls=&lt;class</span> <span class="pre">'minos.common.model.abc.Model'&gt;</span></em>, <em class="sig-param"><span class="pre">callback_lookup=None</span></em>, <em class="sig-param"><span class="pre">exception=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/entries.html#HandlerEntry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">minos.networks.handlers.entries.T</span></code>]</p>
+<p>Handler Entry class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">id</span></em>, <em class="sig-param"><span class="pre">topic</span></em>, <em class="sig-param"><span class="pre">partition_id</span></em>, <em class="sig-param"><span class="pre">data_bytes</span></em>, <em class="sig-param"><span class="pre">retry=0</span></em>, <em class="sig-param"><span class="pre">created_at=None</span></em>, <em class="sig-param"><span class="pre">data_cls=&lt;class</span> <span class="pre">'minos.common.model.abc.Model'&gt;</span></em>, <em class="sig-param"><span class="pre">callback_lookup=None</span></em>, <em class="sig-param"><span class="pre">exception=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/entries.html#HandlerEntry.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.callback">
 <span class="sig-name descname"><span class="pre">callback</span></span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.callback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 2</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.count">
-<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return number of occurrences of value.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.created_at">
-<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.created_at" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 6</p>
+<dd><p>Get the callback if lookup is provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Callable object or None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.data">
 <span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 4</p>
+<dd><p>Get the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">Model</span></code> inherited instance.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.id">
-<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.index">
-<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9223372036854775807</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return first index of value.</p>
-<p>Raises ValueError if the value is not present.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.partition_id">
-<span class="sig-name descname"><span class="pre">partition_id</span></span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.partition_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 3</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.retry">
-<span class="sig-name descname"><span class="pre">retry</span></span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.retry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 5</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.topic">
-<span class="sig-name descname"><span class="pre">topic</span></span><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.topic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 1</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.handlers.entries.HandlerEntry.success">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">success</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.handlers.entries.HandlerEntry.success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the entry is in success state or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A boolean value.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

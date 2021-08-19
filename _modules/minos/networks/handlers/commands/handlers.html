@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.commands.handlers &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.handlers.commands.handlers &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -245,16 +245,16 @@
 
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">handlers</span><span class="o">=</span><span class="n">handlers</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<div class="viewcode-block" id="CommandHandler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.commands.handlers.html#minos.networks.handlers.commands.handlers.CommandHandler.dispatch_one">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+<div class="viewcode-block" id="CommandHandler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.commands.handlers.html#minos.networks.handlers.commands.handlers.CommandHandler.dispatch_one">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">[</span><span class="n">Command</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Dispatch one row.</span>
 
 <span class="sd">        :param entry: Entry to be dispatched.</span>
 <span class="sd">        :return: This method does not return anything.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">command</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">data</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dispatching &#39;</span><span class="si">{</span><span class="n">command</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dispatching &#39;</span><span class="si">{</span><span class="n">entry</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
 
         <span class="n">fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">callback</span><span class="p">)</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">data</span>
         <span class="n">items</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fn</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">reply_topic</span><span class="p">,</span> <span class="n">saga</span><span class="o">=</span><span class="n">command</span><span class="o">.</span><span class="n">saga</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span></div>

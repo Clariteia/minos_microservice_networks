@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.rest.builders module &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.rest.handlers module &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -161,13 +161,13 @@
         
           <li><a href="minos.networks.rest.html">minos.networks.rest package</a> &raquo;</li>
         
-      <li>minos.networks.rest.builders module</li>
+      <li>minos.networks.rest.handlers module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/minos.networks.rest.builders.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/minos.networks.rest.handlers.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,22 +180,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-minos.networks.rest.builders">
-<span id="minos-networks-rest-builders-module"></span><h1>minos.networks.rest.builders module<a class="headerlink" href="#module-minos.networks.rest.builders" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-minos.networks.rest.handlers">
+<span id="minos-networks-rest-handlers-module"></span><h1>minos.networks.rest.handlers module<a class="headerlink" href="#module-minos.networks.rest.handlers" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.rest.builders.</span></span><span class="sig-name descname"><span class="pre">RestBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/builders.html#RestBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">minos.common.setup.T</span></code>]</p>
-<p>Rest Interface Handler</p>
-<p>Rest Interface for aiohttp web handling.</p>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.rest.handlers.</span></span><span class="sig-name descname"><span class="pre">RestHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/handlers.html#RestHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.setup.MinosSetup</span></code></p>
+<p>Rest Handler class.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/builders.html#RestBuilder.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/handlers.html#RestHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.already_destroyed">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_destroyed</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.already_destroyed" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.already_destroyed">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_destroyed</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.already_destroyed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Already Destroy getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -208,8 +207,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.already_setup">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_setup</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.already_setup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.already_setup">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_setup</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.already_setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Already Setup getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -222,8 +221,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.destroy">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.destroy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.destroy">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroy miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -236,8 +235,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.endpoints">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">endpoints</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.endpoints" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.endpoints">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">endpoints</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.endpoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Endpoints getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -250,14 +249,13 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.from_config">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.from_config" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.from_config">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a new instance from config.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> – Additional positional arguments.</p></li>
-<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
+<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
 <li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
 </ul>
 </dd>
@@ -271,8 +269,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.get_app">
-<span class="sig-name descname"><span class="pre">get_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/builders.html#RestBuilder.get_app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.get_app" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.get_app">
+<span class="sig-name descname"><span class="pre">get_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/handlers.html#RestHandler.get_app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.get_app" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return rest application instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -285,8 +283,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.get_callback">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/builders.html#RestBuilder.get_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.get_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.get_callback">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/rest/handlers.html#RestHandler.get_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.get_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the handler function to be used by the <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code> Controller.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -302,8 +300,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.host">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.host" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.host">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.host" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the rest host.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -316,8 +314,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.port">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.port" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.port">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.port" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the rest port.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -330,8 +328,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.rest.builders.RestBuilder.setup">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.builders.RestBuilder.setup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.rest.handlers.RestHandler.setup">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.rest.handlers.RestHandler.setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>

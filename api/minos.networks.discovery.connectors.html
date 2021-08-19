@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.discovery.connectors module &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.discovery.connectors module &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -182,17 +182,15 @@
             
   <div class="section" id="module-minos.networks.discovery.connectors">
 <span id="minos-networks-discovery-connectors-module"></span><h1>minos.networks.discovery.connectors module<a class="headerlink" href="#module-minos.networks.discovery.connectors" title="Permalink to this headline">¶</a></h1>
-<p>Copyright (C) 2021 Clariteia SL</p>
-<p>This file is part of minos framework.</p>
-<p>Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</p>
+<p>minos.networks.discovery.connectors module.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.discovery.connectors.DiscoveryConnector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.discovery.connectors.</span></span><span class="sig-name descname"><span class="pre">DiscoveryConnector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/connectors.html#DiscoveryConnector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.connectors.DiscoveryConnector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">minos.common.setup.T</span></code>]</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.discovery.connectors.</span></span><span class="sig-name descname"><span class="pre">DiscoveryConnector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/connectors.html#DiscoveryConnector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.connectors.DiscoveryConnector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.setup.MinosSetup</span></code></p>
 <p>Discovery Connector class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.discovery.connectors.DiscoveryConnector.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/connectors.html#DiscoveryConnector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.connectors.DiscoveryConnector.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/connectors.html#DiscoveryConnector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.connectors.DiscoveryConnector.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -239,13 +237,12 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.discovery.connectors.DiscoveryConnector.from_config">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.discovery.connectors.DiscoveryConnector.from_config" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.discovery.connectors.DiscoveryConnector.from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a new instance from config.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> – Additional positional arguments.</p></li>
-<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
+<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
 <li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
 </ul>
 </dd>

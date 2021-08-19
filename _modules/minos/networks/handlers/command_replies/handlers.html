@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.command_replies.handlers &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.handlers.command_replies.handlers &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -161,12 +161,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.handlers.command_replies.handlers</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (C) 2020 Clariteia SL</span>
-<span class="c1">#</span>
-<span class="c1"># This file is part of minos framework.</span>
-<span class="c1">#</span>
-<span class="c1"># Minos framework can not be copied and/or distributed without the express</span>
-<span class="c1"># permission of Clariteia SL.</span>
+<span></span><span class="sd">&quot;&quot;&quot;minos.networks.handlers.command_replies.handlers module.&quot;&quot;&quot;</span>
+
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
@@ -217,14 +213,14 @@
         <span class="n">handlers</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">QueryReply&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">handlers</span><span class="o">=</span><span class="n">handlers</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<div class="viewcode-block" id="CommandReplyHandler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.dispatch_one">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+<div class="viewcode-block" id="CommandReplyHandler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.dispatch_one">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">[</span><span class="n">CommandReply</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Dispatch one row.</span>
 
 <span class="sd">        :param entry: Entry to be dispatched.</span>
 <span class="sd">        :return: This method does not return anything.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dispatching &#39;</span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">saga_manager</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">reply</span><span class="o">=</span><span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dispatching &#39;</span><span class="si">{</span><span class="n">entry</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">saga_manager</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">reply</span><span class="o">=</span><span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">pause_on_disk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">raise_on_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">return_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

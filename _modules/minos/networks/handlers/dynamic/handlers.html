@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.dynamic.handlers &mdash; Minos Microservice Network 0.0.12 documentation</title>
+  <title>minos.networks.handlers.dynamic.handlers &mdash; Minos Microservice Network 0.0.13 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.12
+                0.0.13
               </div>
             
           
@@ -195,7 +195,6 @@
     <span class="n">BROKER</span><span class="p">,</span>
     <span class="n">MinosConfig</span><span class="p">,</span>
     <span class="n">MinosHandler</span><span class="p">,</span>
-    <span class="n">Model</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">...exceptions</span> <span class="kn">import</span> <span class="p">(</span>
@@ -257,10 +256,6 @@
 <span class="sd">        :return: A list of ``HandlerEntry`` instances.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">async</span> <span class="k">def</span> <span class="nf">_fn</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HandlerEntry</span><span class="p">:</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_tuple</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_entry</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-
         <span class="k">try</span><span class="p">:</span>
             <span class="n">raw</span> <span class="o">=</span> <span class="k">await</span> <span class="n">wait_for</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_many</span><span class="p">(</span><span class="n">topics</span><span class="p">,</span> <span class="n">count</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
@@ -268,9 +263,13 @@
                 <span class="sa">f</span><span class="s2">&quot;Timeout exceeded while trying to fetch </span><span class="si">{</span><span class="n">count</span><span class="si">!r}</span><span class="s2"> entries from </span><span class="si">{</span><span class="n">topics</span><span class="si">!r}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
 
-        <span class="n">entries</span> <span class="o">=</span> <span class="p">[</span><span class="k">await</span> <span class="n">_fn</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">raw</span><span class="p">]</span>
+        <span class="k">def</span> <span class="nf">_fn</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HandlerEntry</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_tuple</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">HandlerEntry</span><span class="p">(</span><span class="o">*</span><span class="n">message</span><span class="p">)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Obtained </span><span class="si">{</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">]</span><span class="si">}</span><span class="s2"> entries...&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">[</span><span class="n">_fn</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">raw</span><span class="p">]</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Obtained </span><span class="si">{</span><span class="n">entries</span><span class="si">!r}</span><span class="s2"> entries...&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">entries</span></div>
 
@@ -292,22 +291,7 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_build_tuple</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">datetime</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_build_entry</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">datetime</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">HandlerEntry</span><span class="p">:</span>
-        <span class="c1"># TODO: Refactor this method.</span>
-
-        <span class="nb">id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">topic</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">callback</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">partition_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">from_avro_bytes</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-        <span class="n">retry</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-        <span class="n">created_at</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-
-        <span class="n">entry</span> <span class="o">=</span> <span class="n">HandlerEntry</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">partition_id</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">created_at</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">entry</span></div>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="DynamicReplyHandler"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.dynamic.handlers.html#minos.networks.handlers.dynamic.handlers.DynamicReplyHandler">[docs]</a><span class="k">class</span> <span class="nc">DynamicReplyHandler</span><span class="p">(</span><span class="n">MinosHandler</span><span class="p">):</span>
@@ -364,11 +348,6 @@
 <span class="sd">        :param count: Number of entries to be collected.</span>
 <span class="sd">        :return: A list of ``HandlerEntry`` instances.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">async</span> <span class="k">def</span> <span class="nf">_fn</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HandlerEntry</span><span class="p">:</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_tuple</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_entry</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-
         <span class="k">try</span><span class="p">:</span>
             <span class="n">raw</span> <span class="o">=</span> <span class="k">await</span> <span class="n">wait_for</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_many</span><span class="p">(</span><span class="n">count</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
@@ -376,9 +355,9 @@
                 <span class="sa">f</span><span class="s2">&quot;Timeout exceeded while trying to fetch </span><span class="si">{</span><span class="n">count</span><span class="si">!r}</span><span class="s2"> entries from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_real_topic</span><span class="si">!r}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
 
-        <span class="n">entries</span> <span class="o">=</span> <span class="p">[</span><span class="k">await</span> <span class="n">_fn</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">raw</span><span class="p">]</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">[</span><span class="n">HandlerEntry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">raw</span><span class="p">]</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Obtained </span><span class="si">{</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">]</span><span class="si">}</span><span class="s2"> entries...&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dispatching &#39;</span><span class="si">{</span><span class="n">entries</span> <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">entries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">entries</span></div>
 
@@ -388,26 +367,7 @@
         <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">:</span>
             <span class="n">raw</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">consumer</span><span class="o">.</span><span class="n">getone</span><span class="p">())</span>
 
-        <span class="k">return</span> <span class="n">raw</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_build_tuple</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">datetime</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_build_entry</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">datetime</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">HandlerEntry</span><span class="p">:</span>
-        <span class="c1"># TODO: Refactor this method.</span>
-
-        <span class="nb">id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">topic</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">callback</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">partition_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">from_avro_bytes</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-        <span class="n">retry</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-        <span class="n">created_at</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-
-        <span class="n">entry</span> <span class="o">=</span> <span class="n">HandlerEntry</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">partition_id</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">created_at</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">entry</span></div>
+        <span class="k">return</span> <span class="n">raw</span></div>
 </pre></div>
 
            </div>
