@@ -1,8 +1,6 @@
 """minos.networks.brokers.producers module."""
 
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 from asyncio import (
@@ -15,29 +13,15 @@ from typing import (
     Optional,
 )
 
-from aiokafka import (
-    AIOKafkaProducer,
-)
-from aiopg import (
-    Cursor,
-)
-from cached_property import (
-    cached_property,
-)
-from psycopg2.sql import (
-    SQL,
-)
+from aiokafka import AIOKafkaProducer
+from aiopg import Cursor
+from cached_property import cached_property
+from psycopg2.sql import SQL
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
-from ..utils import (
-    consume_queue,
-)
-from .abc import (
-    BrokerSetup,
-)
+from ..utils import consume_queue
+from .abc import BrokerSetup
 
 logger = logging.getLogger(__name__)
 
