@@ -49,6 +49,7 @@ class Consumer(HandlerSetup):
         topics: set[str] = None,
         broker: Optional[BROKER] = None,
         client: Optional[AIOKafkaConsumer] = None,
+       group_id: Optional[str] = "default",
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -57,6 +58,7 @@ class Consumer(HandlerSetup):
         self._topics = set(topics)
         self._broker = broker
         self._client = client
+        self._group_id = group_id
 
     @classmethod
     def _from_config(cls, config: MinosConfig, **kwargs) -> Consumer:
@@ -78,7 +80,9 @@ class Consumer(HandlerSetup):
         topics |= {f"{item.name}Reply" for item in config.saga.items}
         topics |= {f"{config.service.name}QueryReply", f"{config.service.name}Reply"}
 
-        return cls(topics=topics, broker=config.broker, **config.broker.queue._asdict(), **kwargs)
+        return cls(
+            topics=topics, broker=config.broker, group_id=config.service.name, **config.broker.queue._asdict(), **kwargs
+        )
 
     async def _setup(self) -> None:
         await super()._setup()
@@ -105,10 +109,6 @@ class Consumer(HandlerSetup):
         self._topics.add(topic)
         self.client.subscribe(topics=list(self._topics))
 
-        # FIXME: Improve the way how are waited for subscription update.
-        if hasattr(self.client, "_wait_topics"):
-            await self.client._wait_topics()
-
     async def remove_topic(self, topic: str) -> None:
         """Remove a topic from the consumer's subscribed topics.
 
@@ -121,14 +121,15 @@ class Consumer(HandlerSetup):
         else:
             self.client.unsubscribe()
 
-        # FIXME: Improve the way how are waited for subscription update.
-        if hasattr(self.client, "_wait_topics"):  # pragma: no cover
-            await self.client._wait_topics()
-
     @property
     def client(self) -> AIOKafkaConsumer:
         if self._client is None:  # pragma: no cover
-            self._client = AIOKafkaConsumer(*self._topics, bootstrap_servers=f"{self._broker.host}:{self._broker.port}")
+            self._client = AIOKafkaConsumer(
+                *self._topics,
+                bootstrap_servers=f"{self._broker.host}:{self._broker.port}",
+                group_id=self._group_id,
+                auto_offset_reset="earliest",
+            )
         return self._client
 
     async def dispatch(self) -> NoReturn:
