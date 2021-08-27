@@ -123,11 +123,12 @@ class Producer(BrokerSetup):
 
         async with cursor.begin():
             await cursor.execute(self._queries["select_not_processed"], (self.retry, self.records))
-            result = await cursor.fetchall()
 
-            publish_result = await gather(*(self.publish(topic=row[1], message=row[2]) for row in result))
+            rows = await cursor.fetchall()
+            futures = (self.publish(topic=row[1], message=row[2]) for row in rows)
+            result = zip(await gather(*futures), rows)
 
-            for (published, row) in zip(publish_result, result):
+            for (published, row) in result:
                 query_id = "delete_processed" if published else "update_not_processed"
                 await cursor.execute(self._queries[query_id], (row[0],))
 
@@ -158,11 +159,9 @@ class Producer(BrokerSetup):
         # noinspection PyBroadException
         try:
             await self.client.send_and_wait(topic, message)
-            published = True
+            return True
         except Exception:
-            published = False
-
-        return published
+            return False
 
     @property
     def client(self) -> AIOKafkaProducer:
