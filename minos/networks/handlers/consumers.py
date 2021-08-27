@@ -1,6 +1,8 @@
 """minos.networks.abc.consumers module."""
 
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
 from typing import (
@@ -9,7 +11,9 @@ from typing import (
     Optional,
 )
 
-from aiokafka import AIOKafkaConsumer
+from aiokafka import (
+    AIOKafkaConsumer,
+)
 from psycopg2.sql import (
     SQL,
     Identifier,
@@ -20,8 +24,12 @@ from minos.common import (
     MinosConfig,
 )
 
-from ..decorators import EnrouteBuilder
-from .abc import HandlerSetup
+from ..decorators import (
+    EnrouteBuilder,
+)
+from .abc import (
+    HandlerSetup,
+)
 
 logger = logging.getLogger(__name__)
 
