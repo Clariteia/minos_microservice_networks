@@ -5,18 +5,26 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
-from typing import Any
-from uuid import UUID
+from typing import (
+    Any,
+)
+from uuid import (
+    UUID,
+)
 
 from minos.common import (
     Command,
     MinosConfig,
 )
 
-from .abc import Broker
+from .abc import (
+    Broker,
+)
 
 logger = logging.getLogger(__name__)
 

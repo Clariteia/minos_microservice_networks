@@ -6,13 +6,21 @@ from asyncio import (
     gather,
     sleep,
 )
-from unittest.mock import AsyncMock
-from uuid import uuid4
+from unittest.mock import (
+    AsyncMock,
+)
+from uuid import (
+    uuid4,
+)
 
 import aiopg
 
-from minos.common import CommandStatus
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common import (
+    CommandStatus,
+)
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     CommandBroker,
     CommandReplyBroker,
