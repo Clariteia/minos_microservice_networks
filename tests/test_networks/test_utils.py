@@ -1,13 +1,9 @@
 """tests.test_networks.test_utils module."""
 
 import unittest
-from asyncio import (
-    Queue,
-)
+from asyncio import Queue
 
-from minos.networks import (
-    consume_queue,
-)
+from minos.networks import consume_queue
 
 
 class TestUtils(unittest.IsolatedAsyncioTestCase):

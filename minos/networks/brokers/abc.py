@@ -5,16 +5,10 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from abc import (
-    ABC,
-)
-from typing import (
-    NoReturn,
-)
+from abc import ABC
+from typing import NoReturn
 
-from psycopg2.sql import (
-    SQL,
-)
+from psycopg2.sql import SQL
 
 from minos.common import (
     MinosBroker,

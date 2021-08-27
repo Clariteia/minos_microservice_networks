@@ -1,8 +1,6 @@
 """minos.networks.abc.consumers module."""
 
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 from typing import (
@@ -11,9 +9,7 @@ from typing import (
     Optional,
 )
 
-from aiokafka import (
-    AIOKafkaConsumer,
-)
+from aiokafka import AIOKafkaConsumer
 from psycopg2.sql import (
     SQL,
     Identifier,
@@ -24,12 +20,8 @@ from minos.common import (
     MinosConfig,
 )
 
-from ..decorators import (
-    EnrouteBuilder,
-)
-from .abc import (
-    HandlerSetup,
-)
+from ..decorators import EnrouteBuilder
+from .abc import HandlerSetup
 
 logger = logging.getLogger(__name__)
 
@@ -168,9 +160,7 @@ class Consumer(HandlerSetup):
         Raises:
             Exception: An error occurred inserting record.
         """
-        queue_id = await self.submit_query_and_fetchone(
-            _INSERT_QUERY, (topic, partition, binary),
-        )
+        queue_id = await self.submit_query_and_fetchone(_INSERT_QUERY, (topic, partition, binary),)
         await self.submit_query(_NOTIFY_QUERY.format(Identifier("consumer_queue")))
         await self.submit_query(_NOTIFY_QUERY.format(Identifier(topic)))
 

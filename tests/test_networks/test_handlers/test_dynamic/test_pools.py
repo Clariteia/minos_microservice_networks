@@ -7,21 +7,15 @@ Minos framework can not be copied and/or distributed without the express permiss
 """
 import unittest
 
-from kafka import (
-    KafkaAdminClient,
-)
+from kafka import KafkaAdminClient
 
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
+from minos.common.testing import PostgresAsyncTestCase
 from minos.networks import (
     DynamicConsumer,
     DynamicReplyHandler,
     ReplyHandlerPool,
 )
-from tests.utils import (
-    BASE_PATH,
-)
+from tests.utils import BASE_PATH
 
 
 class TestReplyHandlerPool(PostgresAsyncTestCase):

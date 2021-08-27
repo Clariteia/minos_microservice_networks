@@ -1,21 +1,13 @@
 """minos.networks.brokers.services module."""
 
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 
-from aiomisc import (
-    Service,
-)
-from cached_property import (
-    cached_property,
-)
+from aiomisc import Service
+from cached_property import cached_property
 
-from .producers import (
-    Producer,
-)
+from .producers import Producer
 
 logger = logging.getLogger(__name__)
 

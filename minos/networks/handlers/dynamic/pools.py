@@ -5,39 +5,23 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from typing import (
-    Optional,
-)
-from uuid import (
-    uuid4,
-)
+from typing import Optional
+from uuid import uuid4
 
-from dependency_injector.wiring import (
-    Provide,
-)
-from kafka import (
-    KafkaAdminClient,
-)
-from kafka.admin import (
-    NewTopic,
-)
+from dependency_injector.wiring import Provide
+from kafka import KafkaAdminClient
+from kafka.admin import NewTopic
 
 from minos.common import (
     MinosConfig,
     MinosPool,
 )
 
-from ..consumers import (
-    Consumer,
-)
-from .handlers import (
-    DynamicReplyHandler,
-)
+from ..consumers import Consumer
+from .handlers import DynamicReplyHandler
 
 logger = logging.getLogger(__name__)
 

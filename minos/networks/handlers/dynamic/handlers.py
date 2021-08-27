@@ -5,48 +5,32 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 from asyncio import (
     TimeoutError,
     wait_for,
 )
-from typing import (
-    Optional,
-)
+from typing import Optional
 
 from aiopg import (
     Connection,
     Cursor,
     connect,
 )
-from cached_property import (
-    cached_property,
-)
+from cached_property import cached_property
 from psycopg2.sql import (
     SQL,
     Identifier,
 )
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
-from ...exceptions import (
-    MinosHandlerNotFoundEnoughEntriesException,
-)
-from ...utils import (
-    consume_queue,
-)
-from ..abc import (
-    HandlerSetup,
-)
-from ..entries import (
-    HandlerEntry,
-)
+from ...exceptions import MinosHandlerNotFoundEnoughEntriesException
+from ...utils import consume_queue
+from ..abc import HandlerSetup
+from ..entries import HandlerEntry
 
 logger = logging.getLogger(__name__)
 

@@ -5,15 +5,11 @@ from asyncio import (
     gather,
     sleep,
 )
-from datetime import (
-    timedelta,
-)
+from datetime import timedelta
 
 import aiopg
 
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
+from minos.common.testing import PostgresAsyncTestCase
 from minos.networks import (
     DynamicReplyHandler,
     HandlerEntry,
