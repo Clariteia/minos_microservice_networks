@@ -4,13 +4,23 @@
 #
 # Minos framework can not be copied and/or distributed without the express
 # permission of Clariteia SL.
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
-from asyncio import gather
-from collections import defaultdict
-from inspect import isawaitable
-from operator import attrgetter
+from asyncio import (
+    gather,
+)
+from collections import (
+    defaultdict,
+)
+from inspect import (
+    isawaitable,
+)
+from operator import (
+    attrgetter,
+)
 from typing import (
     Awaitable,
     Callable,
@@ -24,9 +34,15 @@ from minos.common import (
     MinosException,
 )
 
-from ...decorators import EnrouteBuilder
-from ..abc import Handler
-from ..entries import HandlerEntry
+from ...decorators import (
+    EnrouteBuilder,
+)
+from ..abc import (
+    Handler,
+)
+from ..entries import (
+    HandlerEntry,
+)
 from ..messages import (
     HandlerRequest,
     ResponseException,

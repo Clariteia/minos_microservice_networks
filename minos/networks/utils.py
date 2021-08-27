@@ -2,7 +2,9 @@
 
 import re
 import socket
-from asyncio import QueueEmpty
+from asyncio import (
+    QueueEmpty,
+)
 
 
 def get_host_ip() -> str:

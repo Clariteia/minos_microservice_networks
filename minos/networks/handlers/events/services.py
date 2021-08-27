@@ -2,10 +2,16 @@
 
 import logging
 
-from aiomisc import Service
-from cached_property import cached_property
+from aiomisc import (
+    Service,
+)
+from cached_property import (
+    cached_property,
+)
 
-from .handlers import EventHandler
+from .handlers import (
+    EventHandler,
+)
 
 logger = logging.getLogger(__name__)
 

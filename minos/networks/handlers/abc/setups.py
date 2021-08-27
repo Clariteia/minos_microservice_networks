@@ -5,14 +5,18 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from typing import NoReturn
+from typing import (
+    NoReturn,
+)
 
 from psycopg2.sql import (
     SQL,
     Identifier,
 )
 
-from minos.common import PostgreSqlMinosDatabase
+from minos.common import (
+    PostgreSqlMinosDatabase,
+)
 
 
 class HandlerSetup(PostgreSqlMinosDatabase):

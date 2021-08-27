@@ -16,8 +16,12 @@ from psycopg2.sql import (
     Identifier,
 )
 
-from minos.common.testing import PostgresAsyncTestCase
-from minos.networks import Consumer
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
+from minos.networks import (
+    Consumer,
+)
 from tests.utils import (
     BASE_PATH,
     FakeConsumer,

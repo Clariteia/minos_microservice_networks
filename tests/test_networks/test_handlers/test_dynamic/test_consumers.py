@@ -2,9 +2,15 @@
 
 import unittest
 
-from minos.common.testing import PostgresAsyncTestCase
-from minos.networks import DynamicConsumer
-from tests.utils import BASE_PATH
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
+from minos.networks import (
+    DynamicConsumer,
+)
+from tests.utils import (
+    BASE_PATH,
+)
 
 
 class TestDynamicConsumer(PostgresAsyncTestCase):

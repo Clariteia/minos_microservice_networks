@@ -6,9 +6,13 @@ from unittest.mock import (
     patch,
 )
 
-from aiomisc import Service
+from aiomisc import (
+    Service,
+)
 
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     CommandConsumerService,
     CommandHandler,
