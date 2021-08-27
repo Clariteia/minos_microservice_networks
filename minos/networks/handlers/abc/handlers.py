@@ -9,6 +9,7 @@ from abc import (
     abstractmethod,
 )
 from asyncio import (
+    Queue,
     TimeoutError,
     gather,
     wait_for,
@@ -86,12 +87,16 @@ class Handler(HandlerSetup):
         :param max_wait: Maximum seconds to wait for notifications. If ``None`` the wait is performed until infinity.
         :return: This method does not return anything.
         """
+        queue = Queue(maxsize=100)
+        await gather(self._produce(queue, max_wait), *(self._consume(queue) for _ in range(5)))
+
+    async def _produce(self, queue: Queue, max_wait: Optional[float]) -> None:
         async with self.cursor() as cursor:
             await self._listen_entries(cursor)
             try:
                 while True:
                     await self._wait_for_entries(cursor, max_wait)
-                    await self.dispatch(cursor)
+                    await self.dispatch(cursor, queue)
             finally:
                 await self._unlisten_entries(cursor)
 
@@ -121,7 +126,7 @@ class Handler(HandlerSetup):
         count = (await cursor.fetchone())[0]
         return count
 
-    async def dispatch(self, cursor: Optional[Cursor] = None) -> None:
+    async def dispatch(self, cursor: Optional[Cursor] = None, queue=None) -> None:
         """Event Queue Checker and dispatcher.
 
         It is in charge of querying the database and calling the action according to the topic.
@@ -140,12 +145,13 @@ class Handler(HandlerSetup):
 
         async with cursor.begin():
             await cursor.execute(
-                self._queries["select_not_processed"], (self._retry,tuple(self.topics), self._records)
+                self._queries["select_not_processed"], (self._retry, tuple(self.topics), self._records)
             )
 
             result = await cursor.fetchall()
             entries = self._build_entries(result)
-            await self._dispatch_entries(entries)
+            for entry in entries:
+                await queue.put(entry)
 
             for entry in entries:
                 query_id = "delete_processed" if entry.success else "update_not_processed"
@@ -153,6 +159,11 @@ class Handler(HandlerSetup):
 
         if not is_external_cursor:
             await cursor.__aexit__(None, None, None)
+
+    async def _consume(self, queue: Queue) -> None:
+        while True:
+            entry = await queue.get()
+            await self.dispatch_one(entry)
 
     @cached_property
     def _queries(self) -> dict[str, str]:

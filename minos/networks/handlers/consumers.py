@@ -44,8 +44,16 @@ class Consumer(HandlerSetup):
 
     __slots__ = "_topics", "_broker", "_client"
 
-    def __init__(self, topics: set[str], broker: Optional[BROKER] = None, client: Optional[Any] = None, **kwargs):
+    def __init__(
+        self,
+        topics: set[str] = None,
+        broker: Optional[BROKER] = None,
+        client: Optional[AIOKafkaConsumer] = None,
+        **kwargs,
+    ):
         super().__init__(**kwargs)
+        if topics is None:
+            topics = set()
         self._topics = set(topics)
         self._broker = broker
         self._client = client
@@ -76,6 +84,10 @@ class Consumer(HandlerSetup):
         await super()._setup()
         await self.client.start()
 
+    async def _destroy(self) -> None:
+        await self.client.stop()
+        await super()._destroy()
+
     @property
     def topics(self) -> set[str]:
         """Topics getter.
@@ -91,7 +103,7 @@ class Consumer(HandlerSetup):
         :return: This method does not return anything.
         """
         self._topics.add(topic)
-        self._client.subscribe(topics=list(self._topics))
+        self.client.subscribe(topics=list(self._topics))
 
     def remove_topic(self, topic: str) -> None:
         """Remove a topic from the consumer's subscribed topics.
@@ -101,19 +113,15 @@ class Consumer(HandlerSetup):
         """
         self._topics.remove(topic)
         if len(self._topics):
-            self._client.subscribe(topics=list(self._topics))
+            self.client.subscribe(topics=list(self._topics))
         else:
-            self._client.unsubscribe()
+            self.client.unsubscribe()
 
     @property
     def client(self) -> AIOKafkaConsumer:
         if self._client is None:  # pragma: no cover
             self._client = AIOKafkaConsumer(*self._topics, bootstrap_servers=f"{self._broker.host}:{self._broker.port}")
         return self._client
-
-    async def _destroy(self) -> None:
-        await self._client.stop()
-        await super()._destroy()
 
     async def dispatch(self) -> NoReturn:
         """Perform a dispatching step.
@@ -168,13 +176,11 @@ class Consumer(HandlerSetup):
         Raises:
             Exception: An error occurred inserting record.
         """
-        queue_id = await self.submit_query_and_fetchone(
-            _INSERT_QUERY, (topic, partition, binary),
-        )
+        row = await self.submit_query_and_fetchone(_INSERT_QUERY, (topic, partition, binary))
         await self.submit_query(_NOTIFY_QUERY.format(Identifier("consumer_queue")))
         await self.submit_query(_NOTIFY_QUERY.format(Identifier(topic)))
 
-        return queue_id[0]
+        return row[0]
 
 
 _INSERT_QUERY = SQL(
