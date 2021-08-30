@@ -96,7 +96,7 @@ class Handler(HandlerSetup):
             try:
                 while True:
                     await self._wait_for_entries(cursor, max_wait)
-                    await self.dispatch(cursor, queue)
+                    await self.dispatch(queue, cursor)
             finally:
                 await self._unlisten_entries(cursor)
 
@@ -126,7 +126,7 @@ class Handler(HandlerSetup):
         count = (await cursor.fetchone())[0]
         return count
 
-    async def dispatch(self, cursor: Optional[Cursor] = None, queue=None) -> None:
+    async def dispatch(self, queue: Queue = None, cursor: Optional[Cursor] = None) -> None:
         """Event Queue Checker and dispatcher.
 
         It is in charge of querying the database and calling the action according to the topic.
@@ -152,6 +152,7 @@ class Handler(HandlerSetup):
             entries = self._build_entries(result)
             for entry in entries:
                 await queue.put(entry)
+            await queue.join()
 
             for entry in entries:
                 query_id = "delete_processed" if entry.success else "update_not_processed"
@@ -163,7 +164,8 @@ class Handler(HandlerSetup):
     async def _consume(self, queue: Queue) -> None:
         while True:
             entry = await queue.get()
-            await self.dispatch_one(entry)
+            await self._dispatch_one(entry)
+            queue.task_done()
 
     @cached_property
     def _queries(self) -> dict[str, str]:
