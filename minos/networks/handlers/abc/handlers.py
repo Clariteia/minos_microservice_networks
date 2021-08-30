@@ -179,11 +179,11 @@ class Handler(HandlerSetup):
         kwargs = {"callback_lookup": self.get_action, "data_cls": self.ENTRY_MODEL_CLS}
         return [HandlerEntry(*row, **kwargs) for row in rows]
 
-    async def _dispatch_entries(self, entries: list[HandlerEntry]) -> NoReturn:
+    async def _dispatch_entries(self, entries: list[HandlerEntry]) -> None:
         futures = (self._dispatch_one(entry) for entry in entries)
         await gather(*futures)
 
-    async def _dispatch_one(self, entry: HandlerEntry) -> NoReturn:
+    async def _dispatch_one(self, entry: HandlerEntry) -> None:
         logger.debug(f"Dispatching '{entry!r}'...")
         try:
             await self.dispatch_one(entry)
@@ -192,7 +192,7 @@ class Handler(HandlerSetup):
             entry.exception = exc
 
     @abstractmethod
-    async def dispatch_one(self, entry: HandlerEntry[ENTRY_MODEL_CLS]) -> NoReturn:
+    async def dispatch_one(self, entry: HandlerEntry[ENTRY_MODEL_CLS]) -> None:
         """Dispatch one row.
 
         :param entry: Entry to be dispatched.
