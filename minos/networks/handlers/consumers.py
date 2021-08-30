@@ -52,7 +52,7 @@ class Consumer(HandlerSetup):
         topics: set[str] = None,
         broker: Optional[BROKER] = None,
         client: Optional[AIOKafkaConsumer] = None,
-       group_id: Optional[str] = "default",
+        group_id: Optional[str] = "default",
         **kwargs,
     ):
         super().__init__(**kwargs)
