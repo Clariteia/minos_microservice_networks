@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.dynamic.pools module &mdash; Minos Microservice Network 0.0.13 documentation</title>
+  <title>minos.networks.handlers.dynamic.pools module &mdash; Minos Microservice Network 0.0.14 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.13
+                0.0.14
               </div>
             
           
@@ -188,18 +188,18 @@
 <p>This file is part of minos framework.</p>
 <p>Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.dynamic.pools.</span></span><span class="sig-name descname"><span class="pre">ReplyHandlerPool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/dynamic/pools.html#ReplyHandlerPool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.dynamic.pools.</span></span><span class="sig-name descname"><span class="pre">DynamicHandlerPool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/dynamic/pools.html#DynamicHandlerPool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.setup.MinosSetup</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">aiomisc.pool.PoolBase</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">minos.common.pools.T</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<p>Reply Handler Pool class.</p>
+<p>Dynamic Handler Pool class.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/dynamic/pools.html#ReplyHandlerPool.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/dynamic/pools.html#DynamicHandlerPool.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.acquire">
-<span class="sig-name descname"><span class="pre">acquire</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.acquire" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.acquire">
+<span class="sig-name descname"><span class="pre">acquire</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.acquire" title="Permalink to this definition">¶</a></dt>
 <dd><p>Acquire a new instance wrapped on an asynchronous context manager.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -212,8 +212,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.already_destroyed">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_destroyed</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.already_destroyed" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.already_destroyed">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_destroyed</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.already_destroyed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Already Destroy getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -226,8 +226,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.already_setup">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_setup</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.already_setup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.already_setup">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_setup</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.already_setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Already Setup getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -240,8 +240,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.close">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.close" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.close">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.close" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
@@ -249,9 +249,14 @@
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.consumer">
+<span class="sig-name descname"><span class="pre">consumer</span></span><em class="property"><span class="pre">:</span> <span class="pre">Consumer</span></em><em class="property"> <span class="pre">=</span> <span class="pre">&lt;dependency_injector.wiring.Provide</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.consumer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.destroy">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.destroy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.destroy">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroy miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -264,8 +269,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.from_config">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.from_config" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.from_config">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a new instance from config.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -284,8 +289,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.ReplyHandlerPool.setup">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.setup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.handlers.dynamic.pools.DynamicHandlerPool.setup">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>

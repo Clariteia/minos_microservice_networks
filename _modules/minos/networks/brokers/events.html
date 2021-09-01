@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.events &mdash; Minos Microservice Network 0.0.13 documentation</title>
+  <title>minos.networks.brokers.events &mdash; Minos Microservice Network 0.0.14 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.13
+                0.0.14
               </div>
             
           
@@ -206,7 +206,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending &#39;</span><span class="si">{</span><span class="n">event</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_bytes</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">avro_bytes</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">avro_bytes</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

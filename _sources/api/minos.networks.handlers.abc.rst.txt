@@ -12,6 +12,5 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   minos.networks.handlers.abc.consumers
    minos.networks.handlers.abc.handlers
    minos.networks.handlers.abc.setups

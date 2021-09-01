@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.events.services &mdash; Minos Microservice Network 0.0.13 documentation</title>
+  <title>minos.networks.handlers.events.services &mdash; Minos Microservice Network 0.0.14 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.13
+                0.0.14
               </div>
             
           
@@ -161,29 +161,17 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.handlers.events.services</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Copyright (C) 2021 Clariteia SL</span>
+<span></span><span class="sd">&quot;&quot;&quot;minos.networks.handlers.events.services module.&quot;&quot;&quot;</span>
 
-<span class="sd">This file is part of minos framework.</span>
-
-<span class="sd">Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
-<span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">aiomisc.service.periodic</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">PeriodicService</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">aiomisc</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Service</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">cached_property</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">cached_property</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">.consumers</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">EventConsumer</span><span class="p">,</span>
-<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">.handlers</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">EventHandler</span><span class="p">,</span>
 <span class="p">)</span>
@@ -191,41 +179,7 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="EventConsumerService"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventConsumerService">[docs]</a><span class="k">class</span> <span class="nc">EventConsumerService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Minos QueueDispatcherService class.&quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="EventConsumerService.start"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventConsumerService.start">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Method to be called at the startup by the internal ``aiomisc`` loigc.</span>
-
-<span class="sd">        :return: This method does not return anything.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">start_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-        <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Runtime is not properly setup.&quot;</span><span class="p">)</span>
-
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">dispatch</span><span class="p">()</span></div>
-
-<div class="viewcode-block" id="EventConsumerService.stop"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventConsumerService.stop">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception</span><span class="p">:</span> <span class="ne">Exception</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Stop the service execution.</span>
-
-<span class="sd">        :param exception: Optional exception that stopped the execution.</span>
-<span class="sd">        :return: This method does not return anything.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
-
-    <span class="nd">@cached_property</span>
-    <span class="k">def</span> <span class="nf">dispatcher</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EventConsumer</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Get the service dispatcher.</span>
-
-<span class="sd">        :return: A ``EventConsumer`` instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">EventConsumer</span><span class="o">.</span><span class="n">from_config</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="EventHandlerService"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventHandlerService">[docs]</a><span class="k">class</span> <span class="nc">EventHandlerService</span><span class="p">(</span><span class="n">PeriodicService</span><span class="p">):</span>
+<div class="viewcode-block" id="EventHandlerService"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventHandlerService">[docs]</a><span class="k">class</span> <span class="nc">EventHandlerService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Minos QueueDispatcherService class.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="EventHandlerService.__init__"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventHandlerService.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -238,14 +192,13 @@
 <span class="sd">        :return: This method does not return anything.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
-        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="EventHandlerService.callback"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventHandlerService.callback">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Method to be called periodically by the internal ``aiomisc`` logic.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Runtime is not properly setup.&quot;</span><span class="p">)</span>
 
-<span class="sd">        :return:This method does not return anything.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">dispatch</span><span class="p">()</span></div>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">dispatch_forever</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="EventHandlerService.stop"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventHandlerService.stop">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Stop the service execution.</span>
@@ -253,7 +206,6 @@
 <span class="sd">        :param err: Optional exception that stopped the execution.</span>
 <span class="sd">        :return: This method does not return anything.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
 
     <span class="nd">@cached_property</span>

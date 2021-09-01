@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.dynamic.pools &mdash; Minos Microservice Network 0.0.13 documentation</title>
+  <title>minos.networks.handlers.dynamic.pools &mdash; Minos Microservice Network 0.0.14 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.13
+                0.0.14
               </div>
             
           
@@ -173,10 +173,16 @@
 <span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Optional</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">uuid4</span><span class="p">,</span>
 <span class="p">)</span>
 
+<span class="kn">from</span> <span class="nn">dependency_injector.wiring</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Provide</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">kafka</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">KafkaAdminClient</span><span class="p">,</span>
 <span class="p">)</span>
@@ -189,46 +195,68 @@
     <span class="n">MinosPool</span><span class="p">,</span>
 <span class="p">)</span>
 
+<span class="kn">from</span> <span class="nn">..consumers</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Consumer</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">.handlers</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">DynamicReplyHandler</span><span class="p">,</span>
+    <span class="n">DynamicHandler</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ReplyHandlerPool"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.dynamic.pools.html#minos.networks.handlers.dynamic.pools.ReplyHandlerPool">[docs]</a><span class="k">class</span> <span class="nc">ReplyHandlerPool</span><span class="p">(</span><span class="n">MinosPool</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Reply Handler Pool class.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="DynamicHandlerPool"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.dynamic.pools.html#minos.networks.handlers.dynamic.pools.DynamicHandlerPool">[docs]</a><span class="k">class</span> <span class="nc">DynamicHandlerPool</span><span class="p">(</span><span class="n">MinosPool</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Dynamic Handler Pool class.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ReplyHandlerPool.__init__"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.dynamic.pools.html#minos.networks.handlers.dynamic.pools.ReplyHandlerPool.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="n">client</span><span class="p">:</span> <span class="n">KafkaAdminClient</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">consumer</span><span class="p">:</span> <span class="n">Consumer</span> <span class="o">=</span> <span class="n">Provide</span><span class="p">[</span><span class="s2">&quot;consumer&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DynamicHandlerPool.__init__"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.dynamic.pools.html#minos.networks.handlers.dynamic.pools.DynamicHandlerPool.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span>
+        <span class="n">client</span><span class="p">:</span> <span class="n">KafkaAdminClient</span><span class="p">,</span>
+        <span class="n">maxsize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">consumer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Consumer</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="n">maxsize</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
+
+        <span class="k">if</span> <span class="n">consumer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">consumer</span> <span class="o">=</span> <span class="n">consumer</span></div>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplyHandlerPool</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DynamicHandlerPool</span><span class="p">:</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">KafkaAdminClient</span><span class="p">(</span><span class="n">bootstrap_servers</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_create_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DynamicReplyHandler</span><span class="p">:</span>
-        <span class="n">topic</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">())</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_create_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DynamicHandler</span><span class="p">:</span>
+        <span class="n">topic</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">())</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_reply_topic</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
-        <span class="n">instance</span> <span class="o">=</span> <span class="n">DynamicReplyHandler</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="n">topic</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subscribe_reply_topic</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="n">DynamicHandler</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="n">topic</span><span class="p">)</span>
         <span class="k">await</span> <span class="n">instance</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">instance</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_destroy_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">DynamicReplyHandler</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_destroy_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">DynamicHandler</span><span class="p">):</span>
         <span class="k">await</span> <span class="n">instance</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unsubscribe_reply_topic</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">topic</span><span class="p">)</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete_reply_topic</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">topic</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_create_reply_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">Reply&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> topic...&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">create_topics</span><span class="p">([</span><span class="n">NewTopic</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">num_partitions</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">replication_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">)])</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_create_reply_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating </span><span class="si">{</span><span class="n">topic</span><span class="si">!r}</span><span class="s2"> topic...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">create_topics</span><span class="p">([</span><span class="n">NewTopic</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">topic</span><span class="p">,</span> <span class="n">num_partitions</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">replication_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">)])</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_delete_reply_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">Reply&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deleting </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> topic...&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">delete_topics</span><span class="p">([</span><span class="n">name</span><span class="p">])</span></div>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_delete_reply_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deleting </span><span class="si">{</span><span class="n">topic</span><span class="si">!r}</span><span class="s2"> topic...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">delete_topics</span><span class="p">([</span><span class="n">topic</span><span class="p">])</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_subscribe_reply_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">consumer</span><span class="o">.</span><span class="n">add_topic</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_unsubscribe_reply_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">consumer</span><span class="o">.</span><span class="n">remove_topic</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

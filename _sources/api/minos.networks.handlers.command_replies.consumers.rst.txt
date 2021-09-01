@@ -1,7 +1,0 @@
-minos.networks.handlers.command\_replies.consumers module
-=========================================================
-
-.. automodule:: minos.networks.handlers.command_replies.consumers
-   :members:
-   :undoc-members:
-   :show-inheritance:

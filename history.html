@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>History &mdash; Minos Microservice Network 0.0.13 documentation</title>
+  <title>History &mdash; Minos Microservice Network 0.0.14 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.0.13
+                0.0.14
               </div>
             
           
@@ -107,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id9">0.0.11 (2021-07-27)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id10">0.0.12 (2021-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id11">0.0.13 (2021-08-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">0.0.14 (2021-09-01)</a></li>
 </ul>
 </li>
 </ul>
@@ -262,6 +263,17 @@
 <li><p>Increase the concurrency degree of <code class="docutils literal notranslate"><span class="pre">Handler.dispatch</span></code>.</p></li>
 <li><p>Rename <code class="docutils literal notranslate"><span class="pre">RestBuilder</span></code> as <code class="docutils literal notranslate"><span class="pre">RestHandler</span></code>.</p></li>
 <li><p>Refactor <code class="docutils literal notranslate"><span class="pre">HandlerEntry</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>0.0.14 (2021-09-01)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Unify consumer queues into a single one <code class="docutils literal notranslate"><span class="pre">consumer_queue</span></code>.</p></li>
+<li><p>Replace periodic checking (active waiting) by a <code class="docutils literal notranslate"><span class="pre">LISTEN/NOTIFY</span></code> approach (reactive) on consumer and producer queue.</p></li>
+<li><p>Use single reply topic based on microservice name to handle <code class="docutils literal notranslate"><span class="pre">CommandReply</span></code> messages of sagas paused on disk.</p></li>
+<li><p>Refactor <code class="docutils literal notranslate"><span class="pre">ReplyPool</span></code> and <code class="docutils literal notranslate"><span class="pre">DynamicReplyHandler</span></code> as <code class="docutils literal notranslate"><span class="pre">DynamicHandlerPool</span></code> and <code class="docutils literal notranslate"><span class="pre">DynamicHandler</span></code> and integrate them into the consumer queue.</p></li>
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">Producer</span></code> performance keeping kafka connection open between publishing calls.</p></li>
+<li><p>Implement direct message transferring between <code class="docutils literal notranslate"><span class="pre">Producer</span></code> and <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> for messages send to the same microservice.</p></li>
 </ul>
 </div>
 </div>

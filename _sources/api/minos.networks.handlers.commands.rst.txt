@@ -12,6 +12,5 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   minos.networks.handlers.commands.consumers
    minos.networks.handlers.commands.handlers
    minos.networks.handlers.commands.services

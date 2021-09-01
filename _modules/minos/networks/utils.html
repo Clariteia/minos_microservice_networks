@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.utils &mdash; Minos Microservice Network 0.0.13 documentation</title>
+  <title>minos.networks.utils &mdash; Minos Microservice Network 0.0.14 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.13
+                0.0.14
               </div>
             
           
@@ -161,15 +161,13 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.utils</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Copyright (C) 2021 Clariteia SL</span>
+<span></span><span class="sd">&quot;&quot;&quot;minos.networks.utils module.&quot;&quot;&quot;</span>
 
-<span class="sd">This file is part of minos framework.</span>
-
-<span class="sd">Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">from</span> <span class="nn">asyncio</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">QueueEmpty</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="get_host_ip"><a class="viewcode-back" href="../../../api/minos.networks.utils.html#minos.networks.utils.get_host_ip">[docs]</a><span class="k">def</span> <span class="nf">get_host_ip</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -196,6 +194,24 @@
 <span class="sd">    :return: A string value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="consume_queue"><a class="viewcode-back" href="../../../api/minos.networks.utils.html#minos.networks.utils.consume_queue">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">consume_queue</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">max_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Consume ``count`` at least ``1`` and at most ``max_count`` elements from the given queue.</span>
+
+<span class="sd">    :param queue: The queue to be consumed.</span>
+<span class="sd">    :param max_count: The max count of elements to be consumed.</span>
+<span class="sd">    :return: This function does not return anything.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">max_count</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">get_nowait</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">QueueEmpty</span><span class="p">:</span>
+            <span class="k">break</span></div>
 </pre></div>
 
            </div>

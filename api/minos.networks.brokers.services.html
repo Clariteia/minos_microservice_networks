@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.services module &mdash; Minos Microservice Network 0.0.13 documentation</title>
+  <title>minos.networks.brokers.services module &mdash; Minos Microservice Network 0.0.14 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.13
+                0.0.14
               </div>
             
           
@@ -182,30 +182,16 @@
             
   <div class="section" id="module-minos.networks.brokers.services">
 <span id="minos-networks-brokers-services-module"></span><h1>minos.networks.brokers.services module<a class="headerlink" href="#module-minos.networks.brokers.services" title="Permalink to this headline">¶</a></h1>
-<p>Copyright (C) 2021 Clariteia SL</p>
-<p>This file is part of minos framework.</p>
-<p>Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</p>
+<p>minos.networks.brokers.services module.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.services.</span></span><span class="sig-name descname"><span class="pre">ProducerService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/services.html#ProducerService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.services.ProducerService" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aiomisc.service.periodic.PeriodicService</span></code></p>
-<p>Minos QueueDispatcherService class.</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aiomisc.service.base.Service</span></code></p>
+<p>ProducerService class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/services.html#ProducerService.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.services.ProducerService.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService.callback">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">callback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/services.html#ProducerService.callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.services.ProducerService.callback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to be called periodically by the internal <code class="docutils literal notranslate"><span class="pre">aiomisc</span></code> logic.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-<p>:return:This method does not return anything.</p>
-</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService.context">
@@ -218,11 +204,6 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService.delay">
-<span class="sig-name descname"><span class="pre">delay</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#minos.networks.brokers.services.ProducerService.delay" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService.dispatcher">
 <span class="sig-name descname"><span class="pre">dispatcher</span></span><a class="headerlink" href="#minos.networks.brokers.services.ProducerService.dispatcher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the service dispatcher.</p>
@@ -232,11 +213,6 @@
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService.interval">
-<span class="sig-name descname"><span class="pre">interval</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#minos.networks.brokers.services.ProducerService.interval" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.brokers.services.ProducerService.set_loop">
