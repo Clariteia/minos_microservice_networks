@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.decorators.builders &mdash; Minos Microservice Network 0.0.14 documentation</title>
+  <title>minos.networks.decorators.builders &mdash; Minos Microservice Network 0.0.15 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.14
+                0.0.15
               </div>
             
           
@@ -203,12 +203,12 @@
 <div class="viewcode-block" id="EnrouteBuilder"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.builders.html#minos.networks.decorators.builders.EnrouteBuilder">[docs]</a><span class="k">class</span> <span class="nc">EnrouteBuilder</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Enroute builder class.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="EnrouteBuilder.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.builders.html#minos.networks.decorators.builders.EnrouteBuilder.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decorated</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">]):</span>
+<div class="viewcode-block" id="EnrouteBuilder.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.builders.html#minos.networks.decorators.builders.EnrouteBuilder.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decorated</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">decorated</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">decorated</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">decorated</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">decorated</span> <span class="o">=</span> <span class="n">decorated</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">EnrouteAnalyzer</span><span class="p">(</span><span class="n">decorated</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">EnrouteAnalyzer</span><span class="p">(</span><span class="n">decorated</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EnrouteBuilder.get_rest_command_query"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.builders.html#minos.networks.decorators.builders.EnrouteBuilder.get_rest_command_query">[docs]</a>    <span class="k">def</span> <span class="nf">get_rest_command_query</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">RestEnrouteDecorator</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Request</span><span class="p">],</span> <span class="n">Awaitable</span><span class="p">[</span><span class="n">Response</span><span class="p">]]]:</span>
         <span class="sd">&quot;&quot;&quot;Get the rest handlers for commands and queries.</span>

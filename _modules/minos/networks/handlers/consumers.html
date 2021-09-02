@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.consumers &mdash; Minos Microservice Network 0.0.14 documentation</title>
+  <title>minos.networks.handlers.consumers &mdash; Minos Microservice Network 0.0.15 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.14
+                0.0.15
               </div>
             
           
@@ -231,15 +231,15 @@
         <span class="n">topics</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
         <span class="c1"># events</span>
-        <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">service</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_event</span><span class="p">()</span>
+        <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_event</span><span class="p">()</span>
         <span class="n">topics</span> <span class="o">|=</span> <span class="p">{</span><span class="n">decorator</span><span class="o">.</span><span class="n">topic</span> <span class="k">for</span> <span class="n">decorator</span> <span class="ow">in</span> <span class="n">decorators</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
 
         <span class="c1"># commands</span>
-        <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">service</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_command_query</span><span class="p">()</span>
+        <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_command_query</span><span class="p">()</span>
         <span class="n">topics</span> <span class="o">|=</span> <span class="p">{</span><span class="n">decorator</span><span class="o">.</span><span class="n">topic</span> <span class="k">for</span> <span class="n">decorator</span> <span class="ow">in</span> <span class="n">decorators</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
 
         <span class="c1"># queries</span>
-        <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">queries</span><span class="o">.</span><span class="n">service</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_command_query</span><span class="p">()</span>
+        <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">queries</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_command_query</span><span class="p">()</span>
         <span class="n">topics</span> <span class="o">|=</span> <span class="p">{</span><span class="n">decorator</span><span class="o">.</span><span class="n">topic</span> <span class="k">for</span> <span class="n">decorator</span> <span class="ow">in</span> <span class="n">decorators</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
 
         <span class="c1"># replies</span>
