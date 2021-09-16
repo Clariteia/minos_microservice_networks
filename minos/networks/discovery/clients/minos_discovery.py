@@ -2,7 +2,9 @@
 
 import logging
 
-from .abc import DiscoveryClient
+from .abc import (
+    DiscoveryClient,
+)
 
 logger = logging.getLogger(__name__)
 

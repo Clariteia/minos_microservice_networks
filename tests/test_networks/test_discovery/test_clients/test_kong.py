@@ -1,7 +1,9 @@
 """tests.test_networks.test_discovery.test_clients module."""
 
 import unittest
-from collections import namedtuple
+from collections import (
+    namedtuple,
+)
 from unittest.mock import (
     call,
     patch,
@@ -11,7 +13,9 @@ from minos.networks import (
     MinosDiscoveryClient,
     MinosDiscoveryConnectorException,
 )
-from minos.networks.discovery.clients.kong import KongDiscovery
+from minos.networks.discovery.clients.kong import (
+    KongDiscovery,
+)
 
 _Response = namedtuple("Response", ["ok"])
 
