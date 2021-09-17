@@ -1,8 +1,14 @@
 """tests.utils module."""
 
-from collections import namedtuple
-from datetime import datetime
-from pathlib import Path
+from collections import (
+    namedtuple,
+)
+from datetime import (
+    datetime,
+)
+from pathlib import (
+    Path,
+)
 from typing import (
     AsyncIterator,
     NoReturn,
@@ -13,7 +19,9 @@ from uuid import (
     uuid4,
 )
 
-from cached_property import cached_property
+from cached_property import (
+    cached_property,
+)
 
 from minos.common import (
     Action,

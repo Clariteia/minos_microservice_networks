@@ -5,12 +5,20 @@ This file is part of minos framework.
 
 Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.
 """
-from typing import Optional
+from typing import (
+    Optional,
+)
 
-from aiomisc.service.periodic import PeriodicService
-from dependency_injector.wiring import Provide
+from aiomisc.service.periodic import (
+    PeriodicService,
+)
+from dependency_injector.wiring import (
+    Provide,
+)
 
-from minos.common import MinosSnapshot
+from minos.common import (
+    MinosSnapshot,
+)
 
 
 class SnapshotService(PeriodicService):
