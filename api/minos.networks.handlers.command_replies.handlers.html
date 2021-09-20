@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.command_replies.handlers module &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.handlers.command_replies.handlers module &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -184,7 +184,6 @@
             
   <div class="section" id="module-minos.networks.handlers.command_replies.handlers">
 <span id="minos-networks-handlers-command-replies-handlers-module"></span><h1>minos.networks.handlers.command_replies.handlers module<a class="headerlink" href="#module-minos.networks.handlers.command_replies.handlers" title="Permalink to this headline">¶</a></h1>
-<p>minos.networks.handlers.command_replies.handlers module.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.handlers.command_replies.handlers.</span></span><span class="sig-name descname"><span class="pre">CommandReplyHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">saga_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/handlers/command_replies/handlers.html#CommandReplyHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler" title="Permalink to this definition">¶</a></dt>
@@ -255,7 +254,7 @@
 <dd><p>Destroy miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>This method does not return anything.</p>
@@ -312,7 +311,7 @@
 <dd class="field-odd"><p><strong>entry</strong> (<a class="reference internal" href="minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry" title="minos.networks.handlers.entries.HandlerEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.handlers.entries.HandlerEntry</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.declarative.networks.CommandReply</span></code>]) – Entry to be dispatched.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>This method does not return anything.</p>
@@ -363,7 +362,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler.handlers">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.handlers" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.handlers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handlers getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -400,7 +399,7 @@
 <dd><p>Setup miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>This method does not return anything.</p>
@@ -424,7 +423,7 @@ lock.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>This method does not return anything.</p>
@@ -481,8 +480,17 @@ fetched and keep in memory before yielding it.</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.handlers.command_replies.handlers.CommandReplyHandler.topics">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">topics</span></span><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.topics" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">topics</span></span><em class="property"><span class="pre">:</span> <span class="pre">KeysView</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.topics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an iterable containing the topic names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.KeysView</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An <code class="docutils literal notranslate"><span class="pre">Iterable</span></code> of <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

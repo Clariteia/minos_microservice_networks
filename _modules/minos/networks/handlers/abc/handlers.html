@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.abc.handlers &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.handlers.abc.handlers &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -161,9 +161,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.handlers.abc.handlers</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;minos.networks.abc.handlers module.&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -179,6 +177,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Any</span><span class="p">,</span>
     <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">KeysView</span><span class="p">,</span>
     <span class="n">NoReturn</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
     <span class="n">Type</span><span class="p">,</span>
@@ -240,7 +239,11 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handlers</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">topics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">topics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">KeysView</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Get an iterable containing the topic names.</span>
+
+<span class="sd">        :return: An ``Iterable`` of ``str``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Handler.dispatch_forever"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.dispatch_forever">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_forever</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_wait</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">60.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
@@ -333,11 +336,11 @@
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;callback_lookup&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_action</span><span class="p">,</span> <span class="s2">&quot;data_cls&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTRY_MODEL_CLS</span><span class="p">}</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">HandlerEntry</span><span class="p">(</span><span class="o">*</span><span class="n">row</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_dispatch_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">HandlerEntry</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_dispatch_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">HandlerEntry</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">futures</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_one</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">)</span>
         <span class="k">await</span> <span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">futures</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dispatching &#39;</span><span class="si">{</span><span class="n">entry</span><span class="si">!r}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
@@ -346,7 +349,7 @@
             <span class="n">entry</span><span class="o">.</span><span class="n">exception</span> <span class="o">=</span> <span class="n">exc</span>
 
 <div class="viewcode-block" id="Handler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.dispatch_one">[docs]</a>    <span class="nd">@abstractmethod</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">[</span><span class="n">ENTRY_MODEL_CLS</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">[</span><span class="n">ENTRY_MODEL_CLS</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Dispatch one row.</span>
 
 <span class="sd">        :param entry: Entry to be dispatched.</span>
@@ -389,14 +392,14 @@
     <span class="s2">&quot;SELECT * &quot;</span>
     <span class="s2">&quot;FROM consumer_queue &quot;</span>
     <span class="s2">&quot;WHERE retry &lt; </span><span class="si">%s</span><span class="s2"> AND topic IN </span><span class="si">%s</span><span class="s2"> &quot;</span>
-    <span class="s2">&quot;ORDER BY creation_date &quot;</span>
+    <span class="s2">&quot;ORDER BY created_at &quot;</span>
     <span class="s2">&quot;LIMIT </span><span class="si">%s</span><span class="s2"> &quot;</span>
     <span class="s2">&quot;FOR UPDATE SKIP LOCKED&quot;</span>
 <span class="p">)</span>
 
 <span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;DELETE FROM consumer_queue WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">_UPDATE_NOT_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;UPDATE consumer_queue SET retry = retry + 1 WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">_UPDATE_NOT_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;UPDATE consumer_queue SET retry = retry + 1, updated_at = NOW() WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">_LISTEN_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;LISTEN </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span>
 

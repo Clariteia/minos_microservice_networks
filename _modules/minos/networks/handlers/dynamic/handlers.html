@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.dynamic.handlers &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.handlers.dynamic.handlers &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -161,14 +161,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.handlers.dynamic.handlers</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Copyright (C) 2021 Clariteia SL</span>
-
-<span class="sd">This file is part of minos framework.</span>
-
-<span class="sd">Minos framework can not be copied and/or distributed without the express permission of Clariteia SL.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -323,7 +316,7 @@
 <span class="p">)</span>
 
 <span class="n">_SELECT_NOT_PROCESSED_ROWS_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span>
-    <span class="s2">&quot;SELECT * FROM consumer_queue WHERE topic = </span><span class="si">%s</span><span class="s2"> ORDER BY creation_date LIMIT </span><span class="si">%s</span><span class="s2"> FOR UPDATE SKIP LOCKED&quot;</span>
+    <span class="s2">&quot;SELECT * FROM consumer_queue WHERE topic = </span><span class="si">%s</span><span class="s2"> ORDER BY created_at LIMIT </span><span class="si">%s</span><span class="s2"> FOR UPDATE SKIP LOCKED&quot;</span>
 <span class="p">)</span>
 <span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;DELETE FROM consumer_queue WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>

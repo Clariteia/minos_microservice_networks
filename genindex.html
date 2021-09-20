@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>Index &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -221,7 +221,11 @@
 </li>
         <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestQueryEnrouteDecorator.__init__">(minos.networks.decorators.definitions.rest.RestQueryEnrouteDecorator method)</a>
 </li>
-        <li><a href="api/minos.networks.discovery.clients.html#minos.networks.discovery.clients.MinosDiscoveryClient.__init__">(minos.networks.discovery.clients.MinosDiscoveryClient method)</a>
+        <li><a href="api/minos.networks.discovery.clients.abc.html#minos.networks.discovery.clients.abc.DiscoveryClient.__init__">(minos.networks.discovery.clients.abc.DiscoveryClient method)</a>
+</li>
+        <li><a href="api/minos.networks.discovery.clients.kong.html#minos.networks.discovery.clients.kong.KongDiscoveryClient.__init__">(minos.networks.discovery.clients.kong.KongDiscoveryClient method)</a>
+</li>
+        <li><a href="api/minos.networks.discovery.clients.minos.html#minos.networks.discovery.clients.minos.MinosDiscoveryClient.__init__">(minos.networks.discovery.clients.minos.MinosDiscoveryClient method)</a>
 </li>
         <li><a href="api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.__init__">(minos.networks.discovery.connectors.DiscoveryConnector method)</a>
 </li>
@@ -234,6 +238,8 @@
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerException.__init__">(minos.networks.exceptions.MinosHandlerException method)</a>
 </li>
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerNotFoundEnoughEntriesException.__init__">(minos.networks.exceptions.MinosHandlerNotFoundEnoughEntriesException method)</a>
+</li>
+        <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosInvalidDiscoveryClient.__init__">(minos.networks.exceptions.MinosInvalidDiscoveryClient method)</a>
 </li>
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosMultipleEnrouteDecoratorKindsException.__init__">(minos.networks.exceptions.MinosMultipleEnrouteDecoratorKindsException method)</a>
 </li>
@@ -392,6 +398,8 @@
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerException.args">(minos.networks.exceptions.MinosHandlerException attribute)</a>
 </li>
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerNotFoundEnoughEntriesException.args">(minos.networks.exceptions.MinosHandlerNotFoundEnoughEntriesException attribute)</a>
+</li>
+        <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosInvalidDiscoveryClient.args">(minos.networks.exceptions.MinosInvalidDiscoveryClient attribute)</a>
 </li>
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosMultipleEnrouteDecoratorKindsException.args">(minos.networks.exceptions.MinosMultipleEnrouteDecoratorKindsException attribute)</a>
 </li>
@@ -594,6 +602,8 @@
         <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.destroy">(minos.networks.rest.handlers.RestHandler method)</a>
 </li>
       </ul></li>
+      <li><a href="api/minos.networks.discovery.clients.abc.html#minos.networks.discovery.clients.abc.DiscoveryClient">DiscoveryClient (class in minos.networks.discovery.clients.abc)</a>
+</li>
       <li><a href="api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector">DiscoveryConnector (class in minos.networks.discovery.connectors)</a>
 </li>
       <li><a href="api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.dispatch">dispatch() (minos.networks.brokers.producers.Producer method)</a>
@@ -646,8 +656,6 @@
         <li><a href="api/minos.networks.handlers.events.services.html#minos.networks.handlers.events.services.EventHandlerService.dispatcher">(minos.networks.handlers.events.services.EventHandlerService attribute)</a>
 </li>
         <li><a href="api/minos.networks.handlers.services.html#minos.networks.handlers.services.ConsumerService.dispatcher">(minos.networks.handlers.services.ConsumerService attribute)</a>
-</li>
-        <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.dispatcher">(minos.networks.snapshots.SnapshotService attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/minos.networks.handlers.dynamic.handlers.html#minos.networks.handlers.dynamic.handlers.DynamicHandler">DynamicHandler (class in minos.networks.handlers.dynamic.handlers)</a>
@@ -875,11 +883,22 @@
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.discovery.clients.kong.html#minos.networks.discovery.clients.kong.KongDiscoveryClient">KongDiscoveryClient (class in minos.networks.discovery.clients.kong)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    minos
+
+      <ul>
+        <li><a href="api/minos.html#module-minos">module</a>
+</li>
+      </ul></li>
       <li>
     minos.networks
 
@@ -1011,6 +1030,27 @@
 
       <ul>
         <li><a href="api/minos.networks.discovery.clients.html#module-minos.networks.discovery.clients">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.discovery.clients.abc
+
+      <ul>
+        <li><a href="api/minos.networks.discovery.clients.abc.html#module-minos.networks.discovery.clients.abc">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.discovery.clients.kong
+
+      <ul>
+        <li><a href="api/minos.networks.discovery.clients.kong.html#module-minos.networks.discovery.clients.kong">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.discovery.clients.minos
+
+      <ul>
+        <li><a href="api/minos.networks.discovery.clients.minos.html#module-minos.networks.discovery.clients.minos">module</a>
 </li>
       </ul></li>
       <li>
@@ -1146,6 +1186,8 @@
         <li><a href="api/minos.networks.handlers.events.handlers.html#module-minos.networks.handlers.events.handlers">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     minos.networks.handlers.events.services
 
@@ -1153,8 +1195,6 @@
         <li><a href="api/minos.networks.handlers.events.services.html#module-minos.networks.handlers.events.services">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     minos.networks.handlers.messages
 
@@ -1220,7 +1260,7 @@
       </ul></li>
       <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosActionNotFoundException">MinosActionNotFoundException</a>
 </li>
-      <li><a href="api/minos.networks.discovery.clients.html#minos.networks.discovery.clients.MinosDiscoveryClient">MinosDiscoveryClient (class in minos.networks.discovery.clients)</a>
+      <li><a href="api/minos.networks.discovery.clients.minos.html#minos.networks.discovery.clients.minos.MinosDiscoveryClient">MinosDiscoveryClient (class in minos.networks.discovery.clients.minos)</a>
 </li>
       <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosDiscoveryConnectorException">MinosDiscoveryConnectorException</a>
 </li>
@@ -1229,6 +1269,8 @@
       <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerException">MinosHandlerException</a>
 </li>
       <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerNotFoundEnoughEntriesException">MinosHandlerNotFoundEnoughEntriesException</a>
+</li>
+      <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosInvalidDiscoveryClient">MinosInvalidDiscoveryClient</a>
 </li>
       <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosMultipleEnrouteDecoratorKindsException">MinosMultipleEnrouteDecoratorKindsException</a>
 </li>
@@ -1240,6 +1282,8 @@
     module
 
       <ul>
+        <li><a href="api/minos.html#module-minos">minos</a>
+</li>
         <li><a href="api/minos.networks.html#module-minos.networks">minos.networks</a>
 </li>
         <li><a href="api/minos.networks.brokers.html#module-minos.networks.brokers">minos.networks.brokers</a>
@@ -1277,6 +1321,12 @@
         <li><a href="api/minos.networks.discovery.html#module-minos.networks.discovery">minos.networks.discovery</a>
 </li>
         <li><a href="api/minos.networks.discovery.clients.html#module-minos.networks.discovery.clients">minos.networks.discovery.clients</a>
+</li>
+        <li><a href="api/minos.networks.discovery.clients.abc.html#module-minos.networks.discovery.clients.abc">minos.networks.discovery.clients.abc</a>
+</li>
+        <li><a href="api/minos.networks.discovery.clients.kong.html#module-minos.networks.discovery.clients.kong">minos.networks.discovery.clients.kong</a>
+</li>
+        <li><a href="api/minos.networks.discovery.clients.minos.html#module-minos.networks.discovery.clients.minos">minos.networks.discovery.clients.minos</a>
 </li>
         <li><a href="api/minos.networks.discovery.connectors.html#module-minos.networks.discovery.connectors">minos.networks.discovery.connectors</a>
 </li>
@@ -1445,10 +1495,10 @@
 </li>
       <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.Enroute.rest">rest (minos.networks.decorators.api.Enroute attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator">RestCommandEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.RestEnroute">RestEnroute (class in minos.networks.decorators.api)</a>
 </li>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestEnrouteDecorator">RestEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
@@ -1465,8 +1515,14 @@
 </li>
       <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService">RestService (class in minos.networks.rest.services)</a>
 </li>
-      <li><a href="api/minos.networks.discovery.clients.html#minos.networks.discovery.clients.MinosDiscoveryClient.route">route (minos.networks.discovery.clients.MinosDiscoveryClient property)</a>
+      <li><a href="api/minos.networks.discovery.clients.abc.html#minos.networks.discovery.clients.abc.DiscoveryClient.route">route (minos.networks.discovery.clients.abc.DiscoveryClient property)</a>
+
+      <ul>
+        <li><a href="api/minos.networks.discovery.clients.kong.html#minos.networks.discovery.clients.kong.KongDiscoveryClient.route">(minos.networks.discovery.clients.kong.KongDiscoveryClient property)</a>
 </li>
+        <li><a href="api/minos.networks.discovery.clients.minos.html#minos.networks.discovery.clients.minos.MinosDiscoveryClient.route">(minos.networks.discovery.clients.minos.MinosDiscoveryClient property)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1535,6 +1591,8 @@
         <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.setup">(minos.networks.rest.handlers.RestHandler method)</a>
 </li>
       </ul></li>
+      <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.snapshot">snapshot (minos.networks.snapshots.SnapshotService attribute)</a>
+</li>
       <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService">SnapshotService (class in minos.networks.snapshots)</a>
 </li>
       <li><a href="api/minos.networks.brokers.services.html#minos.networks.brokers.services.ProducerService.start">start() (minos.networks.brokers.services.ProducerService method)</a>
@@ -1671,9 +1729,13 @@
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.submit_query_and_iter">(minos.networks.handlers.events.handlers.EventHandler method)</a>
 </li>
       </ul></li>
-      <li><a href="api/minos.networks.discovery.clients.html#minos.networks.discovery.clients.MinosDiscoveryClient.subscribe">subscribe() (minos.networks.discovery.clients.MinosDiscoveryClient method)</a>
+      <li><a href="api/minos.networks.discovery.clients.abc.html#minos.networks.discovery.clients.abc.DiscoveryClient.subscribe">subscribe() (minos.networks.discovery.clients.abc.DiscoveryClient method)</a>
 
       <ul>
+        <li><a href="api/minos.networks.discovery.clients.kong.html#minos.networks.discovery.clients.kong.KongDiscoveryClient.subscribe">(minos.networks.discovery.clients.kong.KongDiscoveryClient method)</a>
+</li>
+        <li><a href="api/minos.networks.discovery.clients.minos.html#minos.networks.discovery.clients.minos.MinosDiscoveryClient.subscribe">(minos.networks.discovery.clients.minos.MinosDiscoveryClient method)</a>
+</li>
         <li><a href="api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.subscribe">(minos.networks.discovery.connectors.DiscoveryConnector method)</a>
 </li>
       </ul></li>
@@ -1703,16 +1765,20 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/minos.networks.discovery.clients.html#minos.networks.discovery.clients.MinosDiscoveryClient.unsubscribe">unsubscribe() (minos.networks.discovery.clients.MinosDiscoveryClient method)</a>
+      <li><a href="api/minos.networks.discovery.clients.abc.html#minos.networks.discovery.clients.abc.DiscoveryClient.unsubscribe">unsubscribe() (minos.networks.discovery.clients.abc.DiscoveryClient method)</a>
 
       <ul>
+        <li><a href="api/minos.networks.discovery.clients.kong.html#minos.networks.discovery.clients.kong.KongDiscoveryClient.unsubscribe">(minos.networks.discovery.clients.kong.KongDiscoveryClient method)</a>
+</li>
+        <li><a href="api/minos.networks.discovery.clients.minos.html#minos.networks.discovery.clients.minos.MinosDiscoveryClient.unsubscribe">(minos.networks.discovery.clients.minos.MinosDiscoveryClient method)</a>
+</li>
         <li><a href="api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.unsubscribe">(minos.networks.discovery.connectors.DiscoveryConnector method)</a>
 </li>
       </ul></li>
-      <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.url_args">url_args (minos.networks.rest.messages.RestRequest attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.url_args">url_args (minos.networks.rest.messages.RestRequest attribute)</a>
+</li>
       <li><a href="api/minos.networks.handlers.messages.html#minos.networks.handlers.messages.HandlerRequest.user">user (minos.networks.handlers.messages.HandlerRequest property)</a>
 
       <ul>
@@ -1739,6 +1805,8 @@
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerException.with_traceback">(minos.networks.exceptions.MinosHandlerException method)</a>
 </li>
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosHandlerNotFoundEnoughEntriesException.with_traceback">(minos.networks.exceptions.MinosHandlerNotFoundEnoughEntriesException method)</a>
+</li>
+        <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosInvalidDiscoveryClient.with_traceback">(minos.networks.exceptions.MinosInvalidDiscoveryClient method)</a>
 </li>
         <li><a href="api/minos.networks.exceptions.html#minos.networks.exceptions.MinosMultipleEnrouteDecoratorKindsException.with_traceback">(minos.networks.exceptions.MinosMultipleEnrouteDecoratorKindsException method)</a>
 </li>

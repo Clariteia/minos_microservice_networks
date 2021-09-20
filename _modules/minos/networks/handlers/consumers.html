@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.consumers &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.handlers.consumers &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -161,9 +161,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.handlers.consumers</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;minos.networks.abc.consumers module.&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -245,6 +243,7 @@
         <span class="c1"># replies</span>
         <span class="n">topics</span> <span class="o">|=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">Reply&quot;</span><span class="p">}</span>
 
+        <span class="c1"># noinspection PyProtectedMember</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="n">topics</span><span class="o">=</span><span class="n">topics</span><span class="p">,</span> <span class="n">broker</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
@@ -291,6 +290,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AIOKafkaConsumer</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the kafka consumer client.</span>
+
+<span class="sd">        :return: An ``AIOKafkaConsumer`` instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">AIOKafkaConsumer</span><span class="p">(</span>
                 <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_topics</span><span class="p">,</span>
@@ -359,11 +362,7 @@
         <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div></div>
 
 
-<span class="n">_INSERT_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span>
-    <span class="s2">&quot;INSERT INTO consumer_queue (topic, partition_id, binary_data, creation_date) &quot;</span>
-    <span class="s2">&quot;VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, NOW()) &quot;</span>
-    <span class="s2">&quot;RETURNING id&quot;</span>
-<span class="p">)</span>
+<span class="n">_INSERT_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;INSERT INTO consumer_queue (topic, partition, data) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">) RETURNING id&quot;</span><span class="p">)</span>
 
 <span class="n">_NOTIFY_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;NOTIFY </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>

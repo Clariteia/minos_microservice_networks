@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.producers &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.brokers.producers &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -161,9 +161,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.brokers.producers</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;minos.networks.brokers.producers module.&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -328,7 +326,7 @@
 <span class="sd">        :param row: A row containing the message information.</span>
 <span class="sd">        :return: ``True`` if everything was fine or ``False`` otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">topic</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">action</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">topic</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">action</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 
         <span class="c1"># noinspection PyBroadException</span>
         <span class="k">try</span><span class="p">:</span>
@@ -372,7 +370,7 @@
     <span class="s2">&quot;SELECT * &quot;</span>
     <span class="s2">&quot;FROM producer_queue &quot;</span>
     <span class="s2">&quot;WHERE retry &lt; </span><span class="si">%s</span><span class="s2"> &quot;</span>
-    <span class="s2">&quot;ORDER BY creation_date &quot;</span>
+    <span class="s2">&quot;ORDER BY created_at &quot;</span>
     <span class="s2">&quot;LIMIT </span><span class="si">%s</span><span class="s2"> &quot;</span>
     <span class="s2">&quot;FOR UPDATE &quot;</span>
     <span class="s2">&quot;SKIP LOCKED&quot;</span>
@@ -380,7 +378,7 @@
 
 <span class="n">_DELETE_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;DELETE FROM producer_queue WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">_UPDATE_NOT_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;UPDATE producer_queue SET retry = retry + 1 WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">_UPDATE_NOT_PROCESSED_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;UPDATE producer_queue SET retry = retry + 1, updated_at = NOW() WHERE id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">_LISTEN_QUERY</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="s2">&quot;LISTEN producer_queue&quot;</span><span class="p">)</span>
 

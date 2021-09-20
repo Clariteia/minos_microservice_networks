@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.discovery.clients module &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.discovery.clients package &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="minos.networks.discovery.connectors module" href="minos.networks.discovery.connectors.html" />
+    <link rel="next" title="minos.networks.discovery.clients.abc module" href="minos.networks.discovery.clients.abc.html" />
     <link rel="prev" title="minos.networks.discovery package" href="minos.networks.discovery.html" /> 
 </head>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -161,7 +161,7 @@
         
           <li><a href="minos.networks.discovery.html">minos.networks.discovery package</a> &raquo;</li>
         
-      <li>minos.networks.discovery.clients module</li>
+      <li>minos.networks.discovery.clients package</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -181,79 +181,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-minos.networks.discovery.clients">
-<span id="minos-networks-discovery-clients-module"></span><h1>minos.networks.discovery.clients module<a class="headerlink" href="#module-minos.networks.discovery.clients" title="Permalink to this headline">¶</a></h1>
-<p>minos.networks.discovery.clients module.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="minos.networks.discovery.clients.MinosDiscoveryClient">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.discovery.clients.</span></span><span class="sig-name descname"><span class="pre">MinosDiscoveryClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/clients.html#MinosDiscoveryClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Minos Discovery Client class.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.discovery.clients.MinosDiscoveryClient.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/clients.html#MinosDiscoveryClient.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.discovery.clients.MinosDiscoveryClient.route">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">route</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient.route" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the full http route to the repository.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An <code class="docutils literal notranslate"><span class="pre">str</span></code> value.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.discovery.clients.MinosDiscoveryClient.subscribe">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/clients.html#MinosDiscoveryClient.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient.subscribe" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform a subscription query.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>host</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The ip of the microservice to be subscribed.</p></li>
-<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The port of the microservice to be subscribed.</p></li>
-<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the microservice to be subscribed.</p></li>
-<li><p><strong>endpoints</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – List of endpoints exposed by the microservice.</p></li>
-<li><p><strong>retry_tries</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of attempts before raising a failure exception.</p></li>
-<li><p><strong>retry_delay</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Seconds to wait between attempts.</p></li>
+<span id="minos-networks-discovery-clients-package"></span><h1>minos.networks.discovery.clients package<a class="headerlink" href="#module-minos.networks.discovery.clients" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="minos.networks.discovery.clients.abc.html">minos.networks.discovery.clients.abc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minos.networks.discovery.clients.kong.html">minos.networks.discovery.clients.kong module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minos.networks.discovery.clients.minos.html">minos.networks.discovery.clients.minos module</a></li>
 </ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>This method does not return anything.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.discovery.clients.MinosDiscoveryClient.unsubscribe">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">unsubscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/discovery/clients.html#MinosDiscoveryClient.unsubscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.discovery.clients.MinosDiscoveryClient.unsubscribe" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform an unsubscribe query.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the microservice to be unsubscribed.</p></li>
-<li><p><strong>retry_tries</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of attempts before raising a failure exception.</p></li>
-<li><p><strong>retry_delay</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Seconds to wait between attempts.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.NoReturn</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>This method does not return anything.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+</div>
+</div>
 </div>
 
 
@@ -262,7 +200,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="minos.networks.discovery.connectors.html" class="btn btn-neutral float-right" title="minos.networks.discovery.connectors module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="minos.networks.discovery.clients.abc.html" class="btn btn-neutral float-right" title="minos.networks.discovery.clients.abc module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="minos.networks.discovery.html" class="btn btn-neutral float-left" title="minos.networks.discovery package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -161,13 +161,14 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.discovery.connectors</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;minos.networks.discovery.connectors module.&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">isclass</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">chain</span><span class="p">,</span>
 <span class="p">)</span>
@@ -176,22 +177,27 @@
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">NoReturn</span><span class="p">,</span>
+    <span class="n">Type</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">minos.common</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">MinosConfig</span><span class="p">,</span>
+    <span class="n">MinosImportException</span><span class="p">,</span>
     <span class="n">MinosSetup</span><span class="p">,</span>
+    <span class="n">import_module</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">..decorators</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">EnrouteAnalyzer</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">MinosInvalidDiscoveryClient</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">get_host_ip</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">.clients</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">MinosDiscoveryClient</span><span class="p">,</span>
+    <span class="n">DiscoveryClient</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -212,13 +218,26 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DiscoveryConnector</span><span class="p">:</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">MinosDiscoveryClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+        <span class="n">client_cls</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_client_cls_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">client_cls</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
         <span class="n">port</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">port</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">name</span>
         <span class="n">host</span> <span class="o">=</span> <span class="n">get_host_ip</span><span class="p">()</span>
         <span class="n">endpoints</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_endpoints_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">endpoints</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_client_cls_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="n">DiscoveryClient</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># noinspection PyTypeChecker</span>
+            <span class="n">client_cls</span><span class="p">:</span> <span class="nb">type</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">client</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">MinosImportException</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MinosInvalidDiscoveryClient</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">client</span><span class="si">}</span><span class="s2"> could not be imported.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">isclass</span><span class="p">(</span><span class="n">client_cls</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">client_cls</span><span class="p">,</span> <span class="n">DiscoveryClient</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">MinosInvalidDiscoveryClient</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">client</span><span class="si">}</span><span class="s2"> not supported.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">client_cls</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_endpoints_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
@@ -231,10 +250,10 @@
         <span class="n">endpoints</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">endpoints</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscribe</span><span class="p">()</span>
 
-<div class="viewcode-block" id="DiscoveryConnector.subscribe"><a class="viewcode-back" href="../../../../api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.subscribe">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+<div class="viewcode-block" id="DiscoveryConnector.subscribe"><a class="viewcode-back" href="../../../../api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.subscribe">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Send a subscribe operation to the discovery.</span>
 
 <span class="sd">        :return: This method does not return anything.</span>
@@ -242,10 +261,10 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Performing discovery subscription...&quot;</span><span class="p">)</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">)</span></div>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">_destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">()</span>
 
-<div class="viewcode-block" id="DiscoveryConnector.unsubscribe"><a class="viewcode-back" href="../../../../api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.unsubscribe">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">unsubscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+<div class="viewcode-block" id="DiscoveryConnector.unsubscribe"><a class="viewcode-back" href="../../../../api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.unsubscribe">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">unsubscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Send an unsubscribe operation to the discovery.</span>
 
 <span class="sd">        :return: This method does not return anything.</span>

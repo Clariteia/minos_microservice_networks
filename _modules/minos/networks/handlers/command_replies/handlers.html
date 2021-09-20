@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.command_replies.handlers &mdash; Minos Microservice Network 0.0.15 documentation</title>
+  <title>minos.networks.handlers.command_replies.handlers &mdash; Minos Microservice Network 0.0.16 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.15
+                0.0.16
               </div>
             
           
@@ -161,16 +161,13 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.handlers.command_replies.handlers</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;minos.networks.handlers.command_replies.handlers module.&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">annotations</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">NoReturn</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">dependency_injector.wiring</span> <span class="kn">import</span> <span class="p">(</span>
@@ -209,9 +206,10 @@
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CommandReplyHandler</span><span class="p">:</span>
         <span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">Reply&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="c1"># noinspection PyProtectedMember</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">handlers</span><span class="o">=</span><span class="n">handlers</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<div class="viewcode-block" id="CommandReplyHandler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.dispatch_one">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">[</span><span class="n">CommandReply</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+<div class="viewcode-block" id="CommandReplyHandler.dispatch_one"><a class="viewcode-back" href="../../../../../api/minos.networks.handlers.command_replies.handlers.html#minos.networks.handlers.command_replies.handlers.CommandReplyHandler.dispatch_one">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">HandlerEntry</span><span class="p">[</span><span class="n">CommandReply</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Dispatch one row.</span>
 
 <span class="sd">        :param entry: Entry to be dispatched.</span>

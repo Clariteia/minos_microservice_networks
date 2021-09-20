@@ -6,11 +6,18 @@ minos.networks.discovery package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.discovery.clients
+
 Submodules
 ----------
 
 .. toctree::
    :maxdepth: 4
 
-   minos.networks.discovery.clients
    minos.networks.discovery.connectors
