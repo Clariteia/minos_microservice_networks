@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.handlers.events.handlers &mdash; Minos Microservice Network 0.0.16 documentation</title>
+  <title>minos.networks.handlers.events.handlers &mdash; Minos Microservice Network 0.0.17 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.16
+                0.0.17
               </div>
             
           
@@ -175,6 +175,9 @@
 <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">isawaitable</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">chain</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">attrgetter</span><span class="p">,</span>
 <span class="p">)</span>
@@ -217,12 +220,30 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EventHandler</span><span class="p">:</span>
-        <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_event</span><span class="p">()</span>
-
-        <span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span><span class="n">decorator</span><span class="o">.</span><span class="n">topic</span><span class="p">:</span> <span class="n">fn</span> <span class="k">for</span> <span class="n">decorator</span><span class="p">,</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">decorators</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
+        <span class="n">handlers</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_handlers_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
         <span class="c1"># noinspection PyProtectedMember</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">handlers</span><span class="o">=</span><span class="n">handlers</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_handlers_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">HandlerRequest</span><span class="p">],</span> <span class="n">Awaitable</span><span class="p">]]:</span>
+        <span class="n">command_decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_event</span><span class="p">()</span>
+        <span class="n">query_decorators</span> <span class="o">=</span> <span class="n">EnrouteBuilder</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">queries</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_broker_event</span><span class="p">()</span>
+
+        <span class="n">handlers</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">decorator</span><span class="p">,</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">(</span><span class="n">command_decorators</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">query_decorators</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">handlers</span><span class="p">[</span><span class="n">decorator</span><span class="o">.</span><span class="n">topic</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_make_fn</span><span class="p">(</span><span class="n">fns</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">Callable</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">fns</span><span class="p">))</span>
+
+            <span class="k">async</span> <span class="k">def</span> <span class="nf">_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="k">return</span> <span class="k">await</span> <span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">fns</span><span class="p">))</span>
+
+            <span class="k">return</span> <span class="n">_fn</span>
+
+        <span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span><span class="n">topic</span><span class="p">:</span> <span class="n">_make_fn</span><span class="p">(</span><span class="n">fns</span><span class="p">)</span> <span class="k">for</span> <span class="n">topic</span><span class="p">,</span> <span class="n">fns</span> <span class="ow">in</span> <span class="n">handlers</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">handlers</span>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">_dispatch_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">HandlerEntry</span><span class="p">[</span><span class="n">Event</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">grouped</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
