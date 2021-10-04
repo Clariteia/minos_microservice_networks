@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.decorators.api &mdash; Minos Microservice Network 0.0.17 documentation</title>
+  <title>minos.networks.decorators.api &mdash; Minos Microservice Network 0.0.18 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.17
+                0.0.18
               </div>
             
           
@@ -161,10 +161,15 @@
            <div itemprop="articleBody">
             
   <h1>Source code for minos.networks.decorators.api</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.definitions</span> <span class="kn">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">annotations</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.definitions</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">BrokerCommandEnrouteDecorator</span><span class="p">,</span>
     <span class="n">BrokerEventEnrouteDecorator</span><span class="p">,</span>
     <span class="n">BrokerQueryEnrouteDecorator</span><span class="p">,</span>
+    <span class="n">PeriodicEventEnrouteDecorator</span><span class="p">,</span>
     <span class="n">RestCommandEnrouteDecorator</span><span class="p">,</span>
     <span class="n">RestQueryEnrouteDecorator</span><span class="p">,</span>
 <span class="p">)</span>
@@ -185,11 +190,18 @@
     <span class="n">query</span> <span class="o">=</span> <span class="n">RestQueryEnrouteDecorator</span></div>
 
 
+<div class="viewcode-block" id="PeriodicEnroute"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.api.html#minos.networks.decorators.api.PeriodicEnroute">[docs]</a><span class="k">class</span> <span class="nc">PeriodicEnroute</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Periodic Enroute class.&quot;&quot;&quot;</span>
+
+    <span class="n">event</span> <span class="o">=</span> <span class="n">PeriodicEventEnrouteDecorator</span></div>
+
+
 <div class="viewcode-block" id="Enroute"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.api.html#minos.networks.decorators.api.Enroute">[docs]</a><span class="k">class</span> <span class="nc">Enroute</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Enroute decorator main class&quot;&quot;&quot;</span>
 
     <span class="n">broker</span> <span class="o">=</span> <span class="n">BrokerEnroute</span>
-    <span class="n">rest</span> <span class="o">=</span> <span class="n">RestEnroute</span></div>
+    <span class="n">rest</span> <span class="o">=</span> <span class="n">RestEnroute</span>
+    <span class="n">periodic</span> <span class="o">=</span> <span class="n">PeriodicEnroute</span></div>
 
 
 <span class="n">enroute</span> <span class="o">=</span> <span class="n">Enroute</span>

@@ -17,6 +17,7 @@ Subpackages
    minos.networks.discovery
    minos.networks.handlers
    minos.networks.rest
+   minos.networks.scheduling
 
 Submodules
 ----------

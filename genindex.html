@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; Minos Microservice Network 0.0.17 documentation</title>
+  <title>Index &mdash; Minos Microservice Network 0.0.18 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.17
+                0.0.18
               </div>
             
           
@@ -182,6 +182,7 @@
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
  
 </div>
@@ -214,6 +215,10 @@
         <li><a href="api/minos.networks.decorators.definitions.broker.html#minos.networks.decorators.definitions.broker.BrokerEventEnrouteDecorator.__init__">(minos.networks.decorators.definitions.broker.BrokerEventEnrouteDecorator method)</a>
 </li>
         <li><a href="api/minos.networks.decorators.definitions.broker.html#minos.networks.decorators.definitions.broker.BrokerQueryEnrouteDecorator.__init__">(minos.networks.decorators.definitions.broker.BrokerQueryEnrouteDecorator method)</a>
+</li>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEnrouteDecorator.__init__">(minos.networks.decorators.definitions.periodic.PeriodicEnrouteDecorator method)</a>
+</li>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEventEnrouteDecorator.__init__">(minos.networks.decorators.definitions.periodic.PeriodicEventEnrouteDecorator method)</a>
 </li>
         <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator.__init__">(minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator method)</a>
 </li>
@@ -295,6 +300,18 @@
 </li>
         <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.__init__">(minos.networks.rest.services.RestService method)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequest.__init__">(minos.networks.scheduling.messages.ScheduledRequest method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.__init__">(minos.networks.scheduling.messages.ScheduledRequestContent method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledResponseException.__init__">(minos.networks.scheduling.messages.ScheduledResponseException method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.__init__">(minos.networks.scheduling.schedulers.PeriodicTask method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.__init__">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService.__init__">(minos.networks.scheduling.services.PeriodicTaskSchedulerService method)</a>
+</li>
         <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.__init__">(minos.networks.snapshots.SnapshotService method)</a>
 </li>
       </ul></li>
@@ -351,6 +368,8 @@
 </li>
         <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.already_destroyed">(minos.networks.rest.handlers.RestHandler property)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_destroyed">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler property)</a>
+</li>
       </ul></li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.already_setup">already_setup (minos.networks.brokers.abc.Broker property)</a>
 
@@ -385,6 +404,8 @@
 </li>
         <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.already_setup">(minos.networks.rest.handlers.RestHandler property)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_setup">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler property)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -413,7 +434,17 @@
 </li>
         <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestResponseException.args">(minos.networks.rest.messages.RestResponseException attribute)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledResponseException.args">(minos.networks.scheduling.messages.ScheduledResponseException attribute)</a>
+</li>
       </ul></li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.avro_bytes">avro_bytes (minos.networks.scheduling.messages.ScheduledRequestContent property)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.avro_data">avro_data (minos.networks.scheduling.messages.ScheduledRequestContent property)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.avro_schema">avro_schema (minos.networks.scheduling.messages.ScheduledRequestContent attribute)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.avro_str">avro_str (minos.networks.scheduling.messages.ScheduledRequestContent property)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -447,6 +478,8 @@
       <li><a href="api/minos.networks.handlers.entries.html#minos.networks.handlers.entries.HandlerEntry.callback">callback (minos.networks.handlers.entries.HandlerEntry attribute)</a>
 </li>
       <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.callback">callback() (minos.networks.snapshots.SnapshotService method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.classname">classname (minos.networks.scheduling.messages.ScheduledRequestContent attribute)</a>
 </li>
       <li><a href="api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.client">client (minos.networks.brokers.producers.Producer property)</a>
 
@@ -497,6 +530,8 @@
 </li>
         <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestResponse.content">(minos.networks.rest.messages.RestResponse method)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequest.content">(minos.networks.scheduling.messages.ScheduledRequest method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -513,12 +548,16 @@
 </li>
         <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.context">(minos.networks.rest.services.RestService property)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService.context">(minos.networks.scheduling.services.PeriodicTaskSchedulerService property)</a>
+</li>
         <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.context">(minos.networks.snapshots.SnapshotService property)</a>
 </li>
       </ul></li>
       <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.create_application">create_application() (minos.networks.rest.services.RestService method)</a>
 </li>
       <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.create_site">create_site() (minos.networks.rest.services.RestService method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.crontab">crontab (minos.networks.scheduling.schedulers.PeriodicTask property)</a>
 </li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.cursor">cursor() (minos.networks.brokers.abc.Broker method)</a>
 
@@ -591,11 +630,15 @@
 </li>
         <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.destroy">(minos.networks.rest.handlers.RestHandler method)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.destroy">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler method)</a>
+</li>
       </ul></li>
       <li><a href="api/minos.networks.discovery.clients.abc.html#minos.networks.discovery.clients.abc.DiscoveryClient">DiscoveryClient (class in minos.networks.discovery.clients.abc)</a>
 </li>
       <li><a href="api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector">DiscoveryConnector (class in minos.networks.discovery.connectors)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.dispatch">dispatch() (minos.networks.brokers.producers.Producer method)</a>
 
       <ul>
@@ -610,8 +653,6 @@
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.dispatch">(minos.networks.handlers.events.handlers.EventHandler method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.brokers.producers.html#minos.networks.brokers.producers.Producer.dispatch_forever">dispatch_forever() (minos.networks.brokers.producers.Producer method)</a>
 
       <ul>
@@ -678,10 +719,10 @@
 </li>
       <li><a href="api/minos.networks.decorators.builders.html#minos.networks.decorators.builders.EnrouteBuilder">EnrouteBuilder (class in minos.networks.decorators.builders)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.decorators.definitions.abc.html#minos.networks.decorators.definitions.abc.EnrouteDecorator">EnrouteDecorator (class in minos.networks.decorators.definitions.abc)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.decorators.definitions.kinds.html#minos.networks.decorators.definitions.kinds.EnrouteDecoratorKind">EnrouteDecoratorKind (class in minos.networks.decorators.definitions.kinds)</a>
 </li>
       <li><a href="api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.ENTRY_MODEL_CLS">ENTRY_MODEL_CLS (minos.networks.handlers.abc.handlers.Handler attribute)</a>
@@ -695,7 +736,11 @@
 </li>
       </ul></li>
       <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.BrokerEnroute.event">event (minos.networks.decorators.api.BrokerEnroute attribute)</a>
+
+      <ul>
+        <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.PeriodicEnroute.event">(minos.networks.decorators.api.PeriodicEnroute attribute)</a>
 </li>
+      </ul></li>
       <li><a href="api/minos.networks.decorators.definitions.kinds.html#minos.networks.decorators.definitions.kinds.EnrouteDecoratorKind.Event">Event (minos.networks.decorators.definitions.kinds.EnrouteDecoratorKind attribute)</a>
 </li>
       <li><a href="api/minos.networks.brokers.events.html#minos.networks.brokers.events.EventBroker">EventBroker (class in minos.networks.brokers.events)</a>
@@ -710,6 +755,16 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.fields">fields (minos.networks.scheduling.messages.ScheduledRequestContent property)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.fn">fn (minos.networks.scheduling.schedulers.PeriodicTask property)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.from_avro">from_avro() (minos.networks.scheduling.messages.ScheduledRequestContent class method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.from_avro_bytes">from_avro_bytes() (minos.networks.scheduling.messages.ScheduledRequestContent class method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.from_avro_str">from_avro_str() (minos.networks.scheduling.messages.ScheduledRequestContent class method)</a>
+</li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.from_config">from_config() (minos.networks.brokers.abc.Broker class method)</a>
 
       <ul>
@@ -743,13 +798,23 @@
 </li>
         <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.from_config">(minos.networks.rest.handlers.RestHandler class method)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.from_config">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler class method)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.from_model_type">from_model_type() (minos.networks.scheduling.messages.ScheduledRequestContent class method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.from_typed_dict">from_typed_dict() (minos.networks.scheduling.messages.ScheduledRequestContent class method)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.get">get() (minos.networks.scheduling.messages.ScheduledRequestContent method)</a>
+</li>
       <li><a href="api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.get_action">get_action() (minos.networks.handlers.abc.handlers.Handler method)</a>
 
       <ul>
@@ -798,6 +863,12 @@
 </li>
       <li><a href="api/minos.networks.handlers.dynamic.handlers.html#minos.networks.handlers.dynamic.handlers.DynamicHandler.get_one">get_one() (minos.networks.handlers.dynamic.handlers.DynamicHandler method)</a>
 </li>
+      <li><a href="api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer.get_periodic_event">get_periodic_event() (minos.networks.decorators.analyzers.EnrouteAnalyzer method)</a>
+
+      <ul>
+        <li><a href="api/minos.networks.decorators.builders.html#minos.networks.decorators.builders.EnrouteBuilder.get_periodic_event">(minos.networks.decorators.builders.EnrouteBuilder method)</a>
+</li>
+      </ul></li>
       <li><a href="api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer.get_rest_command_query">get_rest_command_query() (minos.networks.decorators.analyzers.EnrouteAnalyzer method)</a>
 
       <ul>
@@ -849,11 +920,17 @@
       <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.interval">interval (minos.networks.snapshots.SnapshotService attribute)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.items">items() (minos.networks.scheduling.messages.ScheduledRequestContent method)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.keys">keys() (minos.networks.scheduling.messages.ScheduledRequestContent method)</a>
+</li>
       <li><a href="api/minos.networks.decorators.definitions.abc.html#minos.networks.decorators.definitions.abc.EnrouteDecorator.KIND">KIND (minos.networks.decorators.definitions.abc.EnrouteDecorator attribute)</a>
 
       <ul>
@@ -864,6 +941,10 @@
         <li><a href="api/minos.networks.decorators.definitions.broker.html#minos.networks.decorators.definitions.broker.BrokerEventEnrouteDecorator.KIND">(minos.networks.decorators.definitions.broker.BrokerEventEnrouteDecorator attribute)</a>
 </li>
         <li><a href="api/minos.networks.decorators.definitions.broker.html#minos.networks.decorators.definitions.broker.BrokerQueryEnrouteDecorator.KIND">(minos.networks.decorators.definitions.broker.BrokerQueryEnrouteDecorator attribute)</a>
+</li>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEnrouteDecorator.KIND">(minos.networks.decorators.definitions.periodic.PeriodicEnrouteDecorator attribute)</a>
+</li>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEventEnrouteDecorator.KIND">(minos.networks.decorators.definitions.periodic.PeriodicEventEnrouteDecorator attribute)</a>
 </li>
         <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator.KIND">(minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator attribute)</a>
 </li>
@@ -999,6 +1080,13 @@
 
       <ul>
         <li><a href="api/minos.networks.decorators.definitions.kinds.html#module-minos.networks.decorators.definitions.kinds">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.decorators.definitions.periodic
+
+      <ul>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#module-minos.networks.decorators.definitions.periodic">module</a>
 </li>
       </ul></li>
       <li>
@@ -1176,8 +1264,6 @@
         <li><a href="api/minos.networks.handlers.events.handlers.html#module-minos.networks.handlers.events.handlers">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     minos.networks.handlers.events.services
 
@@ -1199,6 +1285,8 @@
         <li><a href="api/minos.networks.handlers.services.html#module-minos.networks.handlers.services">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     minos.networks.messages
 
@@ -1232,6 +1320,34 @@
 
       <ul>
         <li><a href="api/minos.networks.rest.services.html#module-minos.networks.rest.services">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.scheduling
+
+      <ul>
+        <li><a href="api/minos.networks.scheduling.html#module-minos.networks.scheduling">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.scheduling.messages
+
+      <ul>
+        <li><a href="api/minos.networks.scheduling.messages.html#module-minos.networks.scheduling.messages">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.scheduling.schedulers
+
+      <ul>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#module-minos.networks.scheduling.schedulers">module</a>
+</li>
+      </ul></li>
+      <li>
+    minos.networks.scheduling.services
+
+      <ul>
+        <li><a href="api/minos.networks.scheduling.services.html#module-minos.networks.scheduling.services">module</a>
 </li>
       </ul></li>
       <li>
@@ -1306,6 +1422,8 @@
 </li>
         <li><a href="api/minos.networks.decorators.definitions.kinds.html#module-minos.networks.decorators.definitions.kinds">minos.networks.decorators.definitions.kinds</a>
 </li>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#module-minos.networks.decorators.definitions.periodic">minos.networks.decorators.definitions.periodic</a>
+</li>
         <li><a href="api/minos.networks.decorators.definitions.rest.html#module-minos.networks.decorators.definitions.rest">minos.networks.decorators.definitions.rest</a>
 </li>
         <li><a href="api/minos.networks.discovery.html#module-minos.networks.discovery">minos.networks.discovery</a>
@@ -1372,6 +1490,14 @@
 </li>
         <li><a href="api/minos.networks.rest.services.html#module-minos.networks.rest.services">minos.networks.rest.services</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.html#module-minos.networks.scheduling">minos.networks.scheduling</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.messages.html#module-minos.networks.scheduling.messages">minos.networks.scheduling.messages</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#module-minos.networks.scheduling.schedulers">minos.networks.scheduling.schedulers</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.services.html#module-minos.networks.scheduling.services">minos.networks.scheduling.services</a>
+</li>
         <li><a href="api/minos.networks.snapshots.html#module-minos.networks.snapshots">minos.networks.snapshots</a>
 </li>
         <li><a href="api/minos.networks.utils.html#module-minos.networks.utils">minos.networks.utils</a>
@@ -1384,6 +1510,20 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.path_args">path_args (minos.networks.rest.messages.RestRequest attribute)</a>
+</li>
+      <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.Enroute.periodic">periodic (minos.networks.decorators.api.Enroute attribute)</a>
+</li>
+      <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.PeriodicEnroute">PeriodicEnroute (class in minos.networks.decorators.api)</a>
+</li>
+      <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEnrouteDecorator">PeriodicEnrouteDecorator (class in minos.networks.decorators.definitions.periodic)</a>
+</li>
+      <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEventEnrouteDecorator">PeriodicEventEnrouteDecorator (class in minos.networks.decorators.definitions.periodic)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask">PeriodicTask (class in minos.networks.scheduling.schedulers)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler">PeriodicTaskScheduler (class in minos.networks.scheduling.schedulers)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService">PeriodicTaskSchedulerService (class in minos.networks.scheduling.services)</a>
 </li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.pool">pool (minos.networks.brokers.abc.Broker property)</a>
 
@@ -1429,6 +1569,10 @@
         <li><a href="api/minos.networks.decorators.definitions.broker.html#minos.networks.decorators.definitions.broker.BrokerQueryEnrouteDecorator.pre_fn_name">(minos.networks.decorators.definitions.broker.BrokerQueryEnrouteDecorator property)</a>
 </li>
         <li><a href="api/minos.networks.decorators.definitions.kinds.html#minos.networks.decorators.definitions.kinds.EnrouteDecoratorKind.pre_fn_name">(minos.networks.decorators.definitions.kinds.EnrouteDecoratorKind property)</a>
+</li>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEnrouteDecorator.pre_fn_name">(minos.networks.decorators.definitions.periodic.PeriodicEnrouteDecorator property)</a>
+</li>
+        <li><a href="api/minos.networks.decorators.definitions.periodic.html#minos.networks.decorators.definitions.periodic.PeriodicEventEnrouteDecorator.pre_fn_name">(minos.networks.decorators.definitions.periodic.PeriodicEventEnrouteDecorator property)</a>
 </li>
         <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator.pre_fn_name">(minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator property)</a>
 </li>
@@ -1487,12 +1631,12 @@
 </li>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestCommandEnrouteDecorator">RestCommandEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.decorators.api.html#minos.networks.decorators.api.RestEnroute">RestEnroute (class in minos.networks.decorators.api)</a>
 </li>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestEnrouteDecorator">RestEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler">RestHandler (class in minos.networks.rest.handlers)</a>
 </li>
       <li><a href="api/minos.networks.decorators.definitions.rest.html#minos.networks.decorators.definitions.rest.RestQueryEnrouteDecorator">RestQueryEnrouteDecorator (class in minos.networks.decorators.definitions.rest)</a>
@@ -1513,12 +1657,28 @@
         <li><a href="api/minos.networks.discovery.clients.minos.html#minos.networks.discovery.clients.minos.MinosDiscoveryClient.route">(minos.networks.discovery.clients.minos.MinosDiscoveryClient property)</a>
 </li>
       </ul></li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.run_forever">run_forever() (minos.networks.scheduling.schedulers.PeriodicTask method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.run_once">run_once() (minos.networks.scheduling.schedulers.PeriodicTask method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.running">running (minos.networks.scheduling.schedulers.PeriodicTask property)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.scheduled_at">scheduled_at (minos.networks.scheduling.messages.ScheduledRequestContent attribute)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequest">ScheduledRequest (class in minos.networks.scheduling.messages)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent">ScheduledRequestContent (class in minos.networks.scheduling.messages)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledResponseException">ScheduledResponseException</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService.scheduler">scheduler (minos.networks.scheduling.services.PeriodicTaskSchedulerService attribute)</a>
+</li>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.send">send() (minos.networks.brokers.abc.Broker method)</a>
 
       <ul>
@@ -1541,6 +1701,8 @@
         <li><a href="api/minos.networks.handlers.services.html#minos.networks.handlers.services.ConsumerService.set_loop">(minos.networks.handlers.services.ConsumerService method)</a>
 </li>
         <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.set_loop">(minos.networks.rest.services.RestService method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService.set_loop">(minos.networks.scheduling.services.PeriodicTaskSchedulerService method)</a>
 </li>
         <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.set_loop">(minos.networks.snapshots.SnapshotService method)</a>
 </li>
@@ -1578,6 +1740,8 @@
 </li>
         <li><a href="api/minos.networks.rest.handlers.html#minos.networks.rest.handlers.RestHandler.setup">(minos.networks.rest.handlers.RestHandler method)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.setup">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler method)</a>
+</li>
       </ul></li>
       <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService">SnapshotService (class in minos.networks.snapshots)</a>
 </li>
@@ -1593,6 +1757,12 @@
         <li><a href="api/minos.networks.handlers.services.html#minos.networks.handlers.services.ConsumerService.start">(minos.networks.handlers.services.ConsumerService method)</a>
 </li>
         <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.start">(minos.networks.rest.services.RestService method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.start">(minos.networks.scheduling.schedulers.PeriodicTask method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.start">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService.start">(minos.networks.scheduling.services.PeriodicTaskSchedulerService method)</a>
 </li>
         <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.start">(minos.networks.snapshots.SnapshotService method)</a>
 </li>
@@ -1610,9 +1780,15 @@
 </li>
         <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.start_event">(minos.networks.rest.services.RestService property)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService.start_event">(minos.networks.scheduling.services.PeriodicTaskSchedulerService property)</a>
+</li>
         <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.start_event">(minos.networks.snapshots.SnapshotService property)</a>
 </li>
       </ul></li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.started">started (minos.networks.scheduling.schedulers.PeriodicTask property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.brokers.services.html#minos.networks.brokers.services.ProducerService.stop">stop() (minos.networks.brokers.services.ProducerService method)</a>
 
       <ul>
@@ -1626,11 +1802,15 @@
 </li>
         <li><a href="api/minos.networks.rest.services.html#minos.networks.rest.services.RestService.stop">(minos.networks.rest.services.RestService method)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.stop">(minos.networks.scheduling.schedulers.PeriodicTask method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.stop">(minos.networks.scheduling.schedulers.PeriodicTaskScheduler method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.services.html#minos.networks.scheduling.services.PeriodicTaskSchedulerService.stop">(minos.networks.scheduling.services.PeriodicTaskSchedulerService method)</a>
+</li>
         <li><a href="api/minos.networks.snapshots.html#minos.networks.snapshots.SnapshotService.stop">(minos.networks.snapshots.SnapshotService method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.brokers.abc.html#minos.networks.brokers.abc.Broker.submit_query">submit_query() (minos.networks.brokers.abc.Broker method)</a>
 
       <ul>
@@ -1733,6 +1913,14 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTask.task">task (minos.networks.scheduling.schedulers.PeriodicTask property)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.schedulers.html#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.tasks">tasks (minos.networks.scheduling.schedulers.PeriodicTaskScheduler property)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.to_avro_bytes">to_avro_bytes() (minos.networks.scheduling.messages.ScheduledRequestContent class method)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.to_avro_str">to_avro_str() (minos.networks.scheduling.messages.ScheduledRequestContent class method)</a>
+</li>
       <li><a href="api/minos.networks.handlers.abc.handlers.html#minos.networks.handlers.abc.handlers.Handler.topics">topics (minos.networks.handlers.abc.handlers.Handler property)</a>
 
       <ul>
@@ -1745,6 +1933,12 @@
         <li><a href="api/minos.networks.handlers.events.handlers.html#minos.networks.handlers.events.handlers.EventHandler.topics">(minos.networks.handlers.events.handlers.EventHandler property)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.type_hints">type_hints (minos.networks.scheduling.messages.ScheduledRequestContent attribute)</a>
+</li>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.type_hints_parameters">type_hints_parameters (minos.networks.scheduling.messages.ScheduledRequestContent attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1761,10 +1955,10 @@
         <li><a href="api/minos.networks.discovery.connectors.html#minos.networks.discovery.connectors.DiscoveryConnector.unsubscribe">(minos.networks.discovery.connectors.DiscoveryConnector method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.url_args">url_args (minos.networks.rest.messages.RestRequest attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/minos.networks.handlers.messages.html#minos.networks.handlers.messages.HandlerRequest.user">user (minos.networks.handlers.messages.HandlerRequest property)</a>
 
       <ul>
@@ -1774,7 +1968,17 @@
 </li>
         <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.user">(minos.networks.rest.messages.RestRequest attribute)</a>
 </li>
+        <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequest.user">(minos.networks.scheduling.messages.ScheduledRequest property)</a>
+</li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequestContent.values">values() (minos.networks.scheduling.messages.ScheduledRequestContent method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1805,6 +2009,8 @@
         <li><a href="api/minos.networks.messages.html#minos.networks.messages.ResponseException.with_traceback">(minos.networks.messages.ResponseException method)</a>
 </li>
         <li><a href="api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestResponseException.with_traceback">(minos.networks.rest.messages.RestResponseException method)</a>
+</li>
+        <li><a href="api/minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledResponseException.with_traceback">(minos.networks.scheduling.messages.ScheduledResponseException method)</a>
 </li>
       </ul></li>
   </ul></td>

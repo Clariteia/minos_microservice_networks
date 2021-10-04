@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.decorators.analyzers &mdash; Minos Microservice Network 0.0.17 documentation</title>
+  <title>minos.networks.decorators.analyzers &mdash; Minos Microservice Network 0.0.18 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.17
+                0.0.18
               </div>
             
           
@@ -184,6 +184,7 @@
     <span class="n">BrokerEventEnrouteDecorator</span><span class="p">,</span>
     <span class="n">BrokerQueryEnrouteDecorator</span><span class="p">,</span>
     <span class="n">EnrouteDecorator</span><span class="p">,</span>
+    <span class="n">PeriodicEventEnrouteDecorator</span><span class="p">,</span>
     <span class="n">RestCommandEnrouteDecorator</span><span class="p">,</span>
     <span class="n">RestEnrouteDecorator</span><span class="p">,</span>
     <span class="n">RestQueryEnrouteDecorator</span><span class="p">,</span>
@@ -193,7 +194,8 @@
 <div class="viewcode-block" id="EnrouteAnalyzer"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer">[docs]</a><span class="k">class</span> <span class="nc">EnrouteAnalyzer</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Search decorators in specified class&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="EnrouteAnalyzer.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decorated</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">],</span> <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MinosConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># noinspection PyUnusedLocal</span>
+<div class="viewcode-block" id="EnrouteAnalyzer.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decorated</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">],</span> <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MinosConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">decorated</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">decorated</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">decorated</span><span class="p">)</span>
 
@@ -233,6 +235,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># noinspection PyTypeChecker</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_items</span><span class="p">({</span><span class="n">BrokerEventEnrouteDecorator</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="EnrouteAnalyzer.get_periodic_event"><a class="viewcode-back" href="../../../../api/minos.networks.decorators.analyzers.html#minos.networks.decorators.analyzers.EnrouteAnalyzer.get_periodic_event">[docs]</a>    <span class="k">def</span> <span class="nf">get_periodic_event</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">PeriodicEventEnrouteDecorator</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Returns periodic event values.</span>
+
+<span class="sd">        :return: A mapping with functions as keys and a sets of decorators as values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># noinspection PyTypeChecker</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_items</span><span class="p">({</span><span class="n">PeriodicEventEnrouteDecorator</span><span class="p">})</span></div>
 
     <span class="k">def</span> <span class="nf">_get_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_types</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">EnrouteDecorator</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">EnrouteDecorator</span><span class="p">]]:</span>
         <span class="n">items</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
