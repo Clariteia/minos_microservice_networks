@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.rest.messages &mdash; Minos Microservice Network 0.0.18 documentation</title>
+  <title>minos.networks.rest.messages &mdash; Minos Microservice Network 0.0.19 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.0.18
+                0.0.19
               </div>
             
           
@@ -220,7 +220,18 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the UUID of the user making the Request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">UUID</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s2">&quot;User&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">UUID</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">headers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Get the headers of the request.</span>
+
+<span class="sd">        :return: A dictionary in which keys are ``str`` instances and values are ``str`` instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># noinspection PyTypeChecker</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_request</span><span class="o">.</span><span class="n">headers</span>
 
 <div class="viewcode-block" id="RestRequest.content"><a class="viewcode-back" href="../../../../api/minos.networks.rest.messages.html#minos.networks.rest.messages.RestRequest.content">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ModelType</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">Model</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Content&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get the request content.</span>
