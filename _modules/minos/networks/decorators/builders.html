@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.decorators.builders &mdash; Minos Microservice Network 0.1.0 documentation</title>
+  <title>minos.networks.decorators.builders &mdash; Minos Microservice Network 0.1.1 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -168,7 +168,7 @@
     <span class="n">defaultdict</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">iscoroutinefunction</span><span class="p">,</span>
+    <span class="n">isawaitable</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Awaitable</span><span class="p">,</span>
@@ -275,35 +275,31 @@
 
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">decorators</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">decorator</span> <span class="ow">in</span> <span class="n">decorators</span><span class="p">:</span>
-                <span class="n">ans</span><span class="p">[</span><span class="n">decorator</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_build_one_method</span><span class="p">(</span><span class="n">class_</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">decorator</span><span class="o">.</span><span class="n">pre_fn_name</span><span class="p">))</span>
+                <span class="n">ans</span><span class="p">[</span><span class="n">decorator</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_build_one_method</span><span class="p">(</span><span class="n">class_</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">decorator</span><span class="o">.</span><span class="n">pre_fn_name</span><span class="p">,</span> <span class="n">decorator</span><span class="o">.</span><span class="n">post_fn_name</span><span class="p">))</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_build_one_method</span><span class="p">(</span><span class="n">class_</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pref_fn_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Handler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_build_one_method</span><span class="p">(</span><span class="n">class_</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pref_fn_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">post_fn_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Handler</span><span class="p">:</span>
         <span class="n">instance</span> <span class="o">=</span> <span class="n">class_</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="n">pre_fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">pref_fn_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">post_fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">post_fn_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
-            <span class="n">_awaitable_fn</span> <span class="o">=</span> <span class="n">fn</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">def</span> <span class="nf">_wrapped_fn</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">pre_fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">request</span> <span class="o">=</span> <span class="n">pre_fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">isawaitable</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+                    <span class="n">request</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span>
 
-            <span class="k">async</span> <span class="k">def</span> <span class="nf">_awaitable_fn</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
-                <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">isawaitable</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span>
 
-        <span class="k">if</span> <span class="n">pre_fn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">_wrapped_fn</span> <span class="o">=</span> <span class="n">_awaitable_fn</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">pre_fn</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">post_fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">post_fn</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">isawaitable</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span>
 
-                <span class="k">async</span> <span class="k">def</span> <span class="nf">_wrapped_fn</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
-                    <span class="n">request</span> <span class="o">=</span> <span class="k">await</span> <span class="n">pre_fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-                    <span class="k">return</span> <span class="k">await</span> <span class="n">_awaitable_fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-
-            <span class="k">else</span><span class="p">:</span>
-
-                <span class="k">async</span> <span class="k">def</span> <span class="nf">_wrapped_fn</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
-                    <span class="n">request</span> <span class="o">=</span> <span class="n">pre_fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-                    <span class="k">return</span> <span class="k">await</span> <span class="n">_awaitable_fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
 
         <span class="k">return</span> <span class="n">_wrapped_fn</span></div>
 </pre></div>

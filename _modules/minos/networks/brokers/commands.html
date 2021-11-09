@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.commands &mdash; Minos Microservice Network 0.1.0 documentation</title>
+  <title>minos.networks.brokers.commands &mdash; Minos Microservice Network 0.1.1 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -166,8 +166,12 @@
 <span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">contextvars</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ContextVar</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Final</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="p">(</span>
@@ -184,6 +188,8 @@
 <span class="p">)</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">REPLY_TOPIC_CONTEXT_VAR</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">ContextVar</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">ContextVar</span><span class="p">(</span><span class="s2">&quot;reply_topic&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="CommandBroker"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.commands.html#minos.networks.brokers.commands.CommandBroker">[docs]</a><span class="k">class</span> <span class="nc">CommandBroker</span><span class="p">(</span><span class="n">Broker</span><span class="p">):</span>
@@ -221,7 +227,10 @@
 <span class="sd">        :return: This method does not return anything.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">reply_topic</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">reply_topic</span> <span class="o">=</span> <span class="n">REPLY_TOPIC_CONTEXT_VAR</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">reply_topic</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">reply_topic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_reply_topic</span>
+
         <span class="n">command</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">saga</span><span class="p">,</span> <span class="n">reply_topic</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending &#39;</span><span class="si">{</span><span class="n">command</span><span class="si">!s}</span><span class="s2">&#39;...&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">command</span><span class="o">.</span><span class="n">avro_bytes</span><span class="p">)</span></div></div>

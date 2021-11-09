@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.decorators.definitions.kinds &mdash; Minos Microservice Network 0.1.0 documentation</title>
+  <title>minos.networks.decorators.definitions.kinds &mdash; Minos Microservice Network 0.1.1 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -184,6 +184,19 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">Command</span><span class="p">:</span> <span class="s2">&quot;_pre_command_handle&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Query</span><span class="p">:</span> <span class="s2">&quot;_pre_query_handle&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Event</span><span class="p">:</span> <span class="s2">&quot;_pre_event_handle&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">post_fn_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the post execution function name.</span>
+
+<span class="sd">        :return: A string value containing the function name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Command</span><span class="p">:</span> <span class="s2">&quot;_post_command_handle&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Query</span><span class="p">:</span> <span class="s2">&quot;_post_query_handle&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Event</span><span class="p">:</span> <span class="s2">&quot;_post_event_handle&quot;</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span></div>
 </pre></div>
