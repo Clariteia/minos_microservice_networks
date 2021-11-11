@@ -1,22 +1,12 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 
-from minos.aggregate import (
-    AggregateDiff,
-)
-from minos.common import (
-    MinosConfig,
-)
+from minos.aggregate import AggregateDiff
+from minos.common import MinosConfig
 
-from ..messages import (
-    Event,
-)
-from .abc import (
-    Broker,
-)
+from ..messages import Event
+from .abc import Broker
 
 logger = logging.getLogger(__name__)
 

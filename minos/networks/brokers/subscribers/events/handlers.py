@@ -1,48 +1,24 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from asyncio import (
-    gather,
-)
-from collections import (
-    defaultdict,
-)
-from inspect import (
-    isawaitable,
-)
-from operator import (
-    attrgetter,
-)
+from asyncio import gather
+from collections import defaultdict
+from inspect import isawaitable
+from operator import attrgetter
 from typing import (
     Awaitable,
     Callable,
     Optional,
 )
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
-from ....decorators import (
-    EnrouteBuilder,
-)
-from ....messages import (
-    ResponseException,
-)
-from ...messages import (
-    Event,
-)
-from ..abc import (
-    Handler,
-)
-from ..entries import (
-    HandlerEntry,
-)
-from ..messages import (
-    HandlerRequest,
-)
+from ....decorators import EnrouteBuilder
+from ....messages import ResponseException
+from ...messages import Event
+from ..abc import Handler
+from ..entries import HandlerEntry
+from ..messages import HandlerRequest
 
 logger = logging.getLogger(__name__)
 

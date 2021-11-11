@@ -1,26 +1,16 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from typing import (
-    Any,
-)
-from uuid import (
-    UUID,
-)
+from typing import Any
+from uuid import UUID
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
 from ..messages import (
     CommandReply,
     CommandStatus,
 )
-from .abc import (
-    Broker,
-)
+from .abc import Broker
 
 logger = logging.getLogger(__name__)
 

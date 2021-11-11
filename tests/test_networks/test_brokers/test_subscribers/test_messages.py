@@ -1,16 +1,12 @@
 import unittest
-from uuid import (
-    uuid4,
-)
+from uuid import uuid4
 
 from minos.networks import (
     Command,
     HandlerRequest,
     HandlerResponse,
 )
-from tests.utils import (
-    FakeModel,
-)
+from tests.utils import FakeModel
 
 
 class TestHandlerRequest(unittest.IsolatedAsyncioTestCase):

@@ -1,10 +1,6 @@
-from abc import (
-    ABC,
-)
+from abc import ABC
 
-from psycopg2.sql import (
-    SQL,
-)
+from psycopg2.sql import SQL
 
 from minos.common import (
     MinosBroker,

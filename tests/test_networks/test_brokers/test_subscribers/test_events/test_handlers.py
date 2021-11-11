@@ -1,18 +1,12 @@
 import unittest
-from collections import (
-    defaultdict,
-)
-from random import (
-    shuffle,
-)
+from collections import defaultdict
+from random import shuffle
 from unittest.mock import (
     AsyncMock,
     MagicMock,
     call,
 )
-from uuid import (
-    uuid4,
-)
+from uuid import uuid4
 
 import aiopg
 
@@ -21,12 +15,8 @@ from minos.aggregate import (
     AggregateDiff,
     FieldDiffContainer,
 )
-from minos.common import (
-    current_datetime,
-)
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
+from minos.common import current_datetime
+from minos.common.testing import PostgresAsyncTestCase
 from minos.networks import (
     Event,
     EventHandler,

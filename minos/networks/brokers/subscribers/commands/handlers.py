@@ -1,11 +1,7 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from inspect import (
-    isawaitable,
-)
+from inspect import isawaitable
 from typing import (
     Any,
     Awaitable,
@@ -20,13 +16,9 @@ from dependency_injector.wiring import (
     inject,
 )
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
-from ....decorators import (
-    EnrouteBuilder,
-)
+from ....decorators import EnrouteBuilder
 from ....messages import (
     USER_CONTEXT_VAR,
     Response,
@@ -36,18 +28,10 @@ from ...messages import (
     Command,
     CommandStatus,
 )
-from ...publishers import (
-    CommandReplyBroker,
-)
-from ..abc import (
-    Handler,
-)
-from ..entries import (
-    HandlerEntry,
-)
-from ..messages import (
-    HandlerRequest,
-)
+from ...publishers import CommandReplyBroker
+from ..abc import Handler
+from ..entries import HandlerEntry
+from ..messages import HandlerRequest
 
 logger = logging.getLogger(__name__)
 

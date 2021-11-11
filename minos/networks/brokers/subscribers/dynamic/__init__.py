@@ -1,6 +1,2 @@
-from .handlers import (
-    DynamicHandler,
-)
-from .pools import (
-    DynamicHandlerPool,
-)
+from .handlers import DynamicHandler
+from .pools import DynamicHandlerPool

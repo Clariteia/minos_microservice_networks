@@ -1,22 +1,14 @@
 import sys
 import unittest
-from collections import (
-    namedtuple,
-)
-from pathlib import (
-    Path,
-)
-from typing import (
-    Optional,
-)
+from collections import namedtuple
+from pathlib import Path
+from typing import Optional
 from uuid import (
     UUID,
     uuid4,
 )
 
-from cached_property import (
-    cached_property,
-)
+from cached_property import cached_property
 from dependency_injector import (
     containers,
     providers,

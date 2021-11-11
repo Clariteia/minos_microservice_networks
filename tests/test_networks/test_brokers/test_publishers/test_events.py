@@ -1,14 +1,8 @@
 import unittest
-from unittest.mock import (
-    AsyncMock,
-)
+from unittest.mock import AsyncMock
 
-from minos.common import (
-    Model,
-)
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
+from minos.common import Model
+from minos.common.testing import PostgresAsyncTestCase
 from minos.networks import (
     Event,
     EventBroker,

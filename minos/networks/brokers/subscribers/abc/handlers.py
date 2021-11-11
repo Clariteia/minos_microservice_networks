@@ -1,11 +1,7 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from abc import (
-    abstractmethod,
-)
+from abc import abstractmethod
 from asyncio import (
     TimeoutError,
     gather,
@@ -19,29 +15,17 @@ from typing import (
     Optional,
 )
 
-from aiopg import (
-    Cursor,
-)
-from cached_property import (
-    cached_property,
-)
+from aiopg import Cursor
+from cached_property import cached_property
 from psycopg2.sql import (
     SQL,
     Identifier,
 )
 
-from ....exceptions import (
-    MinosActionNotFoundException,
-)
-from ....utils import (
-    consume_queue,
-)
-from ..entries import (
-    HandlerEntry,
-)
-from .setups import (
-    HandlerSetup,
-)
+from ....exceptions import MinosActionNotFoundException
+from ....utils import consume_queue
+from ..entries import HandlerEntry
+from .setups import HandlerSetup
 
 logger = logging.getLogger(__name__)
 

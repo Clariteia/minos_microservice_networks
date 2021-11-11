@@ -5,23 +5,15 @@ from unittest.mock import (
 )
 
 import aiopg
-from psycopg2.sql import (
-    SQL,
-)
+from psycopg2.sql import SQL
 
-from minos.common import (
-    Model,
-)
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
+from minos.common import Model
+from minos.common.testing import PostgresAsyncTestCase
 from minos.networks import (
     Broker,
     BrokerSetup,
 )
-from tests.utils import (
-    BASE_PATH,
-)
+from tests.utils import BASE_PATH
 
 
 class _FakeBroker(Broker):

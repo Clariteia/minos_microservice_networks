@@ -1,6 +1,2 @@
-from .handlers import (
-    CommandHandler,
-)
-from .services import (
-    CommandHandlerService,
-)
+from .handlers import CommandHandler
+from .services import CommandHandlerService

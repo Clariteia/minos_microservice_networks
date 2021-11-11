@@ -1,19 +1,13 @@
 import logging
-from typing import (
-    Any,
-)
+from typing import Any
 
-from aiomisc import (
-    Service,
-)
+from aiomisc import Service
 from dependency_injector.wiring import (
     Provide,
     inject,
 )
 
-from .consumers import (
-    Consumer,
-)
+from .consumers import Consumer
 
 logger = logging.getLogger(__name__)
 

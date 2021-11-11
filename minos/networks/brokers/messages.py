@@ -1,25 +1,15 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
-from contextvars import (
-    ContextVar,
-)
-from enum import (
-    IntEnum,
-)
+from contextvars import ContextVar
+from enum import IntEnum
 from typing import (
     Any,
     Final,
     Optional,
 )
-from uuid import (
-    UUID,
-)
+from uuid import UUID
 
-from minos.common import (
-    DeclarativeModel,
-)
+from minos.common import DeclarativeModel
 
 REPLY_TOPIC_CONTEXT_VAR: Final[ContextVar[Optional[str]]] = ContextVar("reply_topic", default=None)
 
