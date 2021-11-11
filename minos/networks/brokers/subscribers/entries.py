@@ -1,7 +1,11 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
-from datetime import datetime
+from datetime import (
+    datetime,
+)
 from typing import (
     Callable,
     Generic,
@@ -10,7 +14,9 @@ from typing import (
     TypeVar,
 )
 
-from cached_property import cached_property
+from cached_property import (
+    cached_property,
+)
 
 from minos.common import (
     MinosException,

@@ -2,9 +2,15 @@ import unittest
 
 import aiopg
 
-from minos.common.testing import PostgresAsyncTestCase
-from minos.networks import HandlerSetup
-from tests.utils import BASE_PATH
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
+from minos.networks import (
+    HandlerSetup,
+)
+from tests.utils import (
+    BASE_PATH,
+)
 
 
 class _FakeHandlerSetup(HandlerSetup):

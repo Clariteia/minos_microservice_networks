@@ -1,15 +1,21 @@
 import unittest
 
-from kafka import KafkaAdminClient
+from kafka import (
+    KafkaAdminClient,
+)
 
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     REPLY_TOPIC_CONTEXT_VAR,
     Consumer,
     DynamicHandler,
     DynamicHandlerPool,
 )
-from tests.utils import BASE_PATH
+from tests.utils import (
+    BASE_PATH,
+)
 
 
 class TestDynamicHandlerPool(PostgresAsyncTestCase):

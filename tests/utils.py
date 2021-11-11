@@ -1,14 +1,22 @@
 import sys
 import unittest
-from collections import namedtuple
-from pathlib import Path
-from typing import Optional
+from collections import (
+    namedtuple,
+)
+from pathlib import (
+    Path,
+)
+from typing import (
+    Optional,
+)
 from uuid import (
     UUID,
     uuid4,
 )
 
-from cached_property import cached_property
+from cached_property import (
+    cached_property,
+)
 from dependency_injector import (
     containers,
     providers,
@@ -24,13 +32,13 @@ from minos.aggregate import (
     InMemoryTransactionRepository,
 )
 from minos.common import (
+    DeclarativeModel,
     Lock,
     MinosBroker,
-    DeclarativeModel,
     MinosPool,
     MinosSagaManager,
-    current_datetime,
     Model,
+    current_datetime,
 )
 from minos.networks import (
     CommandStatus,

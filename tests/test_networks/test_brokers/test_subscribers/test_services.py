@@ -1,7 +1,11 @@
 import unittest
 
-from minos.common.testing import PostgresAsyncTestCase
-from minos.networks import ConsumerService
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
+from minos.networks import (
+    ConsumerService,
+)
 from tests.utils import (
     BASE_PATH,
     FakeDispatcher,

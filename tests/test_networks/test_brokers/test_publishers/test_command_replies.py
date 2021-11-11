@@ -1,9 +1,17 @@
 import unittest
-from unittest.mock import AsyncMock
-from uuid import uuid4
+from unittest.mock import (
+    AsyncMock,
+)
+from uuid import (
+    uuid4,
+)
 
-from minos.common import Model
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common import (
+    Model,
+)
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     CommandReply,
     CommandReplyBroker,

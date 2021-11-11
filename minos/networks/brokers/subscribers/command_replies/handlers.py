@@ -1,7 +1,11 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
-from typing import Any
+from typing import (
+    Any,
+)
 
 from dependency_injector.wiring import (
     Provide,
@@ -13,8 +17,12 @@ from minos.common import (
     MinosSagaManager,
 )
 
-from ..abc import Handler
-from ..entries import HandlerEntry
+from ..abc import (
+    Handler,
+)
+from ..entries import (
+    HandlerEntry,
+)
 
 logger = logging.getLogger(__name__)
 

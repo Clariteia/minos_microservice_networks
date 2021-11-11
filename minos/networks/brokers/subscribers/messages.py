@@ -1,10 +1,14 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 from typing import (
     Any,
     Optional,
 )
-from uuid import UUID
+from uuid import (
+    UUID,
+)
 
 from ...messages import (
     Request,

@@ -10,12 +10,16 @@ from .commands import (
     CommandHandler,
     CommandHandlerService,
 )
-from .consumers import Consumer
+from .consumers import (
+    Consumer,
+)
 from .dynamic import (
     DynamicHandler,
     DynamicHandlerPool,
 )
-from .entries import HandlerEntry
+from .entries import (
+    HandlerEntry,
+)
 from .events import (
     EventHandler,
     EventHandlerService,
@@ -25,4 +29,6 @@ from .messages import (
     HandlerResponse,
     HandlerResponseException,
 )
-from .services import ConsumerService
+from .services import (
+    ConsumerService,
+)

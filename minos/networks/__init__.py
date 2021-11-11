@@ -86,7 +86,9 @@ from .scheduling import (
     ScheduledRequestContent,
     ScheduledResponseException,
 )
-from .snapshots import SnapshotService
+from .snapshots import (
+    SnapshotService,
+)
 from .utils import (
     consume_queue,
     get_host_ip,

@@ -1,2 +1,6 @@
-from .handlers import CommandReplyHandler
-from .services import CommandReplyHandlerService
+from .handlers import (
+    CommandReplyHandler,
+)
+from .services import (
+    CommandReplyHandlerService,
+)

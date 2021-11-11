@@ -1,15 +1,23 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
-from itertools import chain
+from itertools import (
+    chain,
+)
 from typing import (
     Any,
     NoReturn,
     Optional,
 )
 
-from aiokafka import AIOKafkaConsumer
-from kafka.errors import KafkaError
+from aiokafka import (
+    AIOKafkaConsumer,
+)
+from kafka.errors import (
+    KafkaError,
+)
 from psycopg2.sql import (
     SQL,
     Identifier,
@@ -20,8 +28,12 @@ from minos.common import (
     MinosConfig,
 )
 
-from ...decorators import EnrouteAnalyzer
-from .abc import HandlerSetup
+from ...decorators import (
+    EnrouteAnalyzer,
+)
+from .abc import (
+    HandlerSetup,
+)
 
 logger = logging.getLogger(__name__)
 

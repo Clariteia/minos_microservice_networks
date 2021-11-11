@@ -1,5 +1,7 @@
 import unittest
-from uuid import uuid4
+from uuid import (
+    uuid4,
+)
 
 from minos.networks import (
     Command,
@@ -7,7 +9,9 @@ from minos.networks import (
     CommandStatus,
     Event,
 )
-from tests.utils import FakeModel
+from tests.utils import (
+    FakeModel,
+)
 
 
 class TestCommand(unittest.TestCase):

@@ -5,15 +5,27 @@ from asyncio import (
     sleep,
     wait_for,
 )
-from collections import namedtuple
-from inspect import isawaitable
-from unittest.mock import AsyncMock
-from uuid import uuid4
+from collections import (
+    namedtuple,
+)
+from inspect import (
+    isawaitable,
+)
+from unittest.mock import (
+    AsyncMock,
+)
+from uuid import (
+    uuid4,
+)
 
 import aiopg
 
-from minos.common import DataTransferObject
-from minos.common.testing import PostgresAsyncTestCase
+from minos.common import (
+    DataTransferObject,
+)
+from minos.common.testing import (
+    PostgresAsyncTestCase,
+)
 from minos.networks import (
     Command,
     EnrouteBuilder,
@@ -139,7 +151,9 @@ class TestHandler(PostgresAsyncTestCase):
             self.assertFalse(await self._is_processed(queue_id_3))
 
     async def test_dispatch_concurrent(self):
-        from tests.utils import FakeModel
+        from tests.utils import (
+            FakeModel,
+        )
 
         saga = uuid4()
 

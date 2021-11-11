@@ -1,9 +1,15 @@
 import logging
 
-from aiomisc import Service
-from cached_property import cached_property
+from aiomisc import (
+    Service,
+)
+from cached_property import (
+    cached_property,
+)
 
-from .handlers import CommandHandler
+from .handlers import (
+    CommandHandler,
+)
 
 logger = logging.getLogger(__name__)
 

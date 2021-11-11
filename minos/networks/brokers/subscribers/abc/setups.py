@@ -1,6 +1,10 @@
-from psycopg2.sql import SQL
+from psycopg2.sql import (
+    SQL,
+)
 
-from minos.common import PostgreSqlMinosDatabase
+from minos.common import (
+    PostgreSqlMinosDatabase,
+)
 
 
 class HandlerSetup(PostgreSqlMinosDatabase):

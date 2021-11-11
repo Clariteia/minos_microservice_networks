@@ -1,28 +1,44 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
-from contextvars import Token
+from contextvars import (
+    Token,
+)
 from typing import (
     AsyncContextManager,
     Optional,
 )
-from uuid import uuid4
+from uuid import (
+    uuid4,
+)
 
 from dependency_injector.wiring import (
     Provide,
     inject,
 )
-from kafka import KafkaAdminClient
-from kafka.admin import NewTopic
+from kafka import (
+    KafkaAdminClient,
+)
+from kafka.admin import (
+    NewTopic,
+)
 
 from minos.common import (
     MinosConfig,
     MinosPool,
 )
 
-from ...messages import REPLY_TOPIC_CONTEXT_VAR
-from ..consumers import Consumer
-from .handlers import DynamicHandler
+from ...messages import (
+    REPLY_TOPIC_CONTEXT_VAR,
+)
+from ..consumers import (
+    Consumer,
+)
+from .handlers import (
+    DynamicHandler,
+)
 
 logger = logging.getLogger(__name__)
 
