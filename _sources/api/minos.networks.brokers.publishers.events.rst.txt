@@ -1,0 +1,7 @@
+minos.networks.brokers.publishers.events module
+===============================================
+
+.. automodule:: minos.networks.brokers.publishers.events
+   :members:
+   :undoc-members:
+   :show-inheritance:

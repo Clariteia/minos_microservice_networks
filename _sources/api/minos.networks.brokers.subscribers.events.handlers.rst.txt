@@ -1,0 +1,7 @@
+minos.networks.brokers.subscribers.events.handlers module
+=========================================================
+
+.. automodule:: minos.networks.brokers.subscribers.events.handlers
+   :members:
+   :undoc-members:
+   :show-inheritance:

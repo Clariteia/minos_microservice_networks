@@ -1,7 +1,0 @@
-minos.networks.handlers.consumers module
-========================================
-
-.. automodule:: minos.networks.handlers.consumers
-   :members:
-   :undoc-members:
-   :show-inheritance:

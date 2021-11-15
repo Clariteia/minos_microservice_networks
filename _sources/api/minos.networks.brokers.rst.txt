@@ -6,15 +6,19 @@ minos.networks.brokers package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.brokers.publishers
+   minos.networks.brokers.subscribers
+
 Submodules
 ----------
 
 .. toctree::
    :maxdepth: 4
 
-   minos.networks.brokers.abc
-   minos.networks.brokers.command_replies
-   minos.networks.brokers.commands
-   minos.networks.brokers.events
-   minos.networks.brokers.producers
-   minos.networks.brokers.services
+   minos.networks.brokers.messages

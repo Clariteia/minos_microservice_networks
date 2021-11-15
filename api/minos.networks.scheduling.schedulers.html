@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.scheduling.schedulers module &mdash; Minos Microservice Network 0.1.1 documentation</title>
+  <title>minos.networks.scheduling.schedulers module &mdash; Minos Microservice Network 0.2.0 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
             
           
@@ -184,7 +184,7 @@
 <span id="minos-networks-scheduling-schedulers-module"></span><h1>minos.networks.scheduling.schedulers module<a class="headerlink" href="#module-minos.networks.scheduling.schedulers" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.scheduling.schedulers.</span></span><span class="sig-name descname"><span class="pre">PeriodicTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crontab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.scheduling.schedulers.</span></span><span class="sig-name descname"><span class="pre">PeriodicTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crontab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Periodic Task class.</p>
 <dl class="py method">
@@ -194,7 +194,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.crontab">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">crontab</span></span><em class="property"><span class="pre">:</span> <span class="pre">crontab._crontab.CronTab</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.crontab" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">crontab</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">crontab._crontab.CronTab</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.crontab" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the crontab of the periodic task.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -208,7 +208,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.fn">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">fn</span></span><em class="property"><span class="pre">:</span> <span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequest" title="minos.networks.scheduling.messages.ScheduledRequest"><span class="pre">minos.networks.scheduling.messages.ScheduledRequest</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.fn" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="minos.networks.scheduling.messages.html#minos.networks.scheduling.messages.ScheduledRequest" title="minos.networks.scheduling.messages.ScheduledRequest"><span class="pre">minos.networks.scheduling.messages.ScheduledRequest</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.fn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the function to be called periodically.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -222,7 +222,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.run_forever">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">run_forever</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.run_forever"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.run_forever" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_forever</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.run_forever"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.run_forever" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the periodic function forever. This method is equivalent to start, but it keeps waiting until infinite.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -236,7 +236,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.run_once">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">run_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.run_once"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.run_once" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.run_once"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.run_once" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the periodic function one time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -253,7 +253,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.running">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.running" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.running" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if the periodic function is running.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -267,7 +267,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.start">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.start" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the periodic task.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -281,7 +281,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.started">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">started</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.started" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">started</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.started" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if the periodic task has been started.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -295,7 +295,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.stop">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.stop" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTask.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop the periodic task.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -312,7 +312,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTask.task">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">task</span></span><em class="property"><span class="pre">:</span> <span class="pre">_asyncio.Task</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.task" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">task</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_asyncio.Task</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTask.task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the asyncio task.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -328,7 +328,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.scheduling.schedulers.</span></span><span class="sig-name descname"><span class="pre">PeriodicTaskScheduler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTaskScheduler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.scheduling.schedulers.</span></span><span class="sig-name descname"><span class="pre">PeriodicTaskScheduler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTaskScheduler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.setup.MinosSetup</span></code></p>
 <p>Periodic Task Scheduler class.</p>
 <dl class="py method">
@@ -338,7 +338,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_destroyed">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_destroyed</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_destroyed" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">already_destroyed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_destroyed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Already Destroy getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -352,7 +352,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_setup">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">already_setup</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_setup" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">already_setup</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.already_setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Already Setup getter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -366,7 +366,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.destroy">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.destroy" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroy miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -380,7 +380,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.from_config">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.from_config" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a new instance from config.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -400,7 +400,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.setup">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.setup" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup miscellaneous repository things.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -414,7 +414,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.start">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTaskScheduler.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.start" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTaskScheduler.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the execution of periodic tasks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -428,7 +428,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.stop">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTaskScheduler.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.stop" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/schedulers.html#PeriodicTaskScheduler.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop the execution of periodic tasks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -445,7 +445,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.schedulers.PeriodicTaskScheduler.tasks">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">tasks</span></span><em class="property"><span class="pre">:</span> <span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#minos.networks.scheduling.schedulers.PeriodicTask" title="minos.networks.scheduling.schedulers.PeriodicTask"><span class="pre">minos.networks.scheduling.schedulers.PeriodicTask</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.tasks" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tasks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#minos.networks.scheduling.schedulers.PeriodicTask" title="minos.networks.scheduling.schedulers.PeriodicTask"><span class="pre">minos.networks.scheduling.schedulers.PeriodicTask</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.scheduling.schedulers.PeriodicTaskScheduler.tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the set of periodic tasks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>

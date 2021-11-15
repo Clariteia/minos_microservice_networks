@@ -1,0 +1,7 @@
+minos.networks.brokers.subscribers.commands.handlers module
+===========================================================
+
+.. automodule:: minos.networks.brokers.subscribers.commands.handlers
+   :members:
+   :undoc-members:
+   :show-inheritance:

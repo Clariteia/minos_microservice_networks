@@ -1,7 +1,0 @@
-minos.networks.handlers.entries module
-======================================
-
-.. automodule:: minos.networks.handlers.entries
-   :members:
-   :undoc-members:
-   :show-inheritance:

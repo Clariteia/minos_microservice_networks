@@ -1,7 +1,0 @@
-minos.networks.handlers.command\_replies.services module
-========================================================
-
-.. automodule:: minos.networks.handlers.command_replies.services
-   :members:
-   :undoc-members:
-   :show-inheritance:

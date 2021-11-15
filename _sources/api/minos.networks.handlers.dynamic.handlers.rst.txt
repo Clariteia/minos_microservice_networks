@@ -1,7 +1,0 @@
-minos.networks.handlers.dynamic.handlers module
-===============================================
-
-.. automodule:: minos.networks.handlers.dynamic.handlers
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-minos.networks.handlers.abc.setups module
-=========================================
-
-.. automodule:: minos.networks.handlers.abc.setups
-   :members:
-   :undoc-members:
-   :show-inheritance:

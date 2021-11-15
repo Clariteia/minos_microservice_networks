@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>History &mdash; Minos Microservice Network 0.1.1 documentation</title>
+  <title>History &mdash; Minos Microservice Network 0.2.0 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
             
           
@@ -115,6 +115,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id17">0.0.19 (2021-11-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id18">0.1.0 (2021-11-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id19">0.1.1 (2021-11-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">0.2.0 (2021-11-15)</a></li>
 </ul>
 </li>
 </ul>
@@ -329,6 +330,16 @@
 <ul class="simple">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">REPLY_TOPIC_CONTEXT_VAR</span></code> and integrate with <code class="docutils literal notranslate"><span class="pre">DynamicHandlerPool</span></code>.</p></li>
 <li><p>Add support for <code class="docutils literal notranslate"><span class="pre">post_fn</span></code> callbacks following the same strategy as in <code class="docutils literal notranslate"><span class="pre">pre_fn</span></code> callbacks.</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>0.2.0 (2021-11-15)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Remove dependency to <code class="docutils literal notranslate"><span class="pre">minos-microservice-aggregate</span></code> (now <code class="docutils literal notranslate"><span class="pre">minos.aggregate</span></code> package will require <code class="docutils literal notranslate"><span class="pre">minos.networks</span></code>).</p></li>
+<li><p>Add support for middleware functions.</p></li>
+<li><p>Add support variable number of services (previously only <code class="docutils literal notranslate"><span class="pre">CommandService</span></code> and <code class="docutils literal notranslate"><span class="pre">QueryService</span></code> were allowed).</p></li>
+<li><p>Migrate <code class="docutils literal notranslate"><span class="pre">Command</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandReply</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandStatus</span></code> and <code class="docutils literal notranslate"><span class="pre">Event</span></code> from <code class="docutils literal notranslate"><span class="pre">minos.common</span></code> to <code class="docutils literal notranslate"><span class="pre">minos.networks</span></code>.</p></li>
+<li><p>Add support for <code class="docutils literal notranslate"><span class="pre">minos-microservice-common=^0.3.0</span></code></p></li>
 </ul>
 </div>
 </div>

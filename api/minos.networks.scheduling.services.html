@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.scheduling.services module &mdash; Minos Microservice Network 0.1.1 documentation</title>
+  <title>minos.networks.scheduling.services module &mdash; Minos Microservice Network 0.2.0 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
             
           
@@ -184,7 +184,7 @@
 <span id="minos-networks-scheduling-services-module"></span><h1>minos.networks.scheduling.services module<a class="headerlink" href="#module-minos.networks.scheduling.services" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="minos.networks.scheduling.services.PeriodicTaskSchedulerService">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">minos.networks.scheduling.services.</span></span><span class="sig-name descname"><span class="pre">PeriodicTaskSchedulerService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/services.html#PeriodicTaskSchedulerService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.scheduling.services.</span></span><span class="sig-name descname"><span class="pre">PeriodicTaskSchedulerService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/services.html#PeriodicTaskSchedulerService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aiomisc.service.base.Service</span></code></p>
 <p>Task Scheduler Service class.</p>
 <dl class="py method">
@@ -194,7 +194,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.services.PeriodicTaskSchedulerService.context">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">context</span></span><em class="property"><span class="pre">:</span> <span class="pre">aiomisc.context.Context</span></em><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.context" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">context</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">aiomisc.context.Context</span></em><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.context" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">aiomisc.context.Context</span></code></p>
@@ -225,7 +225,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.services.PeriodicTaskSchedulerService.start">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/services.html#PeriodicTaskSchedulerService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.start" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/services.html#PeriodicTaskSchedulerService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the service execution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -239,7 +239,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="minos.networks.scheduling.services.PeriodicTaskSchedulerService.start_event">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">start_event</span></span><em class="property"><span class="pre">:</span> <span class="pre">asyncio.locks.Event</span></em><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.start_event" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">asyncio.locks.Event</span></em><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.start_event" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.locks.Event</span></code></p>
@@ -249,7 +249,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minos.networks.scheduling.services.PeriodicTaskSchedulerService.stop">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/services.html#PeriodicTaskSchedulerService.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.stop" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/scheduling/services.html#PeriodicTaskSchedulerService.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.scheduling.services.PeriodicTaskSchedulerService.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop the service execution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

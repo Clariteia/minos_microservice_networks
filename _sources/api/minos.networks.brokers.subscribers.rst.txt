@@ -1,0 +1,29 @@
+minos.networks.brokers.subscribers package
+==========================================
+
+.. automodule:: minos.networks.brokers.subscribers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.brokers.subscribers.abc
+   minos.networks.brokers.subscribers.commands
+   minos.networks.brokers.subscribers.dynamic
+   minos.networks.brokers.subscribers.events
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.brokers.subscribers.consumers
+   minos.networks.brokers.subscribers.entries
+   minos.networks.brokers.subscribers.messages
+   minos.networks.brokers.subscribers.services

@@ -15,7 +15,6 @@ Subpackages
    minos.networks.brokers
    minos.networks.decorators
    minos.networks.discovery
-   minos.networks.handlers
    minos.networks.rest
    minos.networks.scheduling
 
@@ -27,5 +26,4 @@ Submodules
 
    minos.networks.exceptions
    minos.networks.messages
-   minos.networks.snapshots
    minos.networks.utils

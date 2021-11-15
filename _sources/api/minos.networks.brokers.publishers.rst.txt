@@ -1,0 +1,20 @@
+minos.networks.brokers.publishers package
+=========================================
+
+.. automodule:: minos.networks.brokers.publishers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.brokers.publishers.abc
+   minos.networks.brokers.publishers.command_replies
+   minos.networks.brokers.publishers.commands
+   minos.networks.brokers.publishers.events
+   minos.networks.brokers.publishers.producers
+   minos.networks.brokers.publishers.services

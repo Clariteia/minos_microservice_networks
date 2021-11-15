@@ -1,0 +1,16 @@
+minos.networks.brokers.subscribers.abc package
+==============================================
+
+.. automodule:: minos.networks.brokers.subscribers.abc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   minos.networks.brokers.subscribers.abc.handlers
+   minos.networks.brokers.subscribers.abc.setups

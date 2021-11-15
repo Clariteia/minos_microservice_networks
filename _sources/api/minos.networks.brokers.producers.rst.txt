@@ -1,7 +1,0 @@
-minos.networks.brokers.producers module
-=======================================
-
-.. automodule:: minos.networks.brokers.producers
-   :members:
-   :undoc-members:
-   :show-inheritance:

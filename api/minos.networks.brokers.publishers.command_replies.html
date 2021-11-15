@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>minos.networks.brokers.publishers.command_replies module &mdash; Minos Microservice Network 0.2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="minos.networks.brokers.publishers.commands module" href="minos.networks.brokers.publishers.commands.html" />
+    <link rel="prev" title="minos.networks.brokers.publishers.abc module" href="minos.networks.brokers.publishers.abc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minos Microservice Network
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../runthetests.html">Run the tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="minos.html">minos namespace</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="minos.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="minos.networks.html">minos.networks package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="minos.networks.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minos.networks.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minos Microservice Network</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="minos.html">minos namespace</a> &raquo;</li>
+        
+          <li><a href="minos.networks.html">minos.networks package</a> &raquo;</li>
+        
+          <li><a href="minos.networks.brokers.html">minos.networks.brokers package</a> &raquo;</li>
+        
+          <li><a href="minos.networks.brokers.publishers.html">minos.networks.brokers.publishers package</a> &raquo;</li>
+        
+      <li>minos.networks.brokers.publishers.command_replies module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api/minos.networks.brokers.publishers.command_replies.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-minos.networks.brokers.publishers.command_replies">
+<span id="minos-networks-brokers-publishers-command-replies-module"></span><h1>minos.networks.brokers.publishers.command_replies module<a class="headerlink" href="#module-minos.networks.brokers.publishers.command_replies" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.publishers.command_replies.</span></span><span class="sig-name descname"><span class="pre">CommandReplyBroker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/command_replies.html#CommandReplyBroker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="minos.networks.brokers.publishers.abc.html#minos.networks.brokers.publishers.abc.Broker" title="minos.networks.brokers.publishers.abc.Broker"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.brokers.publishers.abc.Broker</span></code></a></p>
+<p>Minos Command Broker Class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.ACTION">
+<span class="sig-name descname"><span class="pre">ACTION</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'commandReply'</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.ACTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/command_replies.html#CommandReplyBroker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.already_destroyed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">already_destroyed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.already_destroyed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Already Destroy getter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A boolean value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.already_setup">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">already_setup</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.already_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Already Setup getter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A boolean value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.cursor">
+<span class="sig-name descname"><span class="pre">cursor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a new cursor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.AsyncContextManager</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">aiopg.connection.Cursor</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Cursor wrapped into an asynchronous context manager.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.destroy">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy miscellaneous repository things.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.enqueue">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.enqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a sequence of bytes to the given topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Topic in which the bytes will be send.</p></li>
+<li><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – Bytes sequence to be send.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The identifier of the message in the queue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.from_config">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.from_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a new instance from config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.configuration.config.MinosConfig</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – Config instance. If <cite>None</cite> is provided, default config is chosen.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~S</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A instance of the called class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.locked_cursor">
+<span class="sig-name descname"><span class="pre">locked_cursor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.locked_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a new locked cursor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Hashable</span></code>) – The key to be used for locking.</p></li>
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.AsyncContextManager</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">aiopg.connection.Cursor</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Cursor wrapped into an asynchronous context manager.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.pool">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pool</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">minos.common.database.pools.PostgreSqlPool</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the connections pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.database.pools.PostgreSqlPool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">Pool</span></code> object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.send">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saga</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/command_replies.html#CommandReplyBroker.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a <code class="docutils literal notranslate"><span class="pre">CommandReply</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>) – The data to be send.</p></li>
+<li><p><strong>topic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Topic in which the message will be published.</p></li>
+<li><p><strong>saga</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">uuid.UUID</span></code>) – Saga identifier.</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="minos.networks.brokers.messages.html#minos.networks.brokers.messages.CommandStatus" title="minos.networks.brokers.messages.CommandStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.brokers.messages.CommandStatus</span></code></a>) – command status.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.setup">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup miscellaneous repository things.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.submit_query">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">submit_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.submit_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a SQL query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operation</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>) – Query to be executed.</p></li>
+<li><p><strong>parameters</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – Parameters to be projected into the query.</p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – An optional timeout.</p></li>
+<li><p><strong>lock</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – Optional key to perform the query with locking. If not set, the query is performed without any
+lock.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.submit_query_and_fetchone">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">submit_query_and_fetchone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.submit_query_and_fetchone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a SQL query and gets the first response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Additional positional arguments.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.command_replies.CommandReplyBroker.submit_query_and_iter">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">submit_query_and_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">streaming_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.command_replies.CommandReplyBroker.submit_query_and_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a SQL query and return an asynchronous iterator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operation</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>) – Query to be executed.</p></li>
+<li><p><strong>parameters</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – Parameters to be projected into the query.</p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – An optional timeout.</p></li>
+<li><p><strong>lock</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Optional key to perform the query with locking. If not set, the query is performed without any
+lock.</p></li>
+<li><p><strong>streaming_mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the data fetching is performed in streaming mode, that is iterating over the
+cursor and yielding once a time (requires an opening connection to do that). Otherwise, all the data is
+fetched and keep in memory before yielding it.</p></li>
+<li><p><strong>kwargs</strong> – Additional named arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.AsyncIterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This method does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="minos.networks.brokers.publishers.commands.html" class="btn btn-neutral float-right" title="minos.networks.brokers.publishers.commands module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="minos.networks.brokers.publishers.abc.html" class="btn btn-neutral float-left" title="minos.networks.brokers.publishers.abc module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Clariteia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

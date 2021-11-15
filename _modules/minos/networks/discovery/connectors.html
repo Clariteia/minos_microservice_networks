@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.1.1 documentation</title>
+  <title>minos.networks.discovery.connectors &mdash; Minos Microservice Network 0.2.0 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
             
           
@@ -241,12 +241,13 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_endpoints_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">MinosConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-        <span class="n">command_decorators</span> <span class="o">=</span> <span class="n">EnrouteAnalyzer</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_rest_command_query</span><span class="p">()</span>
-        <span class="n">query_decorators</span> <span class="o">=</span> <span class="n">EnrouteAnalyzer</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">queries</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_rest_command_query</span><span class="p">()</span>
+        <span class="n">endpoints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">services</span><span class="p">:</span>
+            <span class="n">decorators</span> <span class="o">=</span> <span class="n">EnrouteAnalyzer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">get_rest_command_query</span><span class="p">()</span>
+            <span class="n">endpoints</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">decorator</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="n">decorator</span><span class="o">.</span><span class="n">method</span><span class="p">}</span> <span class="k">for</span> <span class="n">decorator</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">decorators</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+            <span class="p">]</span>
 
-        <span class="n">endpoints</span> <span class="o">=</span> <span class="n">chain</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">command_decorators</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">query_decorators</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
-        <span class="n">endpoints</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">endpoints</span><span class="p">)</span>
-        <span class="n">endpoints</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">decorator</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="n">decorator</span><span class="o">.</span><span class="n">method</span><span class="p">}</span> <span class="k">for</span> <span class="n">decorator</span> <span class="ow">in</span> <span class="n">endpoints</span><span class="p">]</span>
         <span class="n">endpoints</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">endpoints</span>
 

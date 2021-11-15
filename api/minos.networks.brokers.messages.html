@@ -1,0 +1,1054 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>minos.networks.brokers.messages module &mdash; Minos Microservice Network 0.2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="minos.networks.decorators package" href="minos.networks.decorators.html" />
+    <link rel="prev" title="minos.networks.brokers.subscribers.services module" href="minos.networks.brokers.subscribers.services.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minos Microservice Network
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../runthetests.html">Run the tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="minos.html">minos namespace</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="minos.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="minos.networks.html">minos.networks package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="minos.networks.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minos.networks.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minos Microservice Network</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="minos.html">minos namespace</a> &raquo;</li>
+        
+          <li><a href="minos.networks.html">minos.networks package</a> &raquo;</li>
+        
+          <li><a href="minos.networks.brokers.html">minos.networks.brokers package</a> &raquo;</li>
+        
+      <li>minos.networks.brokers.messages module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api/minos.networks.brokers.messages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-minos.networks.brokers.messages">
+<span id="minos-networks-brokers-messages-module"></span><h1>minos.networks.brokers.messages module<a class="headerlink" href="#module-minos.networks.brokers.messages" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.messages.</span></span><span class="sig-name descname"><span class="pre">Command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/messages.html#Command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.messages.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.declarative.DeclarativeModel</span></code></p>
+<p>Base Command class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Named arguments to be set as model attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.avro_bytes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_bytes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate bytes representation of the current instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.avro_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">typing.Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.avro_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the avro data of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.avro_schema">
+<span class="sig-name descname"><span class="pre">avro_schema</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[{'name':</span> <span class="pre">'Command',</span> <span class="pre">'namespace':</span> <span class="pre">'minos.networks.brokers.messages.7f0920d6-efd8-4bff-be6b-561d7ab5decc',</span> <span class="pre">'type':</span> <span class="pre">'record',</span> <span class="pre">'fields':</span> <span class="pre">[{'name':</span> <span class="pre">'topic',</span> <span class="pre">'type':</span> <span class="pre">'string'},</span> <span class="pre">{'name':</span> <span class="pre">'data',</span> <span class="pre">'type':</span> <span class="pre">'null'},</span> <span class="pre">{'name':</span> <span class="pre">'saga',</span> <span class="pre">'type':</span> <span class="pre">[{'type':</span> <span class="pre">'string',</span> <span class="pre">'logicalType':</span> <span class="pre">'uuid'},</span> <span class="pre">'null']},</span> <span class="pre">{'name':</span> <span class="pre">'reply_topic',</span> <span class="pre">'type':</span> <span class="pre">'string'},</span> <span class="pre">{'name':</span> <span class="pre">'user',</span> <span class="pre">'type':</span> <span class="pre">[{'type':</span> <span class="pre">'string',</span> <span class="pre">'logicalType':</span> <span class="pre">'uuid'},</span> <span class="pre">'null']}]}]</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.avro_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.avro_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate bytes representation of the current instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.classname">
+<span class="sig-name descname"><span class="pre">classname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'minos.networks.brokers.messages.Command'</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.classname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.fields">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">minos.common.model.fields.Field</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fields getter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.fields.Field</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.from_avro">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.from_avro" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a new instance from the <code class="docutils literal notranslate"><span class="pre">avro</span></code> schema and data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]]]) – The avro schema of the model.</p></li>
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – The avro data of the model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DynamicModel</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.from_avro_bytes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.from_avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a single instance or a sequence of instances from bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – A bytes data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[~T, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single instance or a sequence of instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.from_avro_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.from_avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a single instance or a sequence of instances from bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A bytes data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[~T, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single instance or a sequence of instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.from_model_type">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_model_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.from_model_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a <code class="docutils literal notranslate"><span class="pre">DeclarativeModel</span></code> from a <code class="docutils literal notranslate"><span class="pre">ModelType</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.types.model_types.ModelType</span></code>) – <code class="docutils literal notranslate"><span class="pre">ModelType</span></code> object containing the model structure.</p></li>
+<li><p><strong>args</strong> – Positional arguments to be passed to the model constructor.</p></li>
+<li><p><strong>kwargs</strong> – Named arguments to be passed to the model constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DeclarativeModel</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.from_typed_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_typed_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typed_dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.from_typed_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a <code class="docutils literal notranslate"><span class="pre">Model</span></code> from a <code class="docutils literal notranslate"><span class="pre">TypeDict</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typed_dict</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypedDict</span></code>) – <code class="docutils literal notranslate"><span class="pre">TypeDict</span></code> object containing the DTO’s structure</p></li>
+<li><p><strong>args</strong> – Positional arguments to be passed to the model constructor.</p></li>
+<li><p><strong>kwargs</strong> – Named arguments to be passed to the model constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DataTransferObject</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">D[k]</span> <span class="pre">if</span> <span class="pre">k</span> <span class="pre">in</span> <span class="pre">D,</span> <span class="pre">else</span> <span class="pre">d.</span>&#160; <span class="pre">d</span> <span class="pre">defaults</span> <span class="pre">to</span> <span class="pre">None.</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Command.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">items</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Command.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">keys</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Command.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.reply_topic">
+<span class="sig-name descname"><span class="pre">reply_topic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.reply_topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.saga">
+<span class="sig-name descname"><span class="pre">saga</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">UUID</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.saga" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.to_avro_bytes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_avro_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.to_avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bytes representation of the given object instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]) – A sequence of minos models.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.to_avro_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_avro_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Command.to_avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bytes representation of the given object instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]) – A sequence of minos models.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.topic">
+<span class="sig-name descname"><span class="pre">topic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.type_hints">
+<span class="sig-name descname"><span class="pre">type_hints</span></span><a class="headerlink" href="#minos.networks.brokers.messages.Command.type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.type_hints_parameters">
+<span class="sig-name descname"><span class="pre">type_hints_parameters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.type_hints_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.user">
+<span class="sig-name descname"><span class="pre">user</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">UUID</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.Command.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Command.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">an</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">values</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Command.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.messages.</span></span><span class="sig-name descname"><span class="pre">CommandReply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/messages.html#CommandReply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.declarative.DeclarativeModel</span></code></p>
+<p>Base Command class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Named arguments to be set as model attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.avro_bytes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_bytes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate bytes representation of the current instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.avro_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">typing.Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.avro_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the avro data of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.avro_schema">
+<span class="sig-name descname"><span class="pre">avro_schema</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[{'name':</span> <span class="pre">'CommandReply',</span> <span class="pre">'namespace':</span> <span class="pre">'minos.networks.brokers.messages.19f079fa-eec9-4508-baef-54f8bf5046a6',</span> <span class="pre">'type':</span> <span class="pre">'record',</span> <span class="pre">'fields':</span> <span class="pre">[{'name':</span> <span class="pre">'topic',</span> <span class="pre">'type':</span> <span class="pre">'string'},</span> <span class="pre">{'name':</span> <span class="pre">'data',</span> <span class="pre">'type':</span> <span class="pre">'null'},</span> <span class="pre">{'name':</span> <span class="pre">'saga',</span> <span class="pre">'type':</span> <span class="pre">[{'type':</span> <span class="pre">'string',</span> <span class="pre">'logicalType':</span> <span class="pre">'uuid'},</span> <span class="pre">'null']},</span> <span class="pre">{'name':</span> <span class="pre">'status',</span> <span class="pre">'type':</span> <span class="pre">'int'},</span> <span class="pre">{'name':</span> <span class="pre">'service_name',</span> <span class="pre">'type':</span> <span class="pre">['string',</span> <span class="pre">'null']}]}]</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.avro_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.avro_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate bytes representation of the current instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.classname">
+<span class="sig-name descname"><span class="pre">classname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'minos.networks.brokers.messages.CommandReply'</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.classname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.fields">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">minos.common.model.fields.Field</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fields getter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.fields.Field</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.from_avro">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.from_avro" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a new instance from the <code class="docutils literal notranslate"><span class="pre">avro</span></code> schema and data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]]]) – The avro schema of the model.</p></li>
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – The avro data of the model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DynamicModel</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.from_avro_bytes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.from_avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a single instance or a sequence of instances from bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – A bytes data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[~T, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single instance or a sequence of instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.from_avro_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.from_avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a single instance or a sequence of instances from bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A bytes data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[~T, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single instance or a sequence of instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.from_model_type">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_model_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.from_model_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a <code class="docutils literal notranslate"><span class="pre">DeclarativeModel</span></code> from a <code class="docutils literal notranslate"><span class="pre">ModelType</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.types.model_types.ModelType</span></code>) – <code class="docutils literal notranslate"><span class="pre">ModelType</span></code> object containing the model structure.</p></li>
+<li><p><strong>args</strong> – Positional arguments to be passed to the model constructor.</p></li>
+<li><p><strong>kwargs</strong> – Named arguments to be passed to the model constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DeclarativeModel</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.from_typed_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_typed_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typed_dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.from_typed_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a <code class="docutils literal notranslate"><span class="pre">Model</span></code> from a <code class="docutils literal notranslate"><span class="pre">TypeDict</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typed_dict</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypedDict</span></code>) – <code class="docutils literal notranslate"><span class="pre">TypeDict</span></code> object containing the DTO’s structure</p></li>
+<li><p><strong>args</strong> – Positional arguments to be passed to the model constructor.</p></li>
+<li><p><strong>kwargs</strong> – Named arguments to be passed to the model constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DataTransferObject</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">D[k]</span> <span class="pre">if</span> <span class="pre">k</span> <span class="pre">in</span> <span class="pre">D,</span> <span class="pre">else</span> <span class="pre">d.</span>&#160; <span class="pre">d</span> <span class="pre">defaults</span> <span class="pre">to</span> <span class="pre">None.</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">items</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">keys</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.ok">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ok</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the reply is okay or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the reply is okay or <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.saga">
+<span class="sig-name descname"><span class="pre">saga</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">UUID</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.saga" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.service_name">
+<span class="sig-name descname"><span class="pre">service_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.service_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.status">
+<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#minos.networks.brokers.messages.CommandStatus" title="minos.networks.brokers.messages.CommandStatus"><span class="pre">CommandStatus</span></a></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.to_avro_bytes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_avro_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.to_avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bytes representation of the given object instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]) – A sequence of minos models.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.to_avro_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_avro_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.to_avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bytes representation of the given object instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]) – A sequence of minos models.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.topic">
+<span class="sig-name descname"><span class="pre">topic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.type_hints">
+<span class="sig-name descname"><span class="pre">type_hints</span></span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.type_hints_parameters">
+<span class="sig-name descname"><span class="pre">type_hints_parameters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.type_hints_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandReply.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">an</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">values</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.CommandReply.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.messages.</span></span><span class="sig-name descname"><span class="pre">CommandStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/messages.html#CommandStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.messages.CommandStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Command Status class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandStatus.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandStatus.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandStatus.SUCCESS">
+<span class="sig-name descname"><span class="pre">SUCCESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandStatus.SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.CommandStatus.SYSTEM_ERROR">
+<span class="sig-name descname"><span class="pre">SYSTEM_ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">500</span></em><a class="headerlink" href="#minos.networks.brokers.messages.CommandStatus.SYSTEM_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.messages.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/messages.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.messages.Event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.declarative.DeclarativeModel</span></code></p>
+<p>Base Event class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Named arguments to be set as model attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.avro_bytes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_bytes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate bytes representation of the current instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.avro_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">typing.Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.avro_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the avro data of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.avro_schema">
+<span class="sig-name descname"><span class="pre">avro_schema</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[{'name':</span> <span class="pre">'Event',</span> <span class="pre">'namespace':</span> <span class="pre">'minos.networks.brokers.messages.52ca6311-1351-419a-bc64-a144a5865dc5',</span> <span class="pre">'type':</span> <span class="pre">'record',</span> <span class="pre">'fields':</span> <span class="pre">[{'name':</span> <span class="pre">'topic',</span> <span class="pre">'type':</span> <span class="pre">'string'},</span> <span class="pre">{'name':</span> <span class="pre">'data',</span> <span class="pre">'type':</span> <span class="pre">'null'}]}]</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.avro_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.avro_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avro_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate bytes representation of the current instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.classname">
+<span class="sig-name descname"><span class="pre">classname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'minos.networks.brokers.messages.Event'</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.classname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.fields">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">minos.common.model.fields.Field</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fields getter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.fields.Field</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.from_avro">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.from_avro" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a new instance from the <code class="docutils literal notranslate"><span class="pre">avro</span></code> schema and data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]]]) – The avro schema of the model.</p></li>
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code>]) – The avro data of the model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DynamicModel</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.from_avro_bytes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.from_avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a single instance or a sequence of instances from bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – A bytes data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[~T, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single instance or a sequence of instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.from_avro_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_avro_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.from_avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a single instance or a sequence of instances from bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A bytes data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code>[~T, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A single instance or a sequence of instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.from_model_type">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_model_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.from_model_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a <code class="docutils literal notranslate"><span class="pre">DeclarativeModel</span></code> from a <code class="docutils literal notranslate"><span class="pre">ModelType</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.model.types.model_types.ModelType</span></code>) – <code class="docutils literal notranslate"><span class="pre">ModelType</span></code> object containing the model structure.</p></li>
+<li><p><strong>args</strong> – Positional arguments to be passed to the model constructor.</p></li>
+<li><p><strong>kwargs</strong> – Named arguments to be passed to the model constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DeclarativeModel</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.from_typed_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_typed_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typed_dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.from_typed_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a <code class="docutils literal notranslate"><span class="pre">Model</span></code> from a <code class="docutils literal notranslate"><span class="pre">TypeDict</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typed_dict</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypedDict</span></code>) – <code class="docutils literal notranslate"><span class="pre">TypeDict</span></code> object containing the DTO’s structure</p></li>
+<li><p><strong>args</strong> – Positional arguments to be passed to the model constructor.</p></li>
+<li><p><strong>kwargs</strong> – Named arguments to be passed to the model constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>~T</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <code class="docutils literal notranslate"><span class="pre">DataTransferObject</span></code> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">D[k]</span> <span class="pre">if</span> <span class="pre">k</span> <span class="pre">in</span> <span class="pre">D,</span> <span class="pre">else</span> <span class="pre">d.</span>&#160; <span class="pre">d</span> <span class="pre">defaults</span> <span class="pre">to</span> <span class="pre">None.</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Event.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">items</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Event.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">keys</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Event.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.to_avro_bytes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_avro_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.to_avro_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bytes representation of the given object instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]) – A sequence of minos models.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.to_avro_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_avro_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.messages.Event.to_avro_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bytes representation of the given object instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[~T]) – A sequence of minos models.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A bytes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.topic">
+<span class="sig-name descname"><span class="pre">topic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.type_hints">
+<span class="sig-name descname"><span class="pre">type_hints</span></span><a class="headerlink" href="#minos.networks.brokers.messages.Event.type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.type_hints_parameters">
+<span class="sig-name descname"><span class="pre">type_hints_parameters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#minos.networks.brokers.messages.Event.type_hints_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.brokers.messages.Event.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">an</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">values</span></span></span><a class="headerlink" href="#minos.networks.brokers.messages.Event.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="minos.networks.decorators.html" class="btn btn-neutral float-right" title="minos.networks.decorators package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="minos.networks.brokers.subscribers.services.html" class="btn btn-neutral float-left" title="minos.networks.brokers.subscribers.services module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Clariteia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
