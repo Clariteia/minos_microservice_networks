@@ -1,7 +1,0 @@
-minos.networks.brokers.publishers.commands module
-=================================================
-
-.. automodule:: minos.networks.brokers.publishers.commands
-   :members:
-   :undoc-members:
-   :show-inheritance:

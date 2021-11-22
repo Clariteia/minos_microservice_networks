@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>History &mdash; Minos Microservice Network 0.2.0 documentation</title>
+  <title>History &mdash; Minos Microservice Network 0.3.0 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.2.0
+                0.3.0
               </div>
             
           
@@ -116,6 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id18">0.1.0 (2021-11-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id19">0.1.1 (2021-11-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id20">0.2.0 (2021-11-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">0.3.0 (2021-11-22)</a></li>
 </ul>
 </li>
 </ul>
@@ -340,6 +341,23 @@
 <li><p>Add support variable number of services (previously only <code class="docutils literal notranslate"><span class="pre">CommandService</span></code> and <code class="docutils literal notranslate"><span class="pre">QueryService</span></code> were allowed).</p></li>
 <li><p>Migrate <code class="docutils literal notranslate"><span class="pre">Command</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandReply</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandStatus</span></code> and <code class="docutils literal notranslate"><span class="pre">Event</span></code> from <code class="docutils literal notranslate"><span class="pre">minos.common</span></code> to <code class="docutils literal notranslate"><span class="pre">minos.networks</span></code>.</p></li>
 <li><p>Add support for <code class="docutils literal notranslate"><span class="pre">minos-microservice-common=^0.3.0</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h2>0.3.0 (2021-11-22)<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">BrokerHandler</span></code> dispatching strategy to be more concurrent (using <code class="docutils literal notranslate"><span class="pre">asyncio.PriorityQueue</span></code> and multiple consumers).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">send(...)</span></code> method to <code class="docutils literal notranslate"><span class="pre">DynamicBroker</span></code> in order to simplify the execution of request-response messages.</p></li>
+<li><p>Merge <code class="docutils literal notranslate"><span class="pre">minos.networks.brokers</span></code> and <code class="docutils literal notranslate"><span class="pre">minos.networks.handlers</span></code> modules into <code class="docutils literal notranslate"><span class="pre">minos.networks.brokers</span></code> (divided into <code class="docutils literal notranslate"><span class="pre">handlers</span></code> and <code class="docutils literal notranslate"><span class="pre">subscribers</span></code>).</p></li>
+<li><p>Merge <code class="docutils literal notranslate"><span class="pre">Command</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandReply</span></code> and <code class="docutils literal notranslate"><span class="pre">Event</span></code> into <code class="docutils literal notranslate"><span class="pre">BrokerMessage</span></code>.</p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">CommandStatus</span></code> as <code class="docutils literal notranslate"><span class="pre">BrokerMessageStatus</span></code>.</p></li>
+<li><p>Merge <code class="docutils literal notranslate"><span class="pre">CommandBroker</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandReplyBroker</span></code> and <code class="docutils literal notranslate"><span class="pre">EventBroker</span></code> into <code class="docutils literal notranslate"><span class="pre">BrokerPublisher</span></code>.</p></li>
+<li><p>Merge <code class="docutils literal notranslate"><span class="pre">CommandHandler</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandReplyHandler</span></code> and <code class="docutils literal notranslate"><span class="pre">EventHandler</span></code> into <code class="docutils literal notranslate"><span class="pre">BrokerHandler</span></code>.</p></li>
+<li><p>Merge <code class="docutils literal notranslate"><span class="pre">CommandHandlerService</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandReplyHandlerService</span></code> and <code class="docutils literal notranslate"><span class="pre">EventHandlerService</span></code> into <code class="docutils literal notranslate"><span class="pre">BrokerHandlerService</span></code></p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">DynamicHandler</span></code> and <code class="docutils literal notranslate"><span class="pre">DynamicHandlerPool</span></code> as <code class="docutils literal notranslate"><span class="pre">DynamicBroker</span></code> and <code class="docutils literal notranslate"><span class="pre">DynamicBrokerPool</span></code></p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> and <code class="docutils literal notranslate"><span class="pre">ConsumerService</span></code> as <code class="docutils literal notranslate"><span class="pre">BrokerConsumer</span></code> and <code class="docutils literal notranslate"><span class="pre">BrokerConsumerService</span></code> respectively.</p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">Producer</span></code> and <code class="docutils literal notranslate"><span class="pre">ProducerService</span></code> as <code class="docutils literal notranslate"><span class="pre">BrokerProducer</span></code> and <code class="docutils literal notranslate"><span class="pre">BrokerProducerService</span></code> respectively.</p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">HandlerRequest</span></code>, <code class="docutils literal notranslate"><span class="pre">HandlerResponse</span></code> and <code class="docutils literal notranslate"><span class="pre">HandlerResponseException</span></code> as <code class="docutils literal notranslate"><span class="pre">BrokerRequest</span></code>, <code class="docutils literal notranslate"><span class="pre">BrokerResponse</span></code> and <code class="docutils literal notranslate"><span class="pre">BrokerResponseException</span></code> respectively.</p></li>
 </ul>
 </div>
 </div>

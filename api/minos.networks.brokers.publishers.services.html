@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.publishers.services module &mdash; Minos Microservice Network 0.2.0 documentation</title>
+  <title>minos.networks.brokers.publishers.services module &mdash; Minos Microservice Network 0.3.0 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="minos.networks.brokers.subscribers package" href="minos.networks.brokers.subscribers.html" />
-    <link rel="prev" title="minos.networks.brokers.publishers.producers module" href="minos.networks.brokers.publishers.producers.html" /> 
+    <link rel="next" title="minos.networks.brokers.messages module" href="minos.networks.brokers.messages.html" />
+    <link rel="prev" title="minos.networks.brokers.publishers.publishers module" href="minos.networks.brokers.publishers.publishers.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.2.0
+                0.3.0
               </div>
             
           
@@ -185,18 +185,18 @@
   <div class="section" id="module-minos.networks.brokers.publishers.services">
 <span id="minos-networks-brokers-publishers-services-module"></span><h1>minos.networks.brokers.publishers.services module<a class="headerlink" href="#module-minos.networks.brokers.publishers.services" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.publishers.services.</span></span><span class="sig-name descname"><span class="pre">ProducerService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#ProducerService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.brokers.publishers.services.</span></span><span class="sig-name descname"><span class="pre">BrokerProducerService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#BrokerProducerService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">aiomisc.service.base.Service</span></code></p>
-<p>ProducerService class.</p>
+<p>Broker Producer Service class.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#ProducerService.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#BrokerProducerService.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService.context">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">context</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">aiomisc.context.Context</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService.context" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService.context">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">context</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">aiomisc.context.Context</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService.context" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">aiomisc.context.Context</span></code></p>
@@ -205,8 +205,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService.dispatcher">
-<span class="sig-name descname"><span class="pre">dispatcher</span></span><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService.dispatcher" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService.dispatcher">
+<span class="sig-name descname"><span class="pre">dispatcher</span></span><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService.dispatcher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the service dispatcher.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -216,8 +216,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService.set_loop">
-<span class="sig-name descname"><span class="pre">set_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService.set_loop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService.set_loop">
+<span class="sig-name descname"><span class="pre">set_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService.set_loop" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
@@ -226,9 +226,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService.start">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#ProducerService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService.start" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to be called at the startup by the internal <code class="docutils literal notranslate"><span class="pre">aiomisc</span></code> loigc.</p>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService.start">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#BrokerProducerService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the service execution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
@@ -240,8 +240,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService.start_event">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">asyncio.locks.Event</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService.start_event" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService.start_event">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">asyncio.locks.Event</span></em><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService.start_event" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.locks.Event</span></code></p>
@@ -250,8 +250,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.ProducerService.stop">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#ProducerService.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.ProducerService.stop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="minos.networks.brokers.publishers.services.BrokerProducerService.stop">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/brokers/publishers/services.html#BrokerProducerService.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.brokers.publishers.services.BrokerProducerService.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop the service execution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -276,8 +276,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="minos.networks.brokers.subscribers.html" class="btn btn-neutral float-right" title="minos.networks.brokers.subscribers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="minos.networks.brokers.publishers.producers.html" class="btn btn-neutral float-left" title="minos.networks.brokers.publishers.producers module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="minos.networks.brokers.messages.html" class="btn btn-neutral float-right" title="minos.networks.brokers.messages module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="minos.networks.brokers.publishers.publishers.html" class="btn btn-neutral float-left" title="minos.networks.brokers.publishers.publishers module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

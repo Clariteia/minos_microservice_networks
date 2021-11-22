@@ -12,6 +12,6 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   minos.networks.scheduling.messages
+   minos.networks.scheduling.requests
    minos.networks.scheduling.schedulers
    minos.networks.scheduling.services

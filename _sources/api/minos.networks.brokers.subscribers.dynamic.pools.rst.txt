@@ -1,7 +1,0 @@
-minos.networks.brokers.subscribers.dynamic.pools module
-=======================================================
-
-.. automodule:: minos.networks.brokers.subscribers.dynamic.pools
-   :members:
-   :undoc-members:
-   :show-inheritance:

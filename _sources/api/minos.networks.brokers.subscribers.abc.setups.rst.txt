@@ -1,7 +1,0 @@
-minos.networks.brokers.subscribers.abc.setups module
-====================================================
-
-.. automodule:: minos.networks.brokers.subscribers.abc.setups
-   :members:
-   :undoc-members:
-   :show-inheritance:

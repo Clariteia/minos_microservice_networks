@@ -12,8 +12,9 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   minos.networks.brokers.dynamic
+   minos.networks.brokers.handlers
    minos.networks.brokers.publishers
-   minos.networks.brokers.subscribers
 
 Submodules
 ----------

@@ -1,7 +1,0 @@
-minos.networks.brokers.subscribers.commands.services module
-===========================================================
-
-.. automodule:: minos.networks.brokers.subscribers.commands.services
-   :members:
-   :undoc-members:
-   :show-inheritance:

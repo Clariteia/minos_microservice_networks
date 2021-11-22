@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.scheduling.schedulers &mdash; Minos Microservice Network 0.2.0 documentation</title>
+  <title>minos.networks.scheduling.schedulers &mdash; Minos Microservice Network 0.3.0 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.2.0
+                0.3.0
               </div>
             
           
@@ -197,10 +197,10 @@
 <span class="kn">from</span> <span class="nn">..decorators</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">EnrouteBuilder</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">..messages</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">..requests</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">ResponseException</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">.messages</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">.requests</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">ScheduledRequest</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -349,7 +349,7 @@
             <span class="n">now</span> <span class="o">=</span> <span class="n">current_datetime</span><span class="p">()</span>
 
         <span class="n">request</span> <span class="o">=</span> <span class="n">ScheduledRequest</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Running periodic task...&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Running periodic task...&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_running</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">):</span>

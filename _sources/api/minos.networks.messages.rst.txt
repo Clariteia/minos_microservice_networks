@@ -1,7 +1,0 @@
-minos.networks.messages module
-==============================
-
-.. automodule:: minos.networks.messages
-   :members:
-   :undoc-members:
-   :show-inheritance:

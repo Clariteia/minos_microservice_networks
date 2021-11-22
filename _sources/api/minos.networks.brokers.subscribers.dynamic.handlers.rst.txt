@@ -1,7 +1,0 @@
-minos.networks.brokers.subscribers.dynamic.handlers module
-==========================================================
-
-.. automodule:: minos.networks.brokers.subscribers.dynamic.handlers
-   :members:
-   :undoc-members:
-   :show-inheritance:

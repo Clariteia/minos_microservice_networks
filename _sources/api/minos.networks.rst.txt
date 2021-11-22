@@ -25,5 +25,5 @@ Submodules
    :maxdepth: 4
 
    minos.networks.exceptions
-   minos.networks.messages
+   minos.networks.requests
    minos.networks.utils

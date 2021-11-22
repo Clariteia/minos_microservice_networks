@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.messages &mdash; Minos Microservice Network 0.2.0 documentation</title>
+  <title>minos.networks.brokers.messages &mdash; Minos Microservice Network 0.3.0 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.2.0
+                0.3.0
               </div>
             
           
@@ -169,6 +169,7 @@
     <span class="n">ContextVar</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Enum</span><span class="p">,</span>
     <span class="n">IntEnum</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
@@ -187,24 +188,33 @@
 <span class="n">REPLY_TOPIC_CONTEXT_VAR</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">ContextVar</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">ContextVar</span><span class="p">(</span><span class="s2">&quot;reply_topic&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="Command"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.Command">[docs]</a><span class="k">class</span> <span class="nc">Command</span><span class="p">(</span><span class="n">DeclarativeModel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base Command class.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BrokerMessage"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessage">[docs]</a><span class="k">class</span> <span class="nc">BrokerMessage</span><span class="p">(</span><span class="n">DeclarativeModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Broker Message class.&quot;&quot;&quot;</span>
 
     <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
+    <span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">saga</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UUID</span><span class="p">]</span>
-    <span class="n">reply_topic</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UUID</span><span class="p">]</span></div>
+    <span class="n">reply_topic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UUID</span><span class="p">]</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">BrokerMessageStatus</span>
+    <span class="n">strategy</span><span class="p">:</span> <span class="n">BrokerMessageStrategy</span>
 
-
-<div class="viewcode-block" id="CommandReply"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.CommandReply">[docs]</a><span class="k">class</span> <span class="nc">CommandReply</span><span class="p">(</span><span class="n">DeclarativeModel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base Command class.&quot;&quot;&quot;</span>
-
-    <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
-    <span class="n">saga</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UUID</span><span class="p">]</span>
-    <span class="n">status</span><span class="p">:</span> <span class="n">CommandStatus</span>
-    <span class="n">service_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<div class="viewcode-block" id="BrokerMessage.__init__"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessage.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">status</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BrokerMessageStatus</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">strategy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BrokerMessageStrategy</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">BrokerMessageStatus</span><span class="o">.</span><span class="n">SUCCESS</span>
+        <span class="k">if</span> <span class="n">strategy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">strategy</span> <span class="o">=</span> <span class="n">BrokerMessageStrategy</span><span class="o">.</span><span class="n">UNICAST</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">ok</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -212,22 +222,22 @@
 
 <span class="sd">        :return: ``True`` if the reply is okay or ``False`` otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">CommandStatus</span><span class="o">.</span><span class="n">SUCCESS</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">BrokerMessageStatus</span><span class="o">.</span><span class="n">SUCCESS</span></div>
 
 
-<div class="viewcode-block" id="CommandStatus"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.CommandStatus">[docs]</a><span class="k">class</span> <span class="nc">CommandStatus</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Command Status class.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BrokerMessageStatus"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessageStatus">[docs]</a><span class="k">class</span> <span class="nc">BrokerMessageStatus</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Broker Message Status class.&quot;&quot;&quot;</span>
 
     <span class="n">SUCCESS</span> <span class="o">=</span> <span class="mi">200</span>
     <span class="n">ERROR</span> <span class="o">=</span> <span class="mi">400</span>
     <span class="n">SYSTEM_ERROR</span> <span class="o">=</span> <span class="mi">500</span></div>
 
 
-<div class="viewcode-block" id="Event"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.Event">[docs]</a><span class="k">class</span> <span class="nc">Event</span><span class="p">(</span><span class="n">DeclarativeModel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base Event class.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BrokerMessageStrategy"><a class="viewcode-back" href="../../../../api/minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessageStrategy">[docs]</a><span class="k">class</span> <span class="nc">BrokerMessageStrategy</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Broker Message Strategy class&quot;&quot;&quot;</span>
 
-    <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span></div>
+    <span class="n">UNICAST</span> <span class="o">=</span> <span class="s2">&quot;unicast&quot;</span>
+    <span class="n">MULTICAST</span> <span class="o">=</span> <span class="s2">&quot;multicast&quot;</span></div>
 </pre></div>
 
            </div>
