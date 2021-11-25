@@ -29,6 +29,7 @@ RECEIVE_TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = Contex
 
 class TraceStep(DeclarativeModel):
     """TODO"""
+
     identifier: UUID
     service_name: str
 
@@ -66,15 +67,7 @@ class BrokerMessage(DeclarativeModel):
             trace = list()
         trace = list(trace)
 
-        super().__init__(
-            topic,
-            data,
-            trace=trace,
-            status=status,
-            strategy=strategy,
-            saga=saga,
-            **kwargs
-        )
+        super().__init__(topic, data, trace=trace, status=status, strategy=strategy, saga=saga, **kwargs)
 
     @property
     def ok(self) -> bool:

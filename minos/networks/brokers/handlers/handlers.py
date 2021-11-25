@@ -64,7 +64,6 @@ from ..messages import (
     SEND_TRACE_CONTEXT_VAR,
     BrokerMessage,
     BrokerMessageStatus,
-    TraceStep,
 )
 from ..publishers import (
     BrokerPublisher,
@@ -95,7 +94,6 @@ class BrokerHandler(BrokerHandlerSetup):
         retry: int,
         publisher: BrokerPublisher,
         consumer_concurrency: int = 15,
-        service_name: str = None,
         **kwargs: Any,
     ):
         super().__init__(**kwargs)
@@ -109,14 +107,12 @@ class BrokerHandler(BrokerHandlerSetup):
 
         self._publisher = publisher
 
-        self._service_name = service_name
-
     @classmethod
     def _from_config(cls, config: MinosConfig, **kwargs) -> BrokerHandler:
         kwargs["handlers"] = cls._get_handlers(config, **kwargs)
         kwargs["publisher"] = cls._get_publisher(**kwargs)
         # noinspection PyProtectedMember
-        return cls(**config.broker.queue._asdict(), service_name=config.service.name, **kwargs)
+        return cls(**config.broker.queue._asdict(), **kwargs)
 
     @staticmethod
     def _get_handlers(
@@ -314,12 +310,7 @@ class BrokerHandler(BrokerHandlerSetup):
 
         if message.reply_topic is not None:
             await self.publisher.send(
-                data,
-                topic=message.reply_topic,
-                saga=message.saga,
-                status=status,
-                user=message.user,
-                trace=trace,
+                data, topic=message.reply_topic, saga=message.saga, status=status, user=message.user, trace=trace,
             )
 
     @staticmethod

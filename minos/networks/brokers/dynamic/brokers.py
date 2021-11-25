@@ -42,7 +42,8 @@ from ..handlers import (
     BrokerHandlerSetup,
 )
 from ..messages import (
-    RECEIVE_TRACE_CONTEXT_VAR, BrokerMessage,
+    RECEIVE_TRACE_CONTEXT_VAR,
+    BrokerMessage,
 )
 from ..publishers import (
     BrokerPublisher,

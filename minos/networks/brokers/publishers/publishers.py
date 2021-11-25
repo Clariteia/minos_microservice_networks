@@ -12,7 +12,6 @@ from typing import (
 )
 from uuid import (
     UUID,
-    uuid4,
 )
 
 from psycopg2.sql import (
