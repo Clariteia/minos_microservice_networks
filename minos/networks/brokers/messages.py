@@ -1,10 +1,6 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
-from contextvars import (
-    ContextVar,
-)
+from contextvars import ContextVar
 from enum import (
     Enum,
     IntEnum,
@@ -14,13 +10,9 @@ from typing import (
     Final,
     Optional,
 )
-from uuid import (
-    UUID,
-)
+from uuid import UUID
 
-from minos.common import (
-    DeclarativeModel,
-)
+from minos.common import DeclarativeModel
 
 REPLY_TOPIC_CONTEXT_VAR: Final[ContextVar[Optional[str]]] = ContextVar("reply_topic", default=None)
 SEND_TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = ContextVar("send_trace", default=None)
@@ -29,6 +21,7 @@ RECEIVE_TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = Contex
 
 class TraceStep(DeclarativeModel):
     """TODO"""
+
     identifier: UUID
     service_name: str
 
@@ -66,15 +59,7 @@ class BrokerMessage(DeclarativeModel):
             trace = list()
         trace = list(trace)
 
-        super().__init__(
-            topic,
-            data,
-            trace=trace,
-            status=status,
-            strategy=strategy,
-            saga=saga,
-            **kwargs
-        )
+        super().__init__(topic, data, trace=trace, status=status, strategy=strategy, saga=saga, **kwargs)
 
     @property
     def ok(self) -> bool:

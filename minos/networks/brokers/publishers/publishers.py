@@ -1,11 +1,7 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from abc import (
-    ABC,
-)
+from abc import ABC
 from typing import (
     Any,
     Optional,
@@ -15,13 +11,9 @@ from uuid import (
     uuid4,
 )
 
-from psycopg2.sql import (
-    SQL,
-)
+from psycopg2.sql import SQL
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 
 from ..messages import (
     SEND_TRACE_CONTEXT_VAR,
@@ -30,9 +22,7 @@ from ..messages import (
     BrokerMessageStrategy,
     TraceStep,
 )
-from .abc import (
-    BrokerPublisherSetup,
-)
+from .abc import BrokerPublisherSetup
 
 logger = logging.getLogger(__name__)
 

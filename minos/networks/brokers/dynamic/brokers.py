@@ -1,22 +1,14 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 from asyncio import (
     TimeoutError,
     wait_for,
 )
-from typing import (
-    Optional,
-)
+from typing import Optional
 
-from aiopg import (
-    Cursor,
-)
-from cached_property import (
-    cached_property,
-)
+from aiopg import Cursor
+from cached_property import cached_property
 from dependency_injector.wiring import (
     Provide,
     inject,
@@ -31,22 +23,17 @@ from minos.common import (
     NotProvidedException,
 )
 
-from ...exceptions import (
-    MinosHandlerNotFoundEnoughEntriesException,
-)
-from ...utils import (
-    consume_queue,
-)
+from ...exceptions import MinosHandlerNotFoundEnoughEntriesException
+from ...utils import consume_queue
 from ..handlers import (
     BrokerHandlerEntry,
     BrokerHandlerSetup,
 )
 from ..messages import (
-    RECEIVE_TRACE_CONTEXT_VAR, BrokerMessage,
+    RECEIVE_TRACE_CONTEXT_VAR,
+    BrokerMessage,
 )
-from ..publishers import (
-    BrokerPublisher,
-)
+from ..publishers import BrokerPublisher
 
 logger = logging.getLogger(__name__)
 

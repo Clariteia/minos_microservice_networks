@@ -1,6 +1,4 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 from asyncio import (
@@ -12,9 +10,7 @@ from asyncio import (
     gather,
     wait_for,
 )
-from inspect import (
-    isawaitable,
-)
+from inspect import isawaitable
 from typing import (
     Any,
     Awaitable,
@@ -25,12 +21,8 @@ from typing import (
     Union,
 )
 
-from aiopg import (
-    Cursor,
-)
-from cached_property import (
-    cached_property,
-)
+from aiopg import Cursor
+from cached_property import cached_property
 from dependency_injector.wiring import (
     Provide,
     inject,
@@ -45,20 +37,14 @@ from minos.common import (
     NotProvidedException,
 )
 
-from ...decorators import (
-    EnrouteBuilder,
-)
-from ...exceptions import (
-    MinosActionNotFoundException,
-)
+from ...decorators import EnrouteBuilder
+from ...exceptions import MinosActionNotFoundException
 from ...requests import (
     USER_CONTEXT_VAR,
     Response,
     ResponseException,
 )
-from ...utils import (
-    consume_queue,
-)
+from ...utils import consume_queue
 from ..messages import (
     RECEIVE_TRACE_CONTEXT_VAR,
     SEND_TRACE_CONTEXT_VAR,
@@ -66,15 +52,9 @@ from ..messages import (
     BrokerMessageStatus,
     TraceStep,
 )
-from ..publishers import (
-    BrokerPublisher,
-)
-from .abc import (
-    BrokerHandlerSetup,
-)
-from .entries import (
-    BrokerHandlerEntry,
-)
+from ..publishers import BrokerPublisher
+from .abc import BrokerHandlerSetup
+from .entries import BrokerHandlerEntry
 from .requests import (
     BrokerRequest,
     BrokerResponse,
@@ -314,12 +294,7 @@ class BrokerHandler(BrokerHandlerSetup):
 
         if message.reply_topic is not None:
             await self.publisher.send(
-                data,
-                topic=message.reply_topic,
-                saga=message.saga,
-                status=status,
-                user=message.user,
-                trace=trace,
+                data, topic=message.reply_topic, saga=message.saga, status=status, user=message.user, trace=trace,
             )
 
     @staticmethod
