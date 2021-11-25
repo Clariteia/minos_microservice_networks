@@ -3,7 +3,9 @@ __email__ = "devs@clariteia.com"
 __version__ = "0.3.0"
 
 from .brokers import (
+    RECEIVE_TRACE_CONTEXT_VAR,
     REPLY_TOPIC_CONTEXT_VAR,
+    SEND_TRACE_CONTEXT_VAR,
     BrokerConsumer,
     BrokerConsumerService,
     BrokerHandler,
@@ -22,6 +24,7 @@ from .brokers import (
     BrokerResponseException,
     DynamicBroker,
     DynamicBrokerPool,
+    TraceStep,
 )
 from .decorators import (
     BrokerCommandEnrouteDecorator,

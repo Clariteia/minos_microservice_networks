@@ -12,6 +12,7 @@ from typing import (
 )
 from uuid import (
     UUID,
+    uuid4,
 )
 
 from psycopg2.sql import (
@@ -23,9 +24,11 @@ from minos.common import (
 )
 
 from ..messages import (
+    SEND_TRACE_CONTEXT_VAR,
     BrokerMessage,
     BrokerMessageStatus,
     BrokerMessageStrategy,
+    TraceStep,
 )
 from .abc import (
     BrokerPublisherSetup,
@@ -57,6 +60,7 @@ class BrokerPublisher(BrokerPublisherSetup, ABC):
         user: Optional[UUID] = None,
         status: BrokerMessageStatus = BrokerMessageStatus.SUCCESS,
         strategy: BrokerMessageStrategy = BrokerMessageStrategy.UNICAST,
+        trace: Optional[list[TraceStep]] = None,
         **kwargs,
     ) -> int:
         """Send a ``BrokerMessage``.
@@ -68,18 +72,23 @@ class BrokerPublisher(BrokerPublisherSetup, ABC):
         :param user: The user identifier that send the message.
         :param status: The status code of the message.
         :param strategy: The publishing strategy.
+        :param trace: TODO
         :param kwargs: Additional named arguments.
         :return: This method does not return anything.
         """
+        if trace is None:
+            trace = (SEND_TRACE_CONTEXT_VAR.get() or list()).copy()
+        if saga is not None:
+            trace.append(TraceStep(saga, self.service_name))
 
         message = BrokerMessage(
             topic=topic,
             data=data,
             saga=saga,
+            trace=trace,
             status=status,
             reply_topic=reply_topic,
             user=user,
-            service_name=self.service_name,
             strategy=strategy,
         )
         logger.info(f"Publishing '{message!s}'...")

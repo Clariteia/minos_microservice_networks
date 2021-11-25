@@ -23,6 +23,14 @@ from minos.common import (
 )
 
 REPLY_TOPIC_CONTEXT_VAR: Final[ContextVar[Optional[str]]] = ContextVar("reply_topic", default=None)
+SEND_TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = ContextVar("send_trace", default=None)
+RECEIVE_TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = ContextVar("receive_trace", default=None)
+
+
+class TraceStep(DeclarativeModel):
+    """TODO"""
+    identifier: UUID
+    service_name: str
 
 
 class BrokerMessage(DeclarativeModel):
@@ -30,28 +38,43 @@ class BrokerMessage(DeclarativeModel):
 
     topic: str
     data: Any
-    service_name: str
     saga: Optional[UUID]
     reply_topic: Optional[str]
     user: Optional[UUID]
     status: BrokerMessageStatus
     strategy: BrokerMessageStrategy
 
+    trace: list[TraceStep]
+
     def __init__(
         self,
         topic: str,
         data: Any,
-        service_name: str,
+        trace: list[TraceStep],
         *,
         status: Optional[BrokerMessageStatus] = None,
         strategy: Optional[BrokerMessageStrategy] = None,
+        saga: Optional[UUID] = None,
         **kwargs
     ):
         if status is None:
             status = BrokerMessageStatus.SUCCESS
         if strategy is None:
             strategy = BrokerMessageStrategy.UNICAST
-        super().__init__(topic, data, service_name, status=status, strategy=strategy, **kwargs)
+
+        if trace is None:
+            trace = list()
+        trace = list(trace)
+
+        super().__init__(
+            topic,
+            data,
+            trace=trace,
+            status=status,
+            strategy=strategy,
+            saga=saga,
+            **kwargs
+        )
 
     @property
     def ok(self) -> bool:

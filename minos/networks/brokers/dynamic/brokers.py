@@ -41,6 +41,9 @@ from ..handlers import (
     BrokerHandlerEntry,
     BrokerHandlerSetup,
 )
+from ..messages import (
+    RECEIVE_TRACE_CONTEXT_VAR, BrokerMessage,
+)
 from ..publishers import (
     BrokerPublisher,
 )
@@ -93,6 +96,37 @@ class DynamicBroker(BrokerHandlerSetup):
         :return: This method does not return anything.
         """
         await self.publisher.send(*args, reply_topic=self.topic, **kwargs)
+
+    async def receive(self, *args, **kwargs) -> BrokerMessage:
+        """TODO
+
+        :param args: TODO
+        :param kwargs: TODO
+        :return: TODO
+        """
+        trace = RECEIVE_TRACE_CONTEXT_VAR.get()
+        entry = await self.get_one(*args, **kwargs)
+        message = entry.data
+        if trace is not None:
+            trace += message.trace
+        return message
+
+    async def receive_many(self, *args, **kwargs) -> list[BrokerMessage]:
+        """TODO
+
+        :param args: TODO
+        :param kwargs: TODO
+        :return: TODO
+        """
+        trace = RECEIVE_TRACE_CONTEXT_VAR.get()
+        entries = await self.get_many(*args, **kwargs)
+        messages = list()
+        for entry in entries:
+            message = entry.data
+            if trace is not None:
+                trace += message.trace
+            messages.append(message)
+        return messages
 
     async def get_one(self, *args, **kwargs) -> BrokerHandlerEntry:
         """Get one handler entry from the given topics.

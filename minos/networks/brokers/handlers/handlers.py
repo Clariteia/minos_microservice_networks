@@ -60,8 +60,11 @@ from ...utils import (
     consume_queue,
 )
 from ..messages import (
+    RECEIVE_TRACE_CONTEXT_VAR,
+    SEND_TRACE_CONTEXT_VAR,
     BrokerMessage,
     BrokerMessageStatus,
+    TraceStep,
 )
 from ..publishers import (
     BrokerPublisher,
@@ -92,6 +95,7 @@ class BrokerHandler(BrokerHandlerSetup):
         retry: int,
         publisher: BrokerPublisher,
         consumer_concurrency: int = 15,
+        service_name: str = None,
         **kwargs: Any,
     ):
         super().__init__(**kwargs)
@@ -105,12 +109,14 @@ class BrokerHandler(BrokerHandlerSetup):
 
         self._publisher = publisher
 
+        self._service_name = service_name
+
     @classmethod
     def _from_config(cls, config: MinosConfig, **kwargs) -> BrokerHandler:
         kwargs["handlers"] = cls._get_handlers(config, **kwargs)
         kwargs["publisher"] = cls._get_publisher(**kwargs)
         # noinspection PyProtectedMember
-        return cls(**config.broker.queue._asdict(), **kwargs)
+        return cls(**config.broker.queue._asdict(), service_name=config.service.name, **kwargs)
 
     @staticmethod
     def _get_handlers(
@@ -294,7 +300,7 @@ class BrokerHandler(BrokerHandlerSetup):
             query_id = "delete_processed" if entry.success else "update_not_processed"
             await self.submit_query(self._queries[query_id], (entry.id,))
 
-    async def dispatch_one(self, entry: BrokerHandlerEntry) -> None:
+    async def dispatch_one(self, entry: BrokerHandlerEntry[BrokerMessage]) -> None:
         """Dispatch one row.
 
         :param entry: Entry to be dispatched.
@@ -304,26 +310,34 @@ class BrokerHandler(BrokerHandlerSetup):
 
         fn = self.get_callback(entry.callback)
         message = entry.data
-        data, status = await fn(message)
+        data, status, trace = await fn(message)
 
         if message.reply_topic is not None:
             await self.publisher.send(
-                data, topic=message.reply_topic, saga=message.saga, status=status, user=message.user
+                data,
+                topic=message.reply_topic,
+                saga=message.saga,
+                status=status,
+                user=message.user,
+                trace=trace,
             )
 
     @staticmethod
     def get_callback(
         fn: Callable[[BrokerRequest], Union[Optional[BrokerRequest], Awaitable[Optional[BrokerRequest]]]]
-    ) -> Callable[[BrokerMessage], Awaitable[tuple[Any, BrokerMessageStatus]]]:
+    ) -> Callable[[BrokerMessage], Awaitable[tuple[Any, BrokerMessageStatus, list[Any]]]]:
         """Get the handler function to be used by the Broker Handler.
 
         :param fn: The action function.
         :return: A wrapper function around the given one that is compatible with the Broker Handler API.
         """
 
-        async def _fn(raw: BrokerMessage) -> tuple[Any, BrokerMessageStatus]:
+        async def _fn(raw: BrokerMessage) -> tuple[Any, BrokerMessageStatus, list[Any]]:
             request = BrokerRequest(raw)
-            token = USER_CONTEXT_VAR.set(request.user)
+
+            user_token = USER_CONTEXT_VAR.set(raw.user)
+            trace_token = SEND_TRACE_CONTEXT_VAR.set(raw.trace)
+            receive_trace_context = RECEIVE_TRACE_CONTEXT_VAR.set(list())
 
             try:
                 response = fn(request)
@@ -331,15 +345,17 @@ class BrokerHandler(BrokerHandlerSetup):
                     response = await response
                 if isinstance(response, Response):
                     response = await response.content()
-                return response, BrokerMessageStatus.SUCCESS
+                return response, BrokerMessageStatus.SUCCESS, RECEIVE_TRACE_CONTEXT_VAR.get()
             except ResponseException as exc:
                 logger.warning(f"Raised an application exception: {exc!s}")
-                return repr(exc), BrokerMessageStatus.ERROR
+                return repr(exc), BrokerMessageStatus.ERROR, RECEIVE_TRACE_CONTEXT_VAR.get()
             except Exception as exc:
                 logger.exception(f"Raised a system exception: {exc!r}")
-                return repr(exc), BrokerMessageStatus.SYSTEM_ERROR
+                return repr(exc), BrokerMessageStatus.SYSTEM_ERROR, RECEIVE_TRACE_CONTEXT_VAR.get()
             finally:
-                USER_CONTEXT_VAR.reset(token)
+                USER_CONTEXT_VAR.reset(user_token)
+                SEND_TRACE_CONTEXT_VAR.reset(trace_token)
+                RECEIVE_TRACE_CONTEXT_VAR.reset(receive_trace_context)
 
         return _fn
 
