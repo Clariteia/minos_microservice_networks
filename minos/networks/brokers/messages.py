@@ -39,13 +39,13 @@ class BrokerMessage(DeclarativeModel):
 
     topic: str
     data: Any
-    saga: Optional[UUID]
     reply_topic: Optional[str]
     user: Optional[UUID]
     status: BrokerMessageStatus
     strategy: BrokerMessageStrategy
 
     trace: list[TraceStep]
+    headers: dict[str, str]
 
     def __init__(
         self,
@@ -55,19 +55,17 @@ class BrokerMessage(DeclarativeModel):
         *,
         status: Optional[BrokerMessageStatus] = None,
         strategy: Optional[BrokerMessageStrategy] = None,
-        saga: Optional[UUID] = None,
+        headers: Optional[dict[str, str]] = None,
         **kwargs
     ):
         if status is None:
             status = BrokerMessageStatus.SUCCESS
         if strategy is None:
             strategy = BrokerMessageStrategy.UNICAST
+        if headers is None:
+            headers = dict()
 
-        if trace is None:
-            trace = list()
-        trace = list(trace)
-
-        super().__init__(topic, data, trace=trace, status=status, strategy=strategy, saga=saga, **kwargs)
+        super().__init__(topic, data, trace=list(trace), status=status, strategy=strategy, headers=headers, **kwargs)
 
     @property
     def ok(self) -> bool:
@@ -76,6 +74,11 @@ class BrokerMessage(DeclarativeModel):
         :return: ``True`` if the reply is okay or ``False`` otherwise.
         """
         return self.status == BrokerMessageStatus.SUCCESS
+
+    @property
+    def identifier(self) -> UUID:
+        """TODO"""
+        return self.trace[-1].identifier
 
 
 class BrokerMessageStatus(IntEnum):

@@ -310,7 +310,13 @@ class BrokerHandler(BrokerHandlerSetup):
 
         if message.reply_topic is not None:
             await self.publisher.send(
-                data, topic=message.reply_topic, saga=message.saga, status=status, user=message.user, trace=trace,
+                data,
+                topic=message.reply_topic,
+                identifier=message.identifier,
+                status=status,
+                user=message.user,
+                trace=trace,
+                headers=message.headers,
             )
 
     @staticmethod
