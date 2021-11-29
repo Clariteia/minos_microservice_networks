@@ -14,9 +14,8 @@ from .handlers import (
     BrokerResponseException,
 )
 from .messages import (
-    RECEIVE_TRACE_CONTEXT_VAR,
     REPLY_TOPIC_CONTEXT_VAR,
-    SEND_TRACE_CONTEXT_VAR,
+    TRACE_CONTEXT_VAR,
     BrokerMessage,
     BrokerMessageStatus,
     BrokerMessageStrategy,

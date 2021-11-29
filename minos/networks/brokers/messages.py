@@ -23,8 +23,7 @@ from minos.common import (
 )
 
 REPLY_TOPIC_CONTEXT_VAR: Final[ContextVar[Optional[str]]] = ContextVar("reply_topic", default=None)
-SEND_TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = ContextVar("send_trace", default=None)
-RECEIVE_TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = ContextVar("receive_trace", default=None)
+TRACE_CONTEXT_VAR: Final[ContextVar[Optional[list[TraceStep]]]] = ContextVar("trace", default=None)
 
 
 class TraceStep(DeclarativeModel):
@@ -79,6 +78,11 @@ class BrokerMessage(DeclarativeModel):
     def identifier(self) -> UUID:
         """TODO"""
         return self.trace[-1].identifier
+
+    @property
+    def service_name(self) -> str:
+        """TODO"""
+        return self.trace[-1].service_name
 
 
 class BrokerMessageStatus(IntEnum):

@@ -24,7 +24,7 @@ from minos.common import (
 )
 
 from ..messages import (
-    SEND_TRACE_CONTEXT_VAR,
+    TRACE_CONTEXT_VAR,
     BrokerMessage,
     BrokerMessageStatus,
     BrokerMessageStrategy,
@@ -79,7 +79,7 @@ class BrokerPublisher(BrokerPublisherSetup, ABC):
         :return: This method does not return anything.
         """
         if trace is None:
-            trace = (SEND_TRACE_CONTEXT_VAR.get() or list()).copy()
+            trace = (TRACE_CONTEXT_VAR.get() or list()).copy()
         trace.append(TraceStep(identifier or uuid4(), self.service_name))
 
         message = BrokerMessage(

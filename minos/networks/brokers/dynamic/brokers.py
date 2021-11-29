@@ -42,7 +42,6 @@ from ..handlers import (
     BrokerHandlerSetup,
 )
 from ..messages import (
-    RECEIVE_TRACE_CONTEXT_VAR,
     BrokerMessage,
 )
 from ..publishers import (
@@ -105,11 +104,8 @@ class DynamicBroker(BrokerHandlerSetup):
         :param kwargs: TODO
         :return: TODO
         """
-        trace = RECEIVE_TRACE_CONTEXT_VAR.get()
         entry = await self.get_one(*args, **kwargs)
         message = entry.data
-        if trace is not None:
-            trace += message.trace
         return message
 
     async def receive_many(self, *args, **kwargs) -> list[BrokerMessage]:
@@ -119,13 +115,10 @@ class DynamicBroker(BrokerHandlerSetup):
         :param kwargs: TODO
         :return: TODO
         """
-        trace = RECEIVE_TRACE_CONTEXT_VAR.get()
         entries = await self.get_many(*args, **kwargs)
         messages = list()
         for entry in entries:
             message = entry.data
-            if trace is not None:
-                trace += message.trace
             messages.append(message)
         return messages
 

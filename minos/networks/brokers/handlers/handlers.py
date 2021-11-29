@@ -60,8 +60,7 @@ from ...utils import (
     consume_queue,
 )
 from ..messages import (
-    RECEIVE_TRACE_CONTEXT_VAR,
-    SEND_TRACE_CONTEXT_VAR,
+    TRACE_CONTEXT_VAR,
     BrokerMessage,
     BrokerMessageStatus,
 )
@@ -306,7 +305,7 @@ class BrokerHandler(BrokerHandlerSetup):
 
         fn = self.get_callback(entry.callback)
         message = entry.data
-        data, status, trace = await fn(message)
+        data, status = await fn(message)
 
         if message.reply_topic is not None:
             await self.publisher.send(
@@ -315,26 +314,25 @@ class BrokerHandler(BrokerHandlerSetup):
                 identifier=message.identifier,
                 status=status,
                 user=message.user,
-                trace=trace,
+                trace=message.trace,
                 headers=message.headers,
             )
 
     @staticmethod
     def get_callback(
         fn: Callable[[BrokerRequest], Union[Optional[BrokerRequest], Awaitable[Optional[BrokerRequest]]]]
-    ) -> Callable[[BrokerMessage], Awaitable[tuple[Any, BrokerMessageStatus, list[Any]]]]:
+    ) -> Callable[[BrokerMessage], Awaitable[tuple[Any, BrokerMessageStatus]]]:
         """Get the handler function to be used by the Broker Handler.
 
         :param fn: The action function.
         :return: A wrapper function around the given one that is compatible with the Broker Handler API.
         """
 
-        async def _fn(raw: BrokerMessage) -> tuple[Any, BrokerMessageStatus, list[Any]]:
+        async def _fn(raw: BrokerMessage) -> tuple[Any, BrokerMessageStatus]:
             request = BrokerRequest(raw)
 
             user_token = USER_CONTEXT_VAR.set(raw.user)
-            trace_token = SEND_TRACE_CONTEXT_VAR.set(raw.trace)
-            receive_trace_context = RECEIVE_TRACE_CONTEXT_VAR.set(list())
+            trace_token = TRACE_CONTEXT_VAR.set(raw.trace)
 
             try:
                 response = fn(request)
@@ -342,17 +340,16 @@ class BrokerHandler(BrokerHandlerSetup):
                     response = await response
                 if isinstance(response, Response):
                     response = await response.content()
-                return response, BrokerMessageStatus.SUCCESS, RECEIVE_TRACE_CONTEXT_VAR.get()
+                return response, BrokerMessageStatus.SUCCESS
             except ResponseException as exc:
                 logger.warning(f"Raised an application exception: {exc!s}")
-                return repr(exc), BrokerMessageStatus.ERROR, RECEIVE_TRACE_CONTEXT_VAR.get()
+                return repr(exc), BrokerMessageStatus.ERROR
             except Exception as exc:
                 logger.exception(f"Raised a system exception: {exc!r}")
-                return repr(exc), BrokerMessageStatus.SYSTEM_ERROR, RECEIVE_TRACE_CONTEXT_VAR.get()
+                return repr(exc), BrokerMessageStatus.SYSTEM_ERROR
             finally:
                 USER_CONTEXT_VAR.reset(user_token)
-                SEND_TRACE_CONTEXT_VAR.reset(trace_token)
-                RECEIVE_TRACE_CONTEXT_VAR.reset(receive_trace_context)
+                TRACE_CONTEXT_VAR.reset(trace_token)
 
         return _fn
 
