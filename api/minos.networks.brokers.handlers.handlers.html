@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.brokers.handlers.handlers module &mdash; Minos Microservice Network 0.3.0 documentation</title>
+  <title>minos.networks.brokers.handlers.handlers module &mdash; Minos Microservice Network 0.3.1 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.3.0
+                0.3.1
               </div>
             
           
@@ -375,7 +375,7 @@ the dispatching is performed on background.</p></li>
 <dd class="field-odd"><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<a class="reference internal" href="minos.networks.brokers.handlers.requests.html#minos.networks.brokers.handlers.requests.BrokerRequest" title="minos.networks.brokers.handlers.requests.BrokerRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrokerRequest</span></code></a>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="minos.networks.brokers.handlers.requests.html#minos.networks.brokers.handlers.requests.BrokerRequest" title="minos.networks.brokers.handlers.requests.BrokerRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrokerRequest</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="minos.networks.brokers.handlers.requests.html#minos.networks.brokers.handlers.requests.BrokerRequest" title="minos.networks.brokers.handlers.requests.BrokerRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrokerRequest</span></code></a>]]]]) – The action function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<a class="reference internal" href="minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessage" title="minos.networks.brokers.messages.BrokerMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrokerMessage</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <a class="reference internal" href="minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessageStatus" title="minos.networks.brokers.messages.BrokerMessageStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrokerMessageStatus</span></code></a>]]]</p>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Callable</span></code>[[<a class="reference internal" href="minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessage" title="minos.networks.brokers.messages.BrokerMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrokerMessage</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <a class="reference internal" href="minos.networks.brokers.messages.html#minos.networks.brokers.messages.BrokerMessageStatus" title="minos.networks.brokers.messages.BrokerMessageStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrokerMessageStatus</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]]]</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A wrapper function around the given one that is compatible with the Broker Handler API.</p>

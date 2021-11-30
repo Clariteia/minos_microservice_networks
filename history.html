@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>History &mdash; Minos Microservice Network 0.3.0 documentation</title>
+  <title>History &mdash; Minos Microservice Network 0.3.1 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.3.0
+                0.3.1
               </div>
             
           
@@ -117,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id19">0.1.1 (2021-11-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id20">0.2.0 (2021-11-15)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id21">0.3.0 (2021-11-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">0.3.1 (2021-11-30)</a></li>
 </ul>
 </li>
 </ul>
@@ -358,6 +359,16 @@
 <li><p>Rename <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> and <code class="docutils literal notranslate"><span class="pre">ConsumerService</span></code> as <code class="docutils literal notranslate"><span class="pre">BrokerConsumer</span></code> and <code class="docutils literal notranslate"><span class="pre">BrokerConsumerService</span></code> respectively.</p></li>
 <li><p>Rename <code class="docutils literal notranslate"><span class="pre">Producer</span></code> and <code class="docutils literal notranslate"><span class="pre">ProducerService</span></code> as <code class="docutils literal notranslate"><span class="pre">BrokerProducer</span></code> and <code class="docutils literal notranslate"><span class="pre">BrokerProducerService</span></code> respectively.</p></li>
 <li><p>Rename <code class="docutils literal notranslate"><span class="pre">HandlerRequest</span></code>, <code class="docutils literal notranslate"><span class="pre">HandlerResponse</span></code> and <code class="docutils literal notranslate"><span class="pre">HandlerResponseException</span></code> as <code class="docutils literal notranslate"><span class="pre">BrokerRequest</span></code>, <code class="docutils literal notranslate"><span class="pre">BrokerResponse</span></code> and <code class="docutils literal notranslate"><span class="pre">BrokerResponseException</span></code> respectively.</p></li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h2>0.3.1 (2021-11-30)<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">identifier:</span> <span class="pre">UUID</span></code> and <code class="docutils literal notranslate"><span class="pre">headers:</span> <span class="pre">dict[str,</span> <span class="pre">str]</span></code> attributes to <code class="docutils literal notranslate"><span class="pre">BrokerMessage</span></code>.</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">saga:</span> <span class="pre">Optional[UUID]</span></code> and <code class="docutils literal notranslate"><span class="pre">service_name:</span> <span class="pre">str</span></code> attributes from <code class="docutils literal notranslate"><span class="pre">BrokerMessage</span></code>.</p></li>
+<li><p>Now <code class="docutils literal notranslate"><span class="pre">BrokerPublisher.send</span></code> returns the <code class="docutils literal notranslate"><span class="pre">BrokerMessage</span></code> identifier instead of the entry identifier on the <code class="docutils literal notranslate"><span class="pre">Producer</span></code>‘s queue.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">REQUEST_HEADERS_CONTEXT_VAR</span></code>.</p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">USER_CONTEXT_VAR</span></code> and <code class="docutils literal notranslate"><span class="pre">REPLY_TOPIC_CONTEXT_VAR</span></code> as <code class="docutils literal notranslate"><span class="pre">REQUEST_USER_CONTEXT_VAR</span></code> and <code class="docutils literal notranslate"><span class="pre">REQUEST_REPLY_TOPIC_CONTEXT_VAR</span></code> respectively.</p></li>
 </ul>
 </div>
 </div>
