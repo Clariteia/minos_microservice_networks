@@ -6,6 +6,12 @@ import logging
 from contextvars import (
     Token,
 )
+from itertools import (
+    count,
+)
+from time import (
+    sleep,
+)
 from typing import (
     AsyncContextManager,
     Optional,
@@ -23,6 +29,9 @@ from kafka import (
 )
 from kafka.admin import (
     NewTopic,
+)
+from kafka.errors import (
+    NoBrokersAvailable,
 )
 
 from minos.common import (
@@ -69,14 +78,21 @@ class DynamicBrokerPool(MinosPool):
 
     @classmethod
     def _from_config(cls, config: MinosConfig, **kwargs) -> DynamicBrokerPool:
-        kwargs["client"] = KafkaAdminClient(bootstrap_servers=f"{config.broker.host}:{config.broker.port}")
+        kwargs["client"] = cls._get_client(config)
         kwargs["consumer"] = cls._get_consumer(**kwargs)
         kwargs["publisher"] = cls._get_publisher(**kwargs)
         return cls(config, **kwargs)
 
-    async def _destroy(self) -> None:
-        await super()._destroy()
-        self.client.close()
+    @staticmethod
+    def _get_client(config: MinosConfig, max_attempts: int = 5, delay: float = 1):
+        for attempt in count(start=1):
+            try:
+                return KafkaAdminClient(bootstrap_servers=f"{config.broker.host}:{config.broker.port}")
+            except NoBrokersAvailable as exc:
+                if attempt >= max_attempts:
+                    raise exc
+                logger.warning("Waiting for the broker to be available...")
+                sleep(delay)
 
     # noinspection PyUnusedLocal
     @staticmethod
@@ -105,6 +121,10 @@ class DynamicBrokerPool(MinosPool):
         if publisher is None or isinstance(publisher, Provide):
             raise NotProvidedException(f"A {BrokerPublisher!r} object must be provided.")
         return publisher
+
+    async def _destroy(self) -> None:
+        await super()._destroy()
+        self.client.close()
 
     async def _create_instance(self) -> DynamicBroker:
         topic = str(uuid4()).replace("-", "")
