@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.decorators.builders &mdash; Minos Microservice Network 0.3.1 documentation</title>
+  <title>minos.networks.decorators.builders &mdash; Minos Microservice Network 0.3.2 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.1
+                0.3.2
               </div>
             
           
@@ -169,6 +169,7 @@
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">partial</span><span class="p">,</span>
+    <span class="n">wraps</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">isawaitable</span><span class="p">,</span>
@@ -272,10 +273,10 @@
             <span class="k">if</span> <span class="n">decorator</span><span class="o">.</span><span class="n">KIND</span> <span class="o">!=</span> <span class="n">EnrouteDecoratorKind</span><span class="o">.</span><span class="n">Event</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">MinosRedefinedEnrouteDecoratorException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">decorator</span><span class="si">!r}</span><span class="s2"> can be used only once.&quot;</span><span class="p">)</span>
 
-            <span class="k">async</span> <span class="k">def</span> <span class="nf">_fn</span><span class="p">(</span><span class="o">*</span><span class="n">ag</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+            <span class="k">async</span> <span class="k">def</span> <span class="nf">_wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">ag</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
                 <span class="k">return</span> <span class="k">await</span> <span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">ag</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">fns</span><span class="p">))</span>
 
-            <span class="k">return</span> <span class="n">_fn</span>
+            <span class="k">return</span> <span class="n">_wrapper</span>
 
         <span class="k">return</span> <span class="p">{</span>
             <span class="n">decorator</span><span class="p">:</span> <span class="n">_flatten</span><span class="p">(</span><span class="n">decorator</span><span class="p">,</span> <span class="n">fns</span><span class="p">)</span>
@@ -304,7 +305,8 @@
         <span class="n">pre_fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">pref_fn_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="n">post_fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">post_fn_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="k">async</span> <span class="k">def</span> <span class="nf">_wrapped_fn</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">def</span> <span class="nf">_wrapper</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">pre_fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">request</span> <span class="o">=</span> <span class="n">pre_fn</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">isawaitable</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -322,9 +324,9 @@
             <span class="k">return</span> <span class="n">response</span>
 
         <span class="k">for</span> <span class="n">middleware_fn</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">middleware</span><span class="p">):</span>
-            <span class="n">_wrapped_fn</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">middleware_fn</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="n">_wrapped_fn</span><span class="p">)</span>
+            <span class="n">_wrapper</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">middleware_fn</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="n">_wrapper</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">_wrapped_fn</span></div>
+        <span class="k">return</span> <span class="n">_wrapper</span></div>
 </pre></div>
 
            </div>

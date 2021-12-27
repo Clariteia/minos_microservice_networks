@@ -14,6 +14,7 @@ Submodules
 
    minos.networks.decorators.definitions.abc
    minos.networks.decorators.definitions.broker
+   minos.networks.decorators.definitions.checkers
    minos.networks.decorators.definitions.kinds
    minos.networks.decorators.definitions.periodic
    minos.networks.decorators.definitions.rest

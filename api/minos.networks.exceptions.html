@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.exceptions module &mdash; Minos Microservice Network 0.3.1 documentation</title>
+  <title>minos.networks.exceptions module &mdash; Minos Microservice Network 0.3.2 documentation</title>
   
 
   
@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="minos.networks.requests module" href="minos.networks.requests.html" />
+    <link rel="next" title="minos.networks.utils module" href="minos.networks.utils.html" />
     <link rel="prev" title="minos.networks.scheduling.services module" href="minos.networks.scheduling.services.html" /> 
 </head>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.3.1
+                0.3.2
               </div>
             
           
@@ -396,6 +396,102 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
+<dl class="py exception">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasContentException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.exceptions.</span></span><span class="sig-name descname"><span class="pre">NotHasContentException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/exceptions.html#NotHasContentException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.exceptions.NotHasContentException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minos.networks.exceptions.RequestException" title="minos.networks.exceptions.RequestException"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.exceptions.RequestException</span></code></a></p>
+<p>Exception to be raised when request has not content.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasContentException.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.NotHasContentException.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasContentException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#minos.networks.exceptions.NotHasContentException.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasContentException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.NotHasContentException.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasParamsException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.exceptions.</span></span><span class="sig-name descname"><span class="pre">NotHasParamsException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/exceptions.html#NotHasParamsException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.exceptions.NotHasParamsException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minos.networks.exceptions.RequestException" title="minos.networks.exceptions.RequestException"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.exceptions.RequestException</span></code></a></p>
+<p>Exception to be raised when request has not params.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasParamsException.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.NotHasParamsException.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasParamsException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#minos.networks.exceptions.NotHasParamsException.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotHasParamsException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.NotHasParamsException.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotSatisfiedCheckerException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.exceptions.</span></span><span class="sig-name descname"><span class="pre">NotSatisfiedCheckerException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/exceptions.html#NotSatisfiedCheckerException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.exceptions.NotSatisfiedCheckerException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minos.networks.exceptions.MinosHandlerException" title="minos.networks.exceptions.MinosHandlerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.exceptions.MinosHandlerException</span></code></a></p>
+<p>Exception to be raised when some checkers are not validated.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotSatisfiedCheckerException.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.NotSatisfiedCheckerException.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotSatisfiedCheckerException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#minos.networks.exceptions.NotSatisfiedCheckerException.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.NotSatisfiedCheckerException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.NotSatisfiedCheckerException.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="minos.networks.exceptions.RequestException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.exceptions.</span></span><span class="sig-name descname"><span class="pre">RequestException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/exceptions.html#RequestException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.exceptions.RequestException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minos.networks.exceptions.MinosNetworkException" title="minos.networks.exceptions.MinosNetworkException"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.exceptions.MinosNetworkException</span></code></a></p>
+<p>Base exception for requests.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.RequestException.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.RequestException.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minos.networks.exceptions.RequestException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#minos.networks.exceptions.RequestException.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minos.networks.exceptions.RequestException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.exceptions.RequestException.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -404,7 +500,7 @@ set self.__traceback__ to tb and return self.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="minos.networks.requests.html" class="btn btn-neutral float-right" title="minos.networks.requests module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="minos.networks.utils.html" class="btn btn-neutral float-right" title="minos.networks.utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="minos.networks.scheduling.services.html" class="btn btn-neutral float-left" title="minos.networks.scheduling.services module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

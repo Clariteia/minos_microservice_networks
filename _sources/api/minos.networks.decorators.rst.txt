@@ -12,6 +12,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   minos.networks.decorators.callables
    minos.networks.decorators.definitions
 
 Submodules

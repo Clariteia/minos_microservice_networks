@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>minos.networks.requests module &mdash; Minos Microservice Network 0.3.1 documentation</title>
+  <title>minos.networks.requests package &mdash; Minos Microservice Network 0.3.2 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="minos.networks.utils module" href="minos.networks.utils.html" />
-    <link rel="prev" title="minos.networks.exceptions module" href="minos.networks.exceptions.html" /> 
+    <link rel="next" title="minos.networks.requests.abc module" href="minos.networks.requests.abc.html" />
+    <link rel="prev" title="minos.networks.discovery.connectors module" href="minos.networks.discovery.connectors.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.3.1
+                0.3.2
               </div>
             
           
@@ -98,8 +98,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="minos.html">minos namespace</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="minos.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="minos.networks.html">minos.networks package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="minos.networks.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="minos.networks.html#submodules">Submodules</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="minos.networks.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minos.networks.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +159,7 @@
         
           <li><a href="minos.networks.html">minos.networks package</a> &raquo;</li>
         
-      <li>minos.networks.requests module</li>
+      <li>minos.networks.requests package</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -179,152 +179,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-minos.networks.requests">
-<span id="minos-networks-requests-module"></span><h1>minos.networks.requests module<a class="headerlink" href="#module-minos.networks.requests" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="minos.networks.requests.Request">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.requests.</span></span><span class="sig-name descname"><span class="pre">Request</span></span><a class="reference internal" href="../_modules/minos/networks/requests.html#Request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.Request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<p>Request interface.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.Request.content">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#Request.content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.Request.content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the request content.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>kwargs</strong> – Additional named arguments.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A list of instances.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.requests.Request.user">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">user</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">uuid.UUID</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.requests.Request.user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the UUID of the user making the Request.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">uuid.UUID</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="minos.networks.requests.Response">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.requests.</span></span><span class="sig-name descname"><span class="pre">Response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#Response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.Response" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Response definition.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.Response.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#Response.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.Response.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.Response.content">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#Response.content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.Response.content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Response content.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>kwargs</strong> – Additional named arguments.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A list of items.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.Response.raw_content">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raw_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#Response.raw_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.Response.raw_content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raw response content.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>kwargs</strong> – Additional named arguments.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A list of raw items.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="minos.networks.requests.ResponseException">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.requests.</span></span><span class="sig-name descname"><span class="pre">ResponseException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#ResponseException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.ResponseException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">minos.common.exceptions.MinosException</span></code></p>
-<p>Response Exception class.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.ResponseException.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.requests.ResponseException.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="minos.networks.requests.ResponseException.args">
-<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#minos.networks.requests.ResponseException.args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.ResponseException.with_traceback">
-<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#minos.networks.requests.ResponseException.with_traceback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exception.with_traceback(tb) –
-set self.__traceback__ to tb and return self.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="minos.networks.requests.WrappedRequest">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minos.networks.requests.</span></span><span class="sig-name descname"><span class="pre">WrappedRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#WrappedRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.WrappedRequest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#minos.networks.requests.Request" title="minos.networks.requests.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">minos.networks.requests.Request</span></code></a></p>
-<p>Wrapped Request class.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.WrappedRequest.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#WrappedRequest.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.WrappedRequest.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="minos.networks.requests.WrappedRequest.content">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minos/networks/requests.html#WrappedRequest.content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minos.networks.requests.WrappedRequest.content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the request content.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>kwargs</strong> – Additional named arguments.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A list of instances.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="minos.networks.requests.WrappedRequest.user">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">user</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">uuid.UUID</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#minos.networks.requests.WrappedRequest.user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the UUID of the user making the Request.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">uuid.UUID</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<span id="minos-networks-requests-package"></span><h1>minos.networks.requests package<a class="headerlink" href="#module-minos.networks.requests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="minos.networks.requests.abc.html">minos.networks.requests.abc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minos.networks.requests.memory.html">minos.networks.requests.memory module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minos.networks.requests.wrapped.html">minos.networks.requests.wrapped module</a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -333,8 +198,8 @@ set self.__traceback__ to tb and return self.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="minos.networks.utils.html" class="btn btn-neutral float-right" title="minos.networks.utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="minos.networks.exceptions.html" class="btn btn-neutral float-left" title="minos.networks.exceptions module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="minos.networks.requests.abc.html" class="btn btn-neutral float-right" title="minos.networks.requests.abc module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="minos.networks.discovery.connectors.html" class="btn btn-neutral float-left" title="minos.networks.discovery.connectors module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
