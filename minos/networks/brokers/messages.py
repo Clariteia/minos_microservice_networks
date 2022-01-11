@@ -7,7 +7,6 @@ from contextvars import (
 )
 from enum import (
     Enum,
-    IntEnum,
 )
 from typing import (
     Any,
@@ -71,7 +70,7 @@ class BrokerMessage(DeclarativeModel):
         return self.status == BrokerMessageStatus.SUCCESS
 
 
-class BrokerMessageStatus(IntEnum):
+class BrokerMessageStatus(int, Enum):
     """Broker Message Status class."""
 
     SUCCESS = 200
