@@ -2,18 +2,12 @@ from abc import (
     ABC,
     abstractmethod,
 )
-from collections.abc import (
-    AsyncIterator,
-)
+from collections.abc import AsyncIterator
 from typing import Iterable
 
-from minos.common import (
-    MinosSetup,
-)
+from minos.common import MinosSetup
 
-from ....messages import (
-    BrokerMessage,
-)
+from ....messages import BrokerMessage
 
 
 class BrokerSubscriberRepository(ABC, MinosSetup):

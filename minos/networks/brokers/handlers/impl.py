@@ -1,11 +1,7 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from abc import (
-    abstractmethod,
-)
+from abc import abstractmethod
 from asyncio import (
     Queue,
     create_task,
@@ -26,9 +22,7 @@ from minos.common import (
     MinosSetup,
 )
 
-from ..dispatchers import (
-    BrokerDispatcher,
-)
+from ..dispatchers import BrokerDispatcher
 from ..subscribers import (
     BrokerSubscriber,
     InMemoryQueuedKafkaBrokerSubscriber,

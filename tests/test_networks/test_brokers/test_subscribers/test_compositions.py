@@ -7,9 +7,7 @@ from minos.networks import (
     PostgreSqlBrokerSubscriberRepository,
     PostgreSqlQueuedKafkaBrokerSubscriber,
 )
-from tests.utils import (
-    CONFIG_FILE_PATH,
-)
+from tests.utils import CONFIG_FILE_PATH
 
 
 class TestPostgreSqlQueuedKafkaBrokerSubscriber(unittest.IsolatedAsyncioTestCase):

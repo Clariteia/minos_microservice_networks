@@ -1,31 +1,21 @@
 import unittest
-from collections import (
-    namedtuple,
-)
+from collections import namedtuple
 from unittest.mock import (
     AsyncMock,
     MagicMock,
 )
 
-from aiokafka import (
-    AIOKafkaConsumer,
-)
-from kafka import (
-    KafkaAdminClient,
-)
+from aiokafka import AIOKafkaConsumer
+from kafka import KafkaAdminClient
 
-from minos.common import (
-    MinosConfig,
-)
+from minos.common import MinosConfig
 from minos.networks import (
     BrokerMessageV1,
     BrokerMessageV1Payload,
     BrokerSubscriber,
     KafkaBrokerSubscriber,
 )
-from tests.utils import (
-    CONFIG_FILE_PATH,
-)
+from tests.utils import CONFIG_FILE_PATH
 
 _ConsumerMessage = namedtuple("_ConsumerMessage", ["value"])
 

@@ -1,15 +1,11 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
 from abc import (
     ABC,
     abstractmethod,
 )
-from contextvars import (
-    Token,
-)
+from contextvars import Token
 from typing import (
     AsyncContextManager,
     Optional,
@@ -26,9 +22,7 @@ from .clients import (
     KafkaBroker,
     PostgreSqlQueuedKafkaBroker,
 )
-from .messages import (
-    REQUEST_REPLY_TOPIC_CONTEXT_VAR,
-)
+from .messages import REQUEST_REPLY_TOPIC_CONTEXT_VAR
 
 logger = logging.getLogger(__name__)
 

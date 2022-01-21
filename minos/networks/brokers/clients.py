@@ -1,24 +1,14 @@
-from __future__ import (
-    annotations,
-)
+from __future__ import annotations
 
 import logging
-from abc import (
-    abstractmethod,
-)
+from abc import abstractmethod
 from asyncio import (
     TimeoutError,
     wait_for,
 )
-from collections.abc import (
-    AsyncIterator,
-)
-from typing import (
-    Optional,
-)
-from uuid import (
-    uuid4,
-)
+from collections.abc import AsyncIterator
+from typing import Optional
+from uuid import uuid4
 
 from dependency_injector.wiring import (
     Provide,
@@ -31,15 +21,9 @@ from minos.common import (
     NotProvidedException,
 )
 
-from ..exceptions import (
-    MinosHandlerNotFoundEnoughEntriesException,
-)
-from .messages import (
-    BrokerMessage,
-)
-from .publishers import (
-    BrokerPublisher,
-)
+from ..exceptions import MinosHandlerNotFoundEnoughEntriesException
+from .messages import BrokerMessage
+from .publishers import BrokerPublisher
 from .subscribers import (
     BrokerSubscriber,
     InMemoryQueuedKafkaBrokerSubscriber,
