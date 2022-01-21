@@ -1,8 +1,14 @@
 import unittest
-from abc import ABC
-from unittest.mock import AsyncMock
+from abc import (
+    ABC,
+)
+from unittest.mock import (
+    AsyncMock,
+)
 
-from minos.common import MinosSetup
+from minos.common import (
+    MinosSetup,
+)
 from minos.networks import (
     BrokerMessage,
     BrokerMessageV1,

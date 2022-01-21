@@ -1,4 +1,6 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
 from asyncio import (
@@ -21,8 +23,12 @@ from minos.common import (
     MinosSetup,
 )
 
-from ..dispatchers import BrokerDispatcher
-from ..subscribers import BrokerSubscriber
+from ..dispatchers import (
+    BrokerDispatcher,
+)
+from ..subscribers import (
+    BrokerSubscriber,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -44,7 +50,9 @@ class BrokerHandler(MinosSetup):
 
     @classmethod
     def _from_config(cls, config: MinosConfig, **kwargs) -> BrokerHandler:
-        from ..subscribers import KafkaBrokerSubscriber
+        from ..subscribers import (
+            KafkaBrokerSubscriber,
+        )
 
         dispatcher = cls._get_dispatcher(config, **kwargs)
         subscriber = KafkaBrokerSubscriber.from_config(config, topics=set(dispatcher.actions.keys()))

@@ -1,8 +1,16 @@
-from asyncio import Queue
-from collections.abc import Iterable
+from asyncio import (
+    Queue,
+)
+from collections.abc import (
+    Iterable,
+)
 
-from ..messages import BrokerMessage
-from .abc import BrokerSubscriber
+from ..messages import (
+    BrokerMessage,
+)
+from .abc import (
+    BrokerSubscriber,
+)
 
 
 class InMemoryBrokerSubscriber(BrokerSubscriber):

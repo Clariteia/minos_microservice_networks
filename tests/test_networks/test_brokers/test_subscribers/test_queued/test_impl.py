@@ -1,5 +1,7 @@
 import unittest
-from asyncio import sleep
+from asyncio import (
+    sleep,
+)
 from unittest.mock import (
     AsyncMock,
     call,

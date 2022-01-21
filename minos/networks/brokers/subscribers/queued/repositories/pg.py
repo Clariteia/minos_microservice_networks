@@ -1,4 +1,6 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
 from asyncio import (
@@ -8,15 +10,21 @@ from asyncio import (
     create_task,
     wait_for,
 )
-from contextlib import suppress
+from contextlib import (
+    suppress,
+)
 from typing import (
     Any,
     NoReturn,
     Optional,
 )
 
-from aiopg import Cursor
-from cached_property import cached_property
+from aiopg import (
+    Cursor,
+)
+from cached_property import (
+    cached_property,
+)
 from psycopg2.sql import (
     SQL,
     Identifier,
@@ -27,9 +35,15 @@ from minos.common import (
     PostgreSqlMinosDatabase,
 )
 
-from .....utils import consume_queue
-from ....messages import BrokerMessage
-from .abc import BrokerSubscriberRepository
+from .....utils import (
+    consume_queue,
+)
+from ....messages import (
+    BrokerMessage,
+)
+from .abc import (
+    BrokerSubscriberRepository,
+)
 
 logger = logging.getLogger(__name__)
 
