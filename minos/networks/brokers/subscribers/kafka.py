@@ -1,19 +1,44 @@
-from __future__ import annotations
+from __future__ import (
+    annotations,
+)
 
 import logging
-from collections.abc import Iterable
-from contextlib import suppress
-from typing import Optional
-from aiokafka import AIOKafkaConsumer
-from cached_property import cached_property
-from kafka import KafkaAdminClient
-from kafka.admin import NewTopic
-from kafka.errors import TopicAlreadyExistsError
+from collections.abc import (
+    Iterable,
+)
+from contextlib import (
+    suppress,
+)
+from typing import (
+    Optional,
+)
 
-from minos.common import MinosConfig
+from aiokafka import (
+    AIOKafkaConsumer,
+)
+from cached_property import (
+    cached_property,
+)
+from kafka import (
+    KafkaAdminClient,
+)
+from kafka.admin import (
+    NewTopic,
+)
+from kafka.errors import (
+    TopicAlreadyExistsError,
+)
 
-from ..messages import BrokerMessage
-from .abc import BrokerSubscriber
+from minos.common import (
+    MinosConfig,
+)
+
+from ..messages import (
+    BrokerMessage,
+)
+from .abc import (
+    BrokerSubscriber,
+)
 
 logger = logging.getLogger(__name__)
 

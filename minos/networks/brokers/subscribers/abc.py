@@ -7,9 +7,13 @@ from collections.abc import (
     Iterable,
 )
 
-from minos.common import MinosSetup
+from minos.common import (
+    MinosSetup,
+)
 
-from ..messages import BrokerMessage
+from ..messages import (
+    BrokerMessage,
+)
 
 
 class BrokerSubscriber(ABC, MinosSetup):

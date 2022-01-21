@@ -1,15 +1,23 @@
 import logging
-from abc import abstractmethod
+from abc import (
+    abstractmethod,
+)
 
-from aiomisc import Service
-from cached_property import cached_property
+from aiomisc import (
+    Service,
+)
+from cached_property import (
+    cached_property,
+)
 
 from ..handlers import (
     InMemoryQueuedKafkaBrokerHandler,
     KafkaBrokerHandler,
     PostgreSqlQueuedKafkaBrokerHandler,
 )
-from .impl import BrokerHandler
+from .impl import (
+    BrokerHandler,
+)
 
 logger = logging.getLogger(__name__)
 
