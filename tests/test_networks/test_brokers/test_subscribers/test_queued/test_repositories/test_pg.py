@@ -1,24 +1,18 @@
 import unittest
-from asyncio import (
-    sleep,
-)
+from asyncio import sleep
 from unittest.mock import (
     AsyncMock,
     patch,
 )
 
-from minos.common.testing import (
-    PostgresAsyncTestCase,
-)
+from minos.common.testing import PostgresAsyncTestCase
 from minos.networks import (
     BrokerMessageV1,
     BrokerMessageV1Payload,
     BrokerSubscriberRepository,
     PostgreSqlBrokerSubscriberRepository,
 )
-from tests.utils import (
-    CONFIG_FILE_PATH,
-)
+from tests.utils import CONFIG_FILE_PATH
 
 
 class TestPostgreSqlBrokerSubscriberRepository(PostgresAsyncTestCase):
